@@ -25,6 +25,8 @@ systems:
 /home/username/j4docs - place to store the markdown files.
 /home/username/public_html - this is your public web tree.
 
+The markdown files are here: https://github.com/ceford/j4xdemos-data-jdocmanual
+
 ### Set the Options
 
 With the JDocmanual component installed and Markdown files uploaded,

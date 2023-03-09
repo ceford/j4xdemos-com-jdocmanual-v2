@@ -16,6 +16,9 @@ The JDOC Manual component may be installed in the same way as any
 other component. However, it needs extra set up to create a working
 installation.
 
+**Important:** Updating git repository markdown files uses the PHP exec 
+function which is unlikely to be allowed on shared hosting.
+
 ### Markdown files
 
 Obtain the Markdown format files and store them in a place outside the

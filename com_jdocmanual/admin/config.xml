@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<fieldset
+		name="basic"
+		label="COM_JDOCMANUAL_PARAMS_BASIC_SETTINGS_LABEL"
+		description="COM_JDOCMANUAL_PARAMS_BASIC_SETTINGS_DESC"
+		>
+
+		<field
+			name="gfmfiles_path"
+			type="text"
+			label="COM_JDOCMANUAL_PARAMS_GFMFILES_PATH_LABEL"
+			description="COM_JDOCMANUAL_PARAMS_GFMFILES_PATH_DESC"
+		/>
+
+		<field
+			name="update_html_count"
+			type="list"
+			label="COM_JDOCMANUAL_PARAMS_UPDATE_HTML_BATCH_SIZE_LABEL"
+			description="COM_JDOCMANUAL_PARAMS_UPDATE_HTML_BATCH_SIZE_DESC"
+			default="100"
+		>
+		<option value="25">25</option>
+		<option value="50">50</option>
+		<option value="100">100</option>
+		<option value="150">150</option>
+		<option value="200">200</option>
+		<option value="250">250</option>
+		<option value="300">300</option>
+		</field>
+
+	</fieldset>
+
+	<fieldset
+		name="permissions"
+		label="JCONFIG_PERMISSIONS_LABEL"
+		description="JCONFIG_PERMISSIONS_DESC"
+		>
+
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			filter="rules"
+			validate="rules"
+			component="com_jdocmanual"
+			section="component"
+		 />
+	</fieldset>
+</config>

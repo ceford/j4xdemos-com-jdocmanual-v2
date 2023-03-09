@@ -3,9 +3,9 @@
     <update>
         <name>JDOC Manual</name>
         <description><![CDATA[Display Joomla documentation from the Joomla Docs site]]></description>
-        <element>com_jdocmanual</element>
+        <element>jdocmanual</element>
         <type>component</type>
-        <version>0.7.3</version>
+        <version>0.9.0</version>
         <client>administrator</client>
         <infourl title="JDOC Manual Extension">https://github.com/ceford/j4xdemos-com-jdocmanual/blob/master/README.md</infourl>
         <downloads>

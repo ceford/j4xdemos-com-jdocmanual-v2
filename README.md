@@ -1,70 +1,144 @@
 # JDOC Manual
 
-This component can display pages from a Mediawiki server with
-the aid of an index document. For example, you may wish to switch
-from Joomla 4 documents to Joomla 3 documents and to see
-documents for a custom component delivered by a custom
-Mediawiki server. The sources and languages to use are stored
-in component database tables. The default installation has indexes
-for Joomla 4 and Joomla 4 Help Screens. The indexes need to be
-updated regularly.
+This component displays pages obtained from the Joomla documentation 
+site. The pages have been converted from Mediawiki format markdown to
+GitHub flavoured markdown and then saved as HTML for delivery to end
+users. Only pages relevant to Joomla 4 are included. The pages are 
+organised into three Manuals aimed at different types of user:
 
-New in version 0.5: a Site page. Please uninstall any previous
-version before installing this new version.
+- The Joomla 4 User Manual
+- The Joomla 4 Help Pages
+- The Joomla 4 Developer Manual
 
-After installation you first need to fetch the index
-document by selecting the <strong>Fetch Index</strong> button
-in the toolbar. Each time you do this the index is fetched
-and stored as html in a new entry in the database. This is
-what appears in the component index panel at the left of the
-content area.
+## Installation
 
-With the index panel populated you can select an item from
-the list. On first selection the page is fetched from the
-document server, processed to make it suitable for display
-in the JDOC Manual component, and saved in the database.
-On a later request for that page it is fetched from the
-database.
+The JDOC Manual component may be installed in the same way as any 
+other component. However, it needs extra set up to create a working
+installation.
 
-If you have reason to believe that the page may be out of
-date you can select the <strong>Update Page</strong> button
-to re-fetch the page from source.
+### Markdown files
 
-If you want to see the page in a different language you need
-to set up the language list and then select the language from
-the <strong>Language</strong> button in the toolbar. If the
-document is not available in the selected language you will
-see the English version with a message to that effect at
-the top. You can select the Index language and Document languages
-separately but it will be a while before many indexes are
-translated.
+Obtain the Markdown format files and store them in a place outside the
+web tree but in a place that can be read by php. This works on linux 
+systems:
 
-The version of the page displayed in the Manual differs
-from the original as follows:
+/home/username/j4docs - place to store the markdown files.
+/home/username/public_html - this is your public web tree.
 
-* Everything above the main content is removed.
-* The footer and everything below is removed.
-* All links are removed because they do not work as expected
-in this context.
+### Set the Options
 
-If you find a problem with the content of a page you could join
-the documentation team and fix it yourself!
+With the JDocmanual component installed and Markdown files uploaded,
+select the Options button from the GFM Files administrator page.
+
+Set the Git source path to the location on your server where your
+markdown files are located. The path should end with manuals/
+
+Set the Update HTML batch size to a suitable value: 100 for shared
+hosting or 250 for your own laptop or VPS.
+
+Save & Close
+
+### Populate the database with HTML
+
+In the GFM Files page select the Update HTML button many times! The
+Markdown files are converted to HTML and stored in the database in
+batches of from 50 to 250. You will see the starting number of the 
+batch on each batch.
+
+Keep repeating until the number of fields updated drops to less than
+the batch size.
+
+### Build the Menus
+
+In the Menu Headings page, select the Build Menus button in the Toolbar.
+This will build the menus in each language for the selected manual. The
+default is the User manual.
+
+Select the Help manual and then the Build Menus button.
+
+Select the Developer manual and then the Build Menus button.
+
+## Test
+
+That is it! You should now select the Manual menu item and expect to see
+the default Manual selected in English.
+
+## Site Menu
+
+If you want to show the Manuals on the site just create a JDOC Manual
+menu item. Note the single page is for search results but it has not 
+been implemented.
+
+You may wish to place the menu on a page without side modules so that
+the full width of the page may be used for content.
 
 ## Libraries
+
+Two libraries are included in the component libraries folder.
 
 In the edition that features source management two libraries are
 required, one to convert markdown to html and a second to provide
 a diff view of proposed changes to source files.
 
-From the terminal command in administrator/components/com_jdocmanual,
-to convert GitHub Flavoured Markdown to HTML:
+- league/commonmark is used to convert Markdown to HTML.
+- jfcherng/php-diff is used to display diffs.
 
-composer require league/commonmark
+PHP 8.1 is required by ...
 
-and to display a diff view:
+## User Groups
 
-composer require jfcherng/php-diff
+If you wish to allow others to help maintain content you need to 
+create two User Groups:
 
-The scripts create a vendor folder if one does not exist so you
-may wish to create a libraries folder and do the installation
-there,
+- Translator: allowed to edit content in English and other languages.
+- Committer: allowed to commit and publish updated content.
+
+The Translator group should have Public as its parent. The Committer
+group should have Translator as its parent. Translator should be set
+to the Special Viewing Access level.
+
+### Global Options
+
+In the Global Options form select the Permissions tab and then the
+Translator item. Set Administrator login to Allowed.
+
+If you now login as a user in the Translator group you will see the
+Home Dashboard with some modules not relevant for Jdocmanual.
+
+### Turn off the Help menu item.
+
+Go to the list of Administrator modules and find the Administrator
+Menu module.In the Module tab set the Help Menu item to Hide.
+
+### Unpublish modules
+
+In the Administrator modules list find the Logged-in Users item used
+in the cpanel position (not the cpanel-users position). Unpublish it.
+
+Find and unpublish the Popular Articles and Recently Added Articles
+items for the cpanel position (not the cpanel-content position).
+
+The Home Dashboard will now be empty for a Translator.
+
+### Jdocmanual Options
+
+From the JDOC Manual, Manual page select the Options button. In the
+Permissions list select Translator and set the following to Allowed:
+- Access Administration Interface
+- Edit
+
+Select Committer and set the following to Allowed:
+- Create
+- Delete
+
+Save and Close
+
+## Who can do what?
+
+At the moment, a Translator does not have access to the Commit button
+In the GFM Edit page toolbar so cannot update the git repository or
+displayed page. Otherwise each can use all other features. 
+
+Also, at the moment it is relatively easy to use an existing manual or
+create a new one but it is not so easy to change the structure of an
+existing manual. That may change in future release.

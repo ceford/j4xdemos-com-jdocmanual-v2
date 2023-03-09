@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_jdocmanual",
+  "version": "4.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_jdocmanual.jdocmanual",
+      "type": "script",
+      "uri": "com_jdocmanual/jdocmanual.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_jdocmanual.menuheadings",
+      "type": "script",
+      "uri": "com_jdocmanual/menuheadings.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_jdocmanual.stash",
+      "type": "script",
+      "uri": "com_jdocmanual/stash.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_jdocmanual.jdocmanual",
+      "type": "style",
+      "uri": "com_jdocmanual/jdocmanual.css"
+    },
+    {
+      "name": "com_jdocmanual.offcanvas",
+      "type": "style",
+      "uri": "com_jdocmanual/offcanvas.css"
+    },
+    {
+      "name": "com_jdocmanual.diff-table",
+      "type": "style",
+      "uri": "com_jdocmanual/diff-table.css"
+    }
+  ]
+}

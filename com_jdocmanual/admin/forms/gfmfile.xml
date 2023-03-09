@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fieldset name="language" label="COM_JDOCMANUAL_GFMFILE_DETAILS_TAB">
+
+		<field
+			name="display_title"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILES_DISPLAY_TITLE_LABEL"
+			required="true"
+		 />
+
+		<field
+			name="jdoc_key"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILES_INDEX_KEY"
+			required="true"
+			class="readonly"
+			readonly="true"
+		 />
+
+		<field
+			name="manual"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILES_MANUAL"
+			required="true"
+			class="readonly"
+			readonly="true"
+		/>
+
+		<field
+			name="language"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILES_STASH_LANGUAGE"
+			required="true"
+			class="readonly"
+			readonly="true"
+		/>
+
+		<field
+			name="heading"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILE_HEADING"
+			required="true"
+			class="readonly"
+			readonly="true"
+		/>
+
+		<field
+			name="id"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILE_STASH_ID"
+			class="readonly"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+			name="page_id"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILE_PAGE_ID_LABEL"
+			class="readonly"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+			name="original_english"
+			type="textarea"
+			label="COM_JDOCMANUAL_GFMFILE_ORIGINAL_ENGLISH_LABEL"
+			class="mdsource"
+			hidden="true"
+			rows="18"
+			readonly="readonly"
+		/>
+
+		<field
+			name="source"
+			type="textarea"
+			label="COM_JDOCMANUAL_GFMFILE_SOURCE_LABEL"
+			class="mdsource"
+			hidden="true"
+			rows="18"
+			readonly="readonly"
+		/>
+
+		<field
+			name="commit_message"
+			type="text"
+			label="COM_JDOCMANUAL_GFMFILE_COMMIT_MESSAGE_LABEL"
+		/>
+
+		<field
+			name="comments"
+			type="textarea"
+			label="COM_JDOCMANUAL_GFMFILE_COMMENTS_LABEL"
+			rows="10"
+		/>
+
+		<field
+			name="markdown_text"
+			type="textarea"
+			label="COM_JDOCMANUAL_GFMFILE_STASH_LABEL"
+			class="mdsource"
+			hidden="true"
+			rows="18"
+			filter="JComponentHelper::filterText"
+		/>
+
+		<field
+			name="manual"
+			type="hidden"
+		/>
+
+		<field
+			name="heading"
+			type="hidden"
+		/>
+
+		<field
+			name="filename"
+			type="hidden"
+		/>
+
+	</fieldset>
+
+</form>

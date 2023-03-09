@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="J4xdemos\Component\Jdocmanual\Administrator\Field">
+	<fields name="filter">
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="COM_JDOCMANUAL_SOURCES_FILTER_SEARCH_LABEL"
+			description="COM_JDOCMANUAL_SOURCES_FILTER_SEARCH_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+
+		<field
+			name="manual"
+			type="list"
+			label="Manual"
+			onchange="this.form.submit();"
+			default="user"
+			>
+			<option value="0">COM_JDOCMANUAL_JDOCMANUAL_MANUAL_SELECT</option>
+			<option value="user">User</option>
+			<option value="help">Help</option>
+			<option value="developer">Developer</option>
+		</field>
+
+		<field
+			name="language"
+			type="sql"
+			label="Language"
+			onchange="this.form.submit();"
+			default="en"
+			query = "SELECT code, title FROM `#__jdocmanual_languages` WHERE state = 1 ORDER BY title ASC"
+			key_field="code"
+			value_field="title"
+			>
+			<option value="0">COM_JDOCMANUAL_JDOCMANUAL_LANGUAGE_SELECT</option>
+		</field>
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			onchange="this.form.submit();"
+			default="1"
+			>
+			<option value="">JOPTION_SELECT_PUBLISHED</option>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASHED</option>
+		</field>
+
+	</fields>
+
+	<fields name="list">
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			statuses="*,0,1,2,-2"
+			onchange="this.form.submit();"
+			default="a.id DESC"
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="a.id DESC">JGRID_HEADING_ID_DESC</option>
+			<option value="a.heading ASC">COM_JDOCMANUAL_MENU_HEADINGS_HEADING_ASC</option>
+			<option value="a.heading DESC">COM_JDOCMANUAL_MENU_HEADINGS_HEADING_DESC</option>
+
+		</field>
+
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fieldset name="source" label="COM_JDOCMANUAL_SOURCE_TAB">
+
+		<field
+			name="title"
+			type="text"
+			label="JGLOBAL_TITLE"
+			size="64"
+			required="true"
+		 />
+	
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			class="form-select-color-state"
+			size="1"
+			default="1"
+			validate="options"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASHED</option>
+		</field>
+
+		<field
+			name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			class="readonly"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+			name="index_url"
+			type="text"
+			label="COM_JDOCMANUAL_SOURCE_INDEX_URL_LABEL"
+			description="COM_JDOCMANUAL_SOURCE_INDEX_URL_DESC"
+			required="true"
+		 />
+
+		<field
+			name="page_url"
+			type="text"
+			label="COM_JDOCMANUAL_SOURCE_PAGE_URL_LABEL"
+			description="COM_JDOCMANUAL_SOURCE_PAGE_URL_DESC"
+			required="true"
+		 />
+	
+		<field
+			name="mdmenu"
+			type="textarea"
+			label="COM_JDOCMANUAL_SOURCE_MDMENU"
+			rows="100"
+		/>
+
+	</fieldset>
+
+</form>

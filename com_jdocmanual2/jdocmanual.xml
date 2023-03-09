@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>com_jdocmanual</name>
+	<author>Clifford E Ford</author>
+	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
+	<authorUrl>fford.me.uk</authorUrl>
+	<creationDate>October 2021</creationDate>
+	<copyright>(C) 2021 Clifford E Ford. All rights reserved.</copyright>
+	<license>GNU General Public License version 3</license>
+	<version>0.7.3</version>
+	<description><![CDATA[Display Joomla documentation from the Joomla Docs site]]></description>
+	<namespace path="src">J4xdemos\Component\Jdocmanual</namespace>
+
+	<media destination="com_jdocmanual" folder="media">
+		<file>joomla.asset.json</file>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<scriptfile>script.php</scriptfile>
+
+	<files folder="site">
+		<folder>language</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<administration>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<folder>forms</folder>
+			<folder>help</folder>
+			<folder>language</folder>
+			<folder>layouts</folder>
+			<folder>services</folder>
+			<folder>sql</folder>
+			<folder>src</folder>
+			<folder>tmpl</folder>
+		</files>
+		<menu img="class:default">com_jdocmanual</menu>
+		<submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu
+				link="option=com_jdocmanual&amp;view=jdocmanual"
+				img="default"
+				alt="Jdocmanual/Manual"
+			>
+				com_jdocmanual_manual
+			</menu>
+			<menu
+				link="option=com_jdocmanual&amp;view=sources"
+				img="default"
+				alt="Jdocmanual/Sources"
+			>
+				com_jdocmanual_sources
+			</menu>
+			<menu
+				link="option=com_jdocmanual&amp;view=languages"
+				img="default"
+				alt="Jdocmanual/Languages"
+			>
+				com_jdocmanual_languages
+			</menu>
+			<menu
+				link="option=com_jdocmanual&amp;view=gfmfiles"
+				img="default"
+				alt="Jdocmanual/gfmfiles"
+			>
+				com_jdocmanual_gfmfiles
+			</menu>
+		</submenu>
+	</administration>
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" name="JDOC Manual Update Site">https://raw.githubusercontent.com/ceford/j4xdemos-com-jdocmanual/master/manifest.xml</server>
+	</updateservers>
+</extension>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Help for JDOC Manual</title>
+<style>
+html {
+	font-family: sans-serif;
+	margin: .5rem;
+	line-height: 1.15;
+}
+body {
+	font-family: Arial,Helvetica,Sans Serif;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4;
+	color: #212529;
+	text-align: left;
+}
+h1 {
+	font-size: 2rem;
+}
+h1, h2, h3 {
+	margin-top: 0;
+	margin-bottom: .5rem;
+}
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+</style>
+</head>
+<body>
+
+<h1>JDOC Manual</h1>
+
+<p>This component can display up to three different manuals
+located on Mediawiki servers provided an index document has 
+been created for each. For example, you may wish to switch 
+from Joomla 4 documents to Joomla 3 documents and to see 
+documents for a custom component delivered by a custom 
+Mediawiki server. The sources are set up in the component 
+Options. The default installation has indexes for Joomla 4, 
+Joomla 4 Help Screens, and Joomla 3. The indexes need to be 
+updated regularly.</p>
+
+<p>After installation you first need to fetch the index
+document by selecting the <strong>Fetch Index</strong> button
+in the toolbar. Each time you do this the index is fetched
+and stored as html in a new entry in the database. This is 
+what appears in the component index panel at the left of the 
+content area.</p>
+
+<p>With the index panel populated you can select an item from
+the list. On first selection the page is fetched from the
+document server, processed to make it suitable for display
+in the JDOC Manual component, and saved in the database.
+On a later request for that page it is fetched from the
+database.</p>
+
+<p>If you have reason to believe that the page may be out of 
+date you can select the <strong>Update Page</strong> button 
+to re-fetch the page from source.</p>
+
+<p>If you want to see the page in a different language you
+need to set up the language list in the component 
+<strong>Options</strong> and then select the language from
+the <strong>Language</strong> button in the toolbar. If the
+document is not available in the selected language you will
+see the English version with a message to that effect at 
+the top. You can select the Index language and Document languages 
+separately but it will be a while before many indexes are 
+translated.</p>
+
+<p>The version of the page displayed in the Manual differs
+from the original as follows:</p>
+<ul>
+<li>Everything above the main content is removed.</li>
+<li>The footer and everything below is removed.</li>
+<li>All links are removed because they do not work as expected
+in this context.</li>
+</ul>
+
+<p>If you find a problem with the content of a page you could join
+the documentation team and fix it yourself! </p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="COM_JDOCMANUAL_VIEW_JDMPAGE_TITLE" 
+		option="COM_JDOCMANUAL_VIEW_JDMPAGE_OPTION">
+		<help
+			key="JHELP_MENUS_MENU_ITEM_JDMPAGE"
+		/>
+		<message>
+			<![CDATA[COM_JDOCMANUAL_VIEW_JDMPAGE_DESC]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+
+		<!-- Options -->
+		<fieldset name="options">
+		</fieldset>
+
+	</fields>
+</metadata>

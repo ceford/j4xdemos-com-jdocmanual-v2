@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+    <update>
+        <name>JDOC Manual</name>
+        <description><![CDATA[Display Joomla documentation from the Joomla Docs site]]></description>
+        <element>com_jdocmanual</element>
+        <type>component</type>
+        <version>0.7.3</version>
+        <client>administrator</client>
+        <infourl title="JDOC Manual Extension">https://github.com/ceford/j4xdemos-com-jdocmanual/blob/master/README.md</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/ceford/j4xdemos-com-jdocmanual/archive/refs/heads/master.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>dev</tag>
+        </tags>
+        <targetplatform name="joomla" version="4.[0123]" />
+    </update>
+</updates>

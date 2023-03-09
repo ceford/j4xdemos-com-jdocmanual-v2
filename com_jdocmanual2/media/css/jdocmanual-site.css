@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.article-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar, .toc {
+	width: 15rem;
+	padding: 1rem;
+}
+
+.main-content {
+	flex-grow: 1;
+	padding: 1rem;
+	border: 1px solid grey;
+}
+
+.panel {
+	padding: .5em;
+	overflow: hidden;
+}
+p.ambox {
+	margin: .5em 0 0 0;
+}
+.panel.ambox-tip {
+	background-color: #bad0e3;
+	border-color: #bad0e3;
+}
+
+.panel.ambox-serious {
+	background-color: #FFBABA;
+	border-color: #FFBABA;
+}
+
+.ambox-title {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.2;
+	margin-left: .25em;
+}

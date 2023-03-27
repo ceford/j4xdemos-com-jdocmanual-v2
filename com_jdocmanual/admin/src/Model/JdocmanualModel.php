@@ -51,7 +51,7 @@ class JdocmanualModel extends ListModel
 		$db->setQuery($query);
 		$menu = $db->loadObject();
 		//var_dump($menu);die;
-		if (empty($menu && $index_language != 'en'))
+		if (empty($menu) && $index_language != 'en')
 		{
 			// try again with English
 			$query = $db->getQuery(true);

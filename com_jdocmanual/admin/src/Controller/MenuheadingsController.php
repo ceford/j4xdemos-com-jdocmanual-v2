@@ -210,10 +210,10 @@ class MenuheadingsController extends FormController
 					$query = $db->getQuery(true);
 					$query->select('display_title')
 					->from('#__jdocmanual_gfmindex')
-					->where('manual = :manual')
+					//->where('manual = :manual')
 					->where('language = ' .$db->quote($language->code))
-					->where('jdoc_key = ' .$db->quote($article))
-					->bind(':manual', $manual, ParameterType::STRING);
+					->where('jdoc_key = ' .$db->quote($article));
+					//->bind(':manual', $manual, ParameterType::STRING);
 					$db->setQuery($query);
 					$display_title = $db->loadResult();
 					$total_items += 1;		

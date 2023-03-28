@@ -1673,23 +1673,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Banners', 'user', 'en', 'banners', 'banners.md', 'Banners', '2023-02-09 03:59:47') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners', 'user', 'en', 'banners', 'banners.md', 'Banners', '2023-02-09 03:59:49') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Edit', 'user', 'en', 'banners', 'banners-edit.md', 'Banners: Edit', '2023-02-09 03:59:52') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Categories', 'user', 'en', 'banners', 'banners-categories.md', 'Banners: Categories', '2023-02-09 03:59:54') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Clients', 'user', 'en', 'banners', 'banners-clients.md', 'Banners: Clients', '2023-02-09 03:59:56') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_New_or_Edit_Client', 'user', 'en', 'banners', 'banners-new-or-edit-client.md', 'Banners: New or Edit Client', '2023-02-09 03:59:59') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Tracks', 'user', 'en', 'banners', 'banners-tracks.md', 'Banners: Tracks', '2023-02-09 04:00:01') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Using_the_CLI', 'user', 'en', 'command-line-interface', 'using-the-cli.md', 'Using the CLI', '2023-02-09 04:00:04') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'en', 'command-line-interface', 'cli-database-exporter-importer.md', 'CLI Database Exporter Importer', '2023-02-09 04:00:06') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Update', 'user', 'en', 'command-line-interface', 'cli-update.md', 'CLI Update', '2023-02-09 04:00:08') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Joomla_CLI_Installation', 'user', 'en', 'command-line-interface', 'joomla-cli-installation.md', 'Joomla CLI Installation', '2023-02-09 04:00:12') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -1718,8 +1702,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('How_do_you_convert_an_htaccess.txt_file_into_a_.htaccess_file?', 'user', 'en', 'configuration', 'how-do-you-convert-an-htaccess-txt-file-into-a-htaccess-file-3f.md', 'How do you convert an htaccess.txt file into a .htaccess file?', '2023-02-09 04:00:44') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_password_protect_directories_using_htaccess?', 'user', 'en', 'configuration', 'how-do-you-password-protect-directories-using-htaccess-3f.md', 'How do you password protect directories using htaccess?', '2023-02-09 04:00:47') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Contacts', 'user', 'en', 'contacts', 'contacts.md', 'Contacts', '2023-02-09 04:00:49') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Listing_a_user_on_a_contacts_page', 'user', 'en', 'contacts', 'listing-a-user-on-a-contacts-page.md', 'Listing a user on a contacts page', '2023-02-09 04:00:52') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -1764,8 +1746,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('Why_isn''t_un-publishing_a_vulnerable_extension_enough_to_protect_your_site?', 'user', 'en', 'extensions', 'why-isnt-un-publishing-a-vulnerable-extension-enough-to-protect-your-site-3f.md', 'Why isn''t un-publishing a vulnerable extension enough to protect your site?', '2023-02-09 04:01:46') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Installing_an_extension', 'user', 'en', 'extensions', 'installing-an-extension.md', 'Installing an extension', '2023-02-09 04:01:49') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Using_Bootstrap_Components_in_Joomla_4', 'user', 'en', 'extensions', 'using-bootstrap-components-in-joomla-4.md', 'Using Bootstrap Components in Joomla 4', '2023-02-09 04:01:52') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Fields_and_Field_Groups', 'user', 'en', 'fields', 'fields-and-field-groups.md', 'Fields and Field Groups', '2023-02-09 04:01:56') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -1816,8 +1796,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('J4.x:Optional_Technical_Requirements', 'user', 'en', 'hosting', 'optional-technical-requirements.md', 'Optional Technical Requirements', '2023-02-09 04:02:51') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Hosting_Setup', 'user', 'en', 'hosting', 'hosting-setup.md', 'Hosting Setup', '2023-02-09 04:02:53') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Apache_PHP_Handler', 'user', 'en', 'hosting', 'apache-php-handler.md', 'Apache PHP Handler', '2023-02-09 04:02:55') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Moving_the_site_among_directories/sub-directories', 'user', 'en', 'hosting', 'moving-the-site-among-directories-sub-directories.md', 'Moving the site among directories/sub-directories', '2023-02-09 04:02:57') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -1981,10 +1959,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:FatalError', 'user', 'en', 'problems', 'fatalerror.md', 'FatalError', '2023-02-09 04:06:12') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_"Cannot_reorder_menu_entries"', 'user', 'en', 'problems', 'fix-cannot-reorder-menu-entries.md', 'Fix "Cannot reorder menu entries"', '2023-02-09 04:06:15') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_"Database_Table_Structure_NOT_Up_to_Date"_before_Update', 'user', 'en', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix "Database Table Structure NOT Up to Date" before Update', '2023-02-09 04:06:18') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Help', 'user', 'en', 'problems', 'help.md', 'Help', '2023-02-09 04:06:21') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Get_locally_hosted_Joomla!_website_e-mail_functions_to_work', 'user', 'en', 'problems', 'get-locally-hosted-joomla-website-e-mail-functions-to-work.md', 'Get locally hosted Joomla! website e-mail functions to work', '2023-02-09 04:06:23') ON DUPLICATE KEY UPDATE id = id;
@@ -2038,8 +2012,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('Security_filters_for_articles', 'user', 'en', 'security', 'security-filters-for-articles.md', 'Security filters for articles', '2023-02-09 04:07:29') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Securing_Joomla_extensions', 'user', 'en', 'security', 'securing-joomla-extensions.md', 'Securing Joomla extensions', '2023-02-09 04:07:31') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Http_Header_Management', 'user', 'en', 'security', 'http-header-management.md', 'Http Header Management', '2023-02-09 04:07:34') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('What_is_Search_Engine_Optimisation', 'user', 'en', 'seo', 'what-is-search-engine-optimisation.md', 'What is Search Engine Optimisation', '2023-02-09 04:07:37') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2096,8 +2068,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('Smart_Search_configuration_options', 'user', 'en', 'smart-search', 'smart-search-configuration-options.md', 'Smart Search configuration options', '2023-02-09 04:08:43') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Smart_Search_content_change_test_plan', 'user', 'en', 'smart-search', 'smart-search-content-change-test-plan.md', 'Smart Search content change test plan', '2023-02-09 04:08:46') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Creating_a_Smart_Search_plug-in', 'user', 'en', 'smart-search', 'creating-a-smart-search-plug-in.md', 'Creating a Smart Search plug-in', '2023-02-09 04:08:48') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Cache', 'user', 'en', 'system', 'cache.md', 'Cache', '2023-02-09 04:08:51') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2159,19 +2129,11 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Visual_Studio_Code', 'user', 'en', 'test-installations', 'visual-studio-code.md', 'Visual Studio Code', '2023-02-09 04:10:05') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Developer:_Eclipse_PDT', 'user', 'en', 'test-installations', 'developer-eclipse-pdt.md', 'Developer: Eclipse PDT', '2023-02-09 04:10:09') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Developer:_File_Structure', 'user', 'en', 'test-installations', 'developer-file-structure.md', 'Developer: File Structure', '2023-02-09 04:10:12') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Developer:_Required_Software', 'user', 'en', 'test-installations', 'developer-required-software.md', 'Developer: Required Software', '2023-02-09 04:10:16') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Setting_up_Apache,_PHP_and_MySQL_manually', 'user', 'en', 'test-installations', 'setting-up-apache-php-and-mysql-manually.md', 'Setting up Apache, PHP and MySQL manually', '2023-02-09 04:10:19') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Verifying_permissions', 'user', 'en', 'test-installations', 'verifying-permissions.md', 'Verifying permissions', '2023-02-09 04:10:22') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Web_page_diagnostic_tools', 'user', 'en', 'test-installations', 'web-page-diagnostic-tools.md', 'Web page diagnostic tools', '2023-02-09 04:10:25') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'en', 'test-installations', 'xampp.md', 'XAMPP', '2023-02-09 04:10:27') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Access_Control', 'user', 'en', 'users', 'access-control.md', 'Access Control', '2023-02-09 04:10:30') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2184,10 +2146,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('WebAuthn_Passwordless_Login', 'user', 'en', 'users', 'webauthn-passwordless-login.md', 'WebAuthn Passwordless Login', '2023-02-09 04:10:38') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Multi-factor_Authentication', 'user', 'en', 'users', 'multi-factor-authentication.md', 'Multi-factor Authentication', '2023-02-09 04:10:41') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Mass_Mail_Users', 'user', 'en', 'users', 'mass-mail-users.md', 'Mass Mail Users', '2023-02-09 04:10:43') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Private_Messages', 'user', 'en', 'users', 'private-messages.md', 'Private Messages', '2023-02-09 04:10:45') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'en', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'How do you recover or reset your admin password?', '2023-02-09 04:10:47') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2238,25 +2196,11 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Title_Tag', 'user', 'de', 'articles-metadata', 'using-the-title-tag.md', 'Den Titel-Tag verwenden', '2023-02-11 12:15:53') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners', 'user', 'de', 'banners', 'banners.md', 'Banner', '2023-02-11 12:15:56') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Edit', 'user', 'de', 'banners', 'banners-edit.md', 'Banner: Bearbeiten', '2023-02-11 12:15:58') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Categories', 'user', 'de', 'banners', 'banners-categories.md', 'Banner: Kategorien', '2023-02-11 12:16:00') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_New_or_Edit_Client', 'user', 'de', 'banners', 'banners-new-or-edit-client.md', 'Banner: Kunden bearbeiten', '2023-02-11 12:16:03') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'de', 'command-line-interface', 'cli-database-exporter-importer.md', ' CLI Datenbank Export / Import', '2023-02-11 12:16:07') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Update', 'user', 'de', 'command-line-interface', 'cli-update.md', 'CLI Update', '2023-02-11 12:16:10') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Adding_www_to_a_url', 'user', 'de', 'configuration', 'adding-www-to-a-url.md', 'Hinzufügen von www zu einer URL', '2023-02-11 12:16:20') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_block_directory_scans_using_htaccess?', 'user', 'de', 'configuration', 'how-do-you-block-directory-scans-using-htaccess-3f.md', 'Ordnerscans mit htaccess blockieren', '2023-02-11 12:16:23') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_convert_an_htaccess.txt_file_into_a_.htaccess_file?', 'user', 'de', 'configuration', 'how-do-you-convert-an-htaccess-txt-file-into-a-htaccess-file-3f.md', 'Wie wird die htaccess.txt in eine .htaccess-Datei konvertiert?', '2023-02-11 12:16:26') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Contacts', 'user', 'de', 'contacts', 'contacts.md', 'Kontakte', '2023-02-11 12:16:29') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Menu_Dashboard', 'user', 'de', 'dashboards', 'menu-dashboard.md', 'Dashboard-Menü', '2023-02-11 12:16:36') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2370,8 +2314,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'de', 'problems', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'Wie kann das Administrator Passwort wieder hergestellt oder zurückgesetzt werden?', '2023-02-11 12:19:44') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_"Database_Table_Structure_NOT_Up_to_Date"_before_Update', 'user', 'de', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix "Database Table Structure NOT Up to Date" before Update', '2023-02-11 12:19:50') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Joomla_and_MySQL_8', 'user', 'de', 'problems', 'joomla-and-mysql-8.md', 'Joomla und MySQL 8', '2023-02-11 12:19:53') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Enabling_HTTPS_on_your_site', 'user', 'de', 'security', 'enabling-https-on-your-site.md', 'HTTPS der Webseite aktivieren', '2023-02-11 12:20:05') ON DUPLICATE KEY UPDATE id = id;
@@ -2394,8 +2336,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Securing_Joomla_extensions', 'user', 'de', 'security', 'securing-joomla-extensions.md', 'Joomla-Erweiterungen absichern', '2023-02-11 12:20:31') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Http_Header_Management', 'user', 'de', 'security', 'http-header-management.md', 'HTTP Header Verwaltung', '2023-02-11 12:20:34') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Making_your_site_Search_Engine_Friendly', 'user', 'de', 'seo', 'making-your-site-search-engine-friendly.md', 'Die Website suchmaschinenfreundlich gestalten', '2023-02-11 12:20:37') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Search_Engine_Friendly_URLs', 'user', 'de', 'seo', 'search-engine-friendly-urls.md', 'Suchmaschinenfreundliche URLs', '2023-02-11 12:20:39') ON DUPLICATE KEY UPDATE id = id;
@@ -2416,8 +2356,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Enabling_Search_Engine_Friendly_(SEF)_URLs_on_Nginx', 'user', 'de', 'seo', 'enabling-search-engine-friendly-sef-urls-on-nginx.md', 'Suchmaschinenfreundliche (SEF) URLs in Nginx aktivieren', '2023-02-11 12:21:05') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Creating_a_Smart_Search_plug-in', 'user', 'de', 'smart-search', 'creating-a-smart-search-plug-in.md', 'Smart Search-Plugin anlegen', '2023-02-11 12:21:13') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Cache', 'user', 'de', 'system', 'cache.md', 'Cache', '2023-02-11 12:21:16') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Backup_Basics_for_a_Joomla!_Web_Site', 'user', 'de', 'system', 'backup-basics-for-a-joomla-web-site.md', 'Backup-Grundlagen für eine Joomla!-Webseite', '2023-02-11 12:21:18') ON DUPLICATE KEY UPDATE id = id;
@@ -2429,10 +2367,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('J4.x:How_To_Use_Content_Tags_in_Joomla', 'user', 'de', 'tags', 'how-to-use-content-tags-in-joomla.md', 'Wie man Schlagwörter in Joomla verwendet', '2023-02-11 12:21:35') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Visual_Studio_Code_Primer', 'user', 'de', 'test-installations', 'visual-studio-code-primer.md', 'Einführung in Visual Studio-Code', '2023-02-11 12:21:49') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'de', 'test-installations', 'xampp.md', 'XAMPP', '2023-02-11 12:21:57') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Mass_Mail_Users', 'user', 'de', 'users', 'mass-mail-users.md', 'Serien-Mail an Benutzer', '2023-02-11 12:22:05') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'de', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'Wie kann das Administrator Passwort wieder hergestellt oder zurückgesetzt werden?', '2023-02-11 12:22:08') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2461,8 +2395,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Title_Tag', 'user', 'es', 'articles-metadata', 'using-the-title-tag.md', 'El Uso de la etiqueta Title', '2023-02-11 12:41:18') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'es', 'command-line-interface', 'cli-database-exporter-importer.md', 'CLI Exportar / Importar base de datos', '2023-02-11 12:41:28') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Preconfigured_htaccess', 'user', 'es', 'configuration', 'preconfigured-htaccess.md', 'htaccess preconfigurado', '2023-02-11 12:41:37') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Adding_www_to_a_url', 'user', 'es', 'configuration', 'adding-www-to-a-url.md', 'Agregar www a una url', '2023-02-11 12:41:40') ON DUPLICATE KEY UPDATE id = id;
@@ -2470,8 +2402,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('How_do_you_block_directory_scans_using_htaccess?', 'user', 'es', 'configuration', 'how-do-you-block-directory-scans-using-htaccess-3f.md', 'Cómo bloquear análisis del directorio usando htaccess?', '2023-02-11 12:41:43') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_convert_an_htaccess.txt_file_into_a_.htaccess_file?', 'user', 'es', 'configuration', 'how-do-you-convert-an-htaccess-txt-file-into-a-htaccess-file-3f.md', '¿Cómo convertir un archivo htaccess.txt en uno .htaccess?', '2023-02-11 12:41:46') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Contacts', 'user', 'es', 'contacts', 'contacts.md', 'Contactos', '2023-02-11 12:41:49') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Content_editors', 'user', 'es', 'editors', 'content-editors.md', 'Editores de contenido', '2023-02-11 12:41:59') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2587,8 +2517,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Database_Table_Prefix', 'user', 'es', 'system', 'database-table-prefix.md', 'Prefijo de tabla de la Base de Datos', '2023-02-11 12:46:08') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'es', 'test-installations', 'xampp.md', 'Configuración de un servidor XAMPP para desarrollo de Joomla!', '2023-02-11 12:46:39') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'es', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', '¿Cómo recuperar o restablecer su contraseña de administrador?', '2023-02-11 12:46:56') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Workflow', 'user', 'es', 'workflows', 'workflow.md', 'Flujo de trabajo', '2023-02-11 12:47:03') ON DUPLICATE KEY UPDATE id = id;
@@ -2628,12 +2556,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Title_Tag', 'user', 'fr', 'articles-metadata', 'using-the-title-tag.md', 'Utiliser la balise Titre', '2023-02-11 12:48:28') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners', 'user', 'fr', 'banners', 'banners.md', 'Bannières', '2023-02-11 12:48:31') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'fr', 'command-line-interface', 'cli-database-exporter-importer.md', 'CLI Exportateur / Importateur de base de données', '2023-02-11 12:48:39') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Update', 'user', 'fr', 'command-line-interface', 'cli-update.md', 'Mise à jour CLI (lignes de commande)', '2023-02-11 12:48:41') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Preconfigured_htaccess', 'user', 'fr', 'configuration', 'preconfigured-htaccess.md', 'htaccess préconfiguré', '2023-02-11 12:48:49') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Adding_www_to_a_url', 'user', 'fr', 'configuration', 'adding-www-to-a-url.md', 'Ajouter les www à une url', '2023-02-11 12:48:52') ON DUPLICATE KEY UPDATE id = id;
@@ -2641,8 +2563,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('How_do_you_block_directory_scans_using_htaccess?', 'user', 'fr', 'configuration', 'how-do-you-block-directory-scans-using-htaccess-3f.md', 'Comment bloquer les analyses de répertoires à l''aide du htaccess ?', '2023-02-11 12:48:55') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_convert_an_htaccess.txt_file_into_a_.htaccess_file?', 'user', 'fr', 'configuration', 'how-do-you-convert-an-htaccess-txt-file-into-a-htaccess-file-3f.md', 'Comment convertir un fichier htaccess.txt en fichier .htaccess ?', '2023-02-11 12:48:58') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Contacts', 'user', 'fr', 'contacts', 'contacts.md', 'Contact', '2023-02-11 12:49:01') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Content_editors', 'user', 'fr', 'editors', 'content-editors.md', 'Les éditeurs de contenu', '2023-02-11 12:49:11') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2762,8 +2682,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Enabling_HTTPS_on_your_site', 'user', 'fr', 'security', 'enabling-https-on-your-site.md', 'Activer HTTPS sur votre site', '2023-02-11 12:52:29') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Http_Header_Management', 'user', 'fr', 'security', 'http-header-management.md', 'Gestion des En-têtes HTTP', '2023-02-11 12:52:44') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Making_your_site_Search_Engine_Friendly', 'user', 'fr', 'seo', 'making-your-site-search-engine-friendly.md', 'Rendre votre site compatible avec les moteurs de recherche', '2023-02-11 12:52:47') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Search_Engine_Friendly_URLs', 'user', 'fr', 'seo', 'search-engine-friendly-urls.md', 'Réécriture des URL en clair (Search Engine Friendly URLs)', '2023-02-11 12:52:49') ON DUPLICATE KEY UPDATE id = id;
@@ -2802,8 +2720,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Database_Table_Prefix', 'user', 'fr', 'system', 'database-table-prefix.md', 'Préfixe de Table de Base De Données', '2023-02-11 12:53:35') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'fr', 'test-installations', 'xampp.md', 'XAMPP', '2023-02-11 12:54:03') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('WebAuthn_Passwordless_Login', 'user', 'fr', 'users', 'webauthn-passwordless-login.md', 'WebAuthn Connexion sans mot de passe', '2023-02-11 12:54:09') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'fr', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'Comment récupérer ou réinitialiser votre mot de passe d''administration ?', '2023-02-11 12:54:14') ON DUPLICATE KEY UPDATE id = id;
@@ -2839,20 +2755,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Title_Tag', 'user', 'nl', 'articles-metadata', 'using-the-title-tag.md', 'De titel Tag gebruiken', '2023-02-11 13:04:29') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners', 'user', 'nl', 'banners', 'banners.md', 'Advertenties', '2023-02-11 13:04:32') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Edit', 'user', 'nl', 'banners', 'banners-edit.md', 'Advertenties: Bewerken', '2023-02-11 13:04:35') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Categories', 'user', 'nl', 'banners', 'banners-categories.md', 'Advertenties: Categorieën', '2023-02-11 13:04:37') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Clients', 'user', 'nl', 'banners', 'banners-clients.md', 'Advertenties: Adverteerders', '2023-02-11 13:04:39') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_New_or_Edit_Client', 'user', 'nl', 'banners', 'banners-new-or-edit-client.md', 'Advertenties: Nieuwe of bewerken van adverteerder', '2023-02-11 13:04:41') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Tracks', 'user', 'nl', 'banners', 'banners-tracks.md', 'Advertenties: Volgen', '2023-02-11 13:04:44') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'nl', 'command-line-interface', 'cli-database-exporter-importer.md', 'CLI Database Exporter Importer', '2023-02-11 13:04:46') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Preconfigured_htaccess', 'user', 'nl', 'configuration', 'preconfigured-htaccess.md', 'Vooraf geconfigureerde htaccess', '2023-02-11 13:04:54') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Adding_www_to_a_url', 'user', 'nl', 'configuration', 'adding-www-to-a-url.md', 'Het toevoegen van www aan een url', '2023-02-11 13:04:57') ON DUPLICATE KEY UPDATE id = id;
@@ -2860,8 +2762,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('How_do_you_block_directory_scans_using_htaccess?', 'user', 'nl', 'configuration', 'how-do-you-block-directory-scans-using-htaccess-3f.md', 'Hoe blokkeert u map-scans met behulp van htaccess?', '2023-02-11 13:05:00') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_convert_an_htaccess.txt_file_into_a_.htaccess_file?', 'user', 'nl', 'configuration', 'how-do-you-convert-an-htaccess-txt-file-into-a-htaccess-file-3f.md', 'Hoe verandert u een een htaccess.txt bestand in een .htaccess bestand?', '2023-02-11 13:05:03') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Contacts', 'user', 'nl', 'contacts', 'contacts.md', 'Contactpersonen', '2023-02-11 13:05:07') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Content_editors', 'user', 'nl', 'editors', 'content-editors.md', 'Tekstverwerkers', '2023-02-11 13:05:17') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2979,15 +2879,11 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:FatalError', 'user', 'nl', 'problems', 'fatalerror.md', 'FatalError', '2023-02-11 13:08:10') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_"Database_Table_Structure_NOT_Up_to_Date"_before_Update', 'user', 'nl', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix "Database Table Structure NOT Up to Date" before Update', '2023-02-11 13:08:13') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Joomla_and_MySQL_8', 'user', 'nl', 'problems', 'joomla-and-mysql-8.md', 'Joomla and MySQL 8', '2023-02-11 13:08:17') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Enabling_HTTPS_on_your_site', 'user', 'nl', 'security', 'enabling-https-on-your-site.md', 'HTTPS op uw website activeren', '2023-02-11 13:08:26') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Security_Checklist/Hosting_and_Server_Setup', 'user', 'nl', 'security', 'security-checklist-hosting-and-server-setup.md', 'Security Checklist/Hosting and Server Setup', '2023-02-11 13:08:30') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Http_Header_Management', 'user', 'nl', 'security', 'http-header-management.md', 'Http header beheer', '2023-02-11 13:08:42') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Making_your_site_Search_Engine_Friendly', 'user', 'nl', 'seo', 'making-your-site-search-engine-friendly.md', 'Maak uw website zoekmachine vriendelijk', '2023-02-11 13:08:45') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -3019,13 +2915,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:How_To_Use_Content_Tags_in_Joomla', 'user', 'nl', 'tags', 'how-to-use-content-tags-in-joomla.md', 'Hoe inhouds-tags in Joomla gebruiken', '2023-02-11 13:09:39') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'nl', 'test-installations', 'xampp.md', 'XAMPP', '2023-02-11 13:09:59') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Access_Control', 'user', 'nl', 'users', 'access-control.md', 'Toegangsbeheer', '2023-02-11 13:10:01') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Mass_Mail_Users', 'user', 'nl', 'users', 'mass-mail-users.md', 'Groepsmail gebruikers', '2023-02-11 13:10:08') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Private_Messages', 'user', 'nl', 'users', 'private-messages.md', 'Privéberichten', '2023-02-11 13:10:11') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'nl', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'Hoe kun je je administrator wachtwoord herstellen of opnieuw instellen?', '2023-02-11 13:10:13') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -3061,20 +2951,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('Using_The_Meta_Description', 'user', 'pt-br', 'articles-metadata', 'using-the-meta-description.md', 'Usando a meta descrição', '2023-02-11 13:42:57') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Title_Tag', 'user', 'pt-br', 'articles-metadata', 'using-the-title-tag.md', 'Usando a tag de título', '2023-02-11 13:42:59') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners', 'user', 'pt-br', 'banners', 'banners.md', 'Ajuda4.x:Banners', '2023-02-11 13:43:02') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Edit', 'user', 'pt-br', 'banners', 'banners-edit.md', 'Banners: Editar', '2023-02-11 13:43:04') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Categories', 'user', 'pt-br', 'banners', 'banners-categories.md', 'Ajuda4.x:Banners: Categorias', '2023-02-11 13:43:06') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Clients', 'user', 'pt-br', 'banners', 'banners-clients.md', 'Ajuda4.x:Banners: Clientes', '2023-02-11 13:43:09') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_New_or_Edit_Client', 'user', 'pt-br', 'banners', 'banners-new-or-edit-client.md', 'Ajuda4.x:Banners: Novo cliente ou editar cliente', '2023-02-11 13:43:11') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Help4.x:Banners:_Tracks', 'user', 'pt-br', 'banners', 'banners-tracks.md', 'Ajuda4.x:Banners: Monitoramentos', '2023-02-11 13:43:13') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:CLI_Database_Exporter_Importer', 'user', 'pt-br', 'command-line-interface', 'cli-database-exporter-importer.md', 'Exportador e importador de banco de dados de interface de linha de comando (CLI)', '2023-02-11 13:43:15') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Preconfigured_htaccess', 'user', 'pt-br', 'configuration', 'preconfigured-htaccess.md', 'Arquivo htaccess Pré-configurado', '2023-02-11 13:43:24') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -3161,8 +3037,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('Enabling_Search_Engine_Friendly_(SEF)_URLs_on_Nginx', 'user', 'pt-br', 'seo', 'enabling-search-engine-friendly-sef-urls-on-nginx.md', 'Habilitando localizadores uniformes de recursos (URLs) amigáveis para mecanismos de buscas (SEFs) no Nginx', '2023-02-11 13:47:02') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Backup_Basics_for_a_Joomla!_Web_Site', 'user', 'pt-br', 'system', 'backup-basics-for-a-joomla-web-site.md', 'Básico de Cópias de Segurança para um site em Joomla!', '2023-02-11 13:47:11') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('XAMPP', 'user', 'pt-br', 'test-installations', 'xampp.md', 'XAMPP', '2023-02-11 13:47:44') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('How_do_you_recover_or_reset_your_admin_password?', 'user', 'pt-br', 'users', 'how-do-you-recover-or-reset-your-admin-password-3f.md', 'Como recuperar ou recriar sua senha de administrador?', '2023-02-11 13:47:53') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -5042,8 +4916,6 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('XAMPP', 'developer', 'de', 'getting-started', 'xampp.md', 'XAMPP', '2023-02-11 14:38:23') ON DUPLICATE KEY UPDATE id = id;
-INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Visual_Studio_Code_Primer', 'developer', 'de', 'getting-started', 'visual-studio-code-primer.md', 'Einführung in Visual Studio-Code', '2023-02-11 14:38:27') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Setting_Up_Your_Local_Environment', 'developer', 'de', 'developer-information', 'setting-up-your-local-environment.md', 'Joomla! an die eigene Umgebung anpassen', '2023-02-11 14:38:31') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES

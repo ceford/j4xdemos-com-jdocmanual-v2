@@ -8,4 +8,6 @@ DROP TABLE IF EXISTS `#__jdocmanual_menu_headings`;
 
 DROP TABLE IF EXISTS `#__jdocmanual_pages`;
 
+DROP TABLE IF EXISTS `#__jdocmanual_source`;
+
 DROP TABLE IF EXISTS `#__jdocmanual_stashes`;

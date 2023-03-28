@@ -1663,7 +1663,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Restricting_access_to_an_Article', 'user', 'en', 'articles-access', 'restricting-access-to-an-article.md', 'Restricting access to an Article', '2023-02-09 03:59:36') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Restricting_access_to_"read_more"', 'user', 'en', 'articles-access', 'restricting-access-to-read-more.md', 'Restricting access to "read more"', '2023-02-09 03:59:38') ON DUPLICATE KEY UPDATE id = id;
+	('Restricting_access_to_read_more', 'user', 'en', 'articles-access', 'restricting-access-to-read-more.md', 'Restricting access to "read more"', '2023-02-09 03:59:38') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Entering_search_engine_meta-data', 'user', 'en', 'articles-metadata', 'entering-search-engine-meta-data.md', 'Entering search engine meta-data', '2023-02-09 03:59:41') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2550,7 +2550,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Adding_a_menu_link_in_an_article', 'user', 'fr', 'articles', 'adding-a-menu-link-in-an-article.md', 'Ajouter un lien de menu à un article', '2023-02-11 12:48:12') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Restricting_access_to_"read_more"', 'user', 'fr', 'articles-access', 'restricting-access-to-read-more.md', 'Restreindre l''accès au "Lire la suite"', '2023-02-11 12:48:23') ON DUPLICATE KEY UPDATE id = id;
+	('Restricting_access_to_read_more', 'user', 'fr', 'articles-access', 'restricting-access-to-read-more.md', 'Restreindre l''accès au "Lire la suite"', '2023-02-11 12:48:23') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Meta_Description', 'user', 'fr', 'articles-metadata', 'using-the-meta-description.md', 'Utilisation de la méta description', '2023-02-11 12:48:26') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2749,7 +2749,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Scheduling_the_publication_of_an_article', 'user', 'nl', 'articles-access', 'scheduling-the-publication-of-an-article.md', 'Het plannen van de publicatie van een artikel', '2023-02-11 13:04:22') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Restricting_access_to_"read_more"', 'user', 'nl', 'articles-access', 'restricting-access-to-read-more.md', 'Toegang tot "lees meer" beperken', '2023-02-11 13:04:24') ON DUPLICATE KEY UPDATE id = id;
+	('Restricting_access_to_read_more', 'user', 'nl', 'articles-access', 'restricting-access-to-read-more.md', 'Toegang tot "lees meer" beperken', '2023-02-11 13:04:24') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Meta_Description', 'user', 'nl', 'articles-metadata', 'using-the-meta-description.md', 'Gebruik van de metabeschrijving', '2023-02-11 13:04:27') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -2946,7 +2946,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Adding_a_menu_link_in_an_article', 'user', 'pt-br', 'articles', 'adding-a-menu-link-in-an-article.md', 'Adicionando um link de menu em um artigo', '2023-02-11 13:42:46') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('Restricting_access_to_"read_more"', 'user', 'pt-br', 'articles-access', 'restricting-access-to-read-more.md', 'Restringindo o acesso a "leia mais"', '2023-02-11 13:42:55') ON DUPLICATE KEY UPDATE id = id;
+	('Restricting_access_to_read_more', 'user', 'pt-br', 'articles-access', 'restricting-access-to-read-more.md', 'Restringindo o acesso a "leia mais"', '2023-02-11 13:42:55') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('Using_The_Meta_Description', 'user', 'pt-br', 'articles-metadata', 'using-the-meta-description.md', 'Usando a meta descrição', '2023-02-11 13:42:57') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
@@ -5085,3 +5085,7 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('J4.x:Creating_a_Plugin_for_Joomla', 'developer', 'ru', 'plugin-development', 'creating-a-plugin-for-joomla.md', 'Создание Плагина для Joomla', '2023-02-11 14:49:31') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Creating_a_Simple_Module', 'developer', 'ru', 'module-development', 'creating-a-simple-module.md', 'Creating a Simple Module', '2023-02-11 14:49:38') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('J4.x:Fix_Cannot_reorder_menu_entries', 'user', 'en', 'problems', 'fix-cannot-reorder-menu-entries.md', 'Fix \"Cannot Reorder Menu Entries\"', 0, NULL, NULL, NULL) ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('J4.x:Fix_Database_Table_Structure_NOT_Up_to_Date_before_Update', 'user', 'en', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix \"Database Table Structure NOT Up To Date\" Before Update', 0, NULL, NULL, NULL) ON DUPLICATE KEY UPDATE id = id;

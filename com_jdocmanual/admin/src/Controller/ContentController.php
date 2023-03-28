@@ -46,10 +46,10 @@ class ContentController extends BaseController
 		$query = $db->getQuery(true);
 		$query->select('html')
 			->from('#__jdocmanual_gfmindex')
-			->where('jdoc_key = :jdoc_key')
+			->where('jdoc_key = ' . $db->quote($this->item_id)) //:jdoc_key')
 			//->where('manual = ' . $db->quote($this->manual))
 			->where('language = :language')
-			->bind(':jdoc_key', $this->item_id, ParameterType::STRING)
+			//->bind(':jdoc_key', $this->item_id, ParameterType::STRING)
 			->bind(':language', $this->page_language_code, ParameterType::STRING);
 		$db->setQuery($query);
 		$content = $db->loadResult();

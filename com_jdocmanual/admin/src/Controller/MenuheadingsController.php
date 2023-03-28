@@ -313,6 +313,8 @@ EOF;
 
 	protected function accordion_item($link, $value)
 	{
+		// escape any " character in the link
+		$link = str_replace('"', '', $link);
 		$html ='<li><span class="icon-file-alt icon-fw icon-jdocmanual" aria-hidden="true"></span>';
 		$html .= '<a href="#" class="content-link" data-content-id="' . $link . '">';
 		$html .= $value . '</a></li>' . "\n";

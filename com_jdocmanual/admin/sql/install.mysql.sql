@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
   `filename` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_title` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` tinyint(4) NOT NULL DEFAULT '0',
-  `created` datetime DEFAULT NULL,
+  `created` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime DEFAULT NULL,
   `html` mediumtext COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
   KEY `state` (`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+ALTER TABLE `#__jdocmanual_gfmindex` CHANGE `created` `created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP; 
 -- Populate the table in post-flight?
 
 CREATE TABLE IF NOT EXISTS `#__jdocmanual_languages` (
@@ -88,7 +89,7 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - J4.x:Article_Preview
 - J4.x:Scheduling_the_publication_of_an_article
 - J4.x:Restricting_access_to_an_Article
-- Restricting_access_to_\"read_more\"
+- Restricting_access_to_read_more
 
 ### articles-metadata
 - Entering_search_engine_meta-data
@@ -290,8 +291,7 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - J4.x:Assorted_Issues
 - J4.x:Unsupported_PHP_Version
 - J4.x:FatalError
-- J4.x:Fix_\"Cannot_reorder_menu_entries\"
-- J4.x:Fix_\"Database_Table_Structure_NOT_Up_to_Date\"_before_Update
+- J4.x:Fix_Database_Table_Structure_NOT_Up_to_Date_before_Update
 - J4.x:Help
 - Get_locally_hosted_Joomla!_website_e-mail_functions_to_work
 - Joomla_and_MySQL_8
@@ -435,6 +435,7 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - Help4.x:Admin_Modules:_Custom
 - Help4.x:Admin_Modules:_Feed_Display
 - Help4.x:Admin_Modules:_Frontend_Link
+- Help4.x:Admin_Modules:_Tours_Menu
 - Help4.x:Admin_Modules:_Joomla_Version_Information
 - Help4.x:Admin_Modules:_Logged-in_Users
 - Help4.x:Admin_Modules:_Login_Form
@@ -529,6 +530,13 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 
 ### glossary 
 - Help4.x:Glossary
+
+### guided-tours
+- Help4.x:Guided_Tours:_Tours
+- Help4.x:Guided_Tours:_New_or_Edit_Tour
+- Help4.x:Guided_Tours:_Steps
+- Help4.x:Guided_Tours:_New_or_Edit_Step
+- Help4.x:Guided_Tours:_Options
 
 ### help-screens 
 - Help4.x:Help_screens_styleguide
@@ -1581,7 +1589,15 @@ INSERT INTO `#__jdocmanual_menu_headings` (`id`, `manual`, `language`, `heading`
 (709, 'developer', 'ru', 'coding-examples', 'Примеры кодирования'),
 (710, 'developer', 'ru', 'advanced-developer', 'Продвинутый разработчик'),
 (711, 'developer', 'ru', 'advanced-administrator', 'Расширенный администратор'),
-(712, 'developer', 'ru', 'unclassified', 'Неклассифицированный');
+(712, 'developer', 'ru', 'unclassified', 'Неклассифицированный'),
+(713, 'help', 'en', 'guided-tours', 'Guided Tours'),
+(714, 'help', 'de', 'guided-tours', 'Führungen'),
+(715, 'help', 'es', 'guided-tours', 'Visitas guiadas'),
+(716, 'help', 'fr', 'guided-tours', 'Visites guidées'),
+(717, 'help', 'nl', 'guided-tours', 'Rondleidingen met gids'),
+(718, 'help', 'pt', 'guided-tours', 'Visitas guiadas'),
+(719, 'help', 'pt-br', 'guided-tours', 'Visitas guiadas'),
+(720, 'help', 'ru', 'guided-tours', 'Экскурсии');
 
 CREATE TABLE IF NOT EXISTS `#__jdocmanual_stashes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -5085,7 +5101,20 @@ INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading
 	('J4.x:Creating_a_Plugin_for_Joomla', 'developer', 'ru', 'plugin-development', 'creating-a-plugin-for-joomla.md', 'Создание Плагина для Joomla', '2023-02-11 14:49:31') ON DUPLICATE KEY UPDATE id = id;
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
 	('J4.x:Creating_a_Simple_Module', 'developer', 'ru', 'module-development', 'creating-a-simple-module.md', 'Creating a Simple Module', '2023-02-11 14:49:38') ON DUPLICATE KEY UPDATE id = id;
+
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_Cannot_reorder_menu_entries', 'user', 'en', 'problems', 'fix-cannot-reorder-menu-entries.md', 'Fix \"Cannot Reorder Menu Entries\"', 0, NULL, NULL, NULL) ON DUPLICATE KEY UPDATE id = id;
+	('J4.x:Fix_Database_Table_Structure_NOT_Up_to_Date_before_Update', 'user', 'en', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix \"Database Table Structure NOT Up To Date\" Before Update', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+
+
 INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
-	('J4.x:Fix_Database_Table_Structure_NOT_Up_to_Date_before_Update', 'user', 'en', 'problems', 'fix-database-table-structure-not-up-to-date-before-update.md', 'Fix \"Database Table Structure NOT Up To Date\" Before Update', 0, NULL, NULL, NULL) ON DUPLICATE KEY UPDATE id = id;
+	('Help4.x:Admin_Modules:_Tours_Menu', 'help', 'en', 'admin-modules', 'admin-modules-guided-tours.md', 'Admin Modules: Tours Menu', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('Help4.x:Guided_Tours:_New_or_Edit_Step', 'help', 'en', 'guided-tours', 'guided-tours-new-or-edit-step.md', 'Guided Tours: New or Edit Step', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('Help4.x:Guided_Tours:_New_or_Edit_Tour', 'help', 'en', 'guided-tours', 'guided-tours-new-or-edit-tour.md', 'Guided Tours: New or Edit Tour', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('Help4.x:Guided_Tours:_Options', 'help', 'en', 'guided-tours', 'guided-tours-options.md', 'Guided Tours: Options', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('Help4.x:Guided_Tours:_Steps', 'help', 'en', 'guided-tours', 'guided-tours-steps.md', 'Guided Tours: Steps', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;
+INSERT INTO `#__jdocmanual_gfmindex` (`jdoc_key`, `manual`, `language`, `heading`, `filename`, `display_title`, `created`) VALUES
+	('Help4.x:Guided_Tours:_Tours', 'help', 'en', 'guided-tours', 'guided-tours-tours.md', 'Guided Tours: Tours', '2023-03-29 12:00:00') ON DUPLICATE KEY UPDATE id = id;

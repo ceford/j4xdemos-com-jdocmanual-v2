@@ -136,8 +136,6 @@ p.ambox {
 		width: 250px;
 	}
 	#page-panel {
-		width: calc(100% - 500px);
-		max-width: calc(100% - 500px);
 	}
 	#toc-panel {
 		background-color: #fff;
@@ -152,9 +150,9 @@ p.ambox {
 		z-index: 2;
 		overflow-y: auto;
 		padding-left: 0.5rem;
-		width: 250px;
 	}
 }
+
 .accordion-button {
 	padding: 0.5rem 0.5rem ! important;
 }
@@ -198,6 +196,10 @@ p.ambox {
 
 div#toc-panel ul {
 	padding-left: 0.5rem;
+}
+
+h2.toc {
+	font-size: medium;
 }
 
 .jdocmanual-container {
@@ -317,4 +319,42 @@ pre, code, source, tt {
 	background-repeat: no-repeat !important;
 	background-position: 95% 0 !important;
 	border-color: #990000 !important;
+}
+
+details.jdm {
+	margin: 0;
+}
+
+.table-of-contents {
+	max-width: 250px;
+}
+
+.heading-permalink {
+	text-decoration: none;
+	padding-left: 1rem;
+	color: transparent;
+	font-size: .8em;
+	vertical-align: super;
+}
+
+li.gfmfile-active {
+	background-color: lightcyan;
+	border-right: 4px solid #000099;
+	border-left: 4px solid #000099;
+}
+
+details.jdm ul {
+	margin-bottom: 0;
+	margin-top: 0;
+	list-style: none;
+	padding-left: 1rem;
+}
+
+details li {
+	border-bottom: 1px solid rgb(9,0,128);
+	padding: 0 0.5rem;
+}
+
+details li a {
+	text-decoration: none;
 }

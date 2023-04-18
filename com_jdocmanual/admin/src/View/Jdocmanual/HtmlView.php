@@ -101,11 +101,13 @@ class HtmlView extends BaseHtmlView
 			$this->manual,
 			$this->index_language_code,
 			$this->page_language_code,
-			$this->page_path
+			$this->menu_page_id
 		) = $setuphelper->setup();
 
-		$this->page    = $model->getPage();
-		$this->menu    = $model->getMenu($this->manual, $this->index_language_code);
+		$page_id = $setuphelper->realid($this->menu_page_id, $this->manual, $this->page_language_code);
+		list ($this->display_title, $this->in_this_page, $this->page_content) = $model->getPage($page_id);
+		
+		$this->menu    = $model->getMenu($this->manual, $this->index_language_code, $this->menu_page_id);
 		$this->source  = $model->getSourceData($this->manual);
 
 		// Check for errors.
@@ -216,7 +218,7 @@ class HtmlView extends BaseHtmlView
 		$childBar->linkButton('preview')
 		->icon('icon-file-alt')
 		->text('COM_JDOCMANUAL_JDOCMANUAL_ORIGINAL')
-		->url($this->source->index_url)
+		->url($this->source->page_url)
 		->attributes(['target' => '_blank']);
 
 		$user  = Factory::getUser();

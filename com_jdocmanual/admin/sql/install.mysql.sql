@@ -95,6 +95,7 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - Entering_search_engine_meta-data
 - Using_The_Meta_Description
 - Using_The_Title_Tag
+- Using_Keywords
 
 ### banners
 - J4.x:Banners
@@ -186,7 +187,6 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 
 ### hosting
 - J4.x:Optional_Technical_Requirements
-- J4.x:Hosting_Setup
 - J4.x:Apache_PHP_Handler
 - Moving_the_site_among_directories/sub-directories
 - Multiple_Domains_and_Web_Sites_in_a_single_Joomla!_installation
@@ -234,7 +234,6 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - J4.x:Submenus
 - J4.x:Menu_Positions
 - Auto_redirect_guests_to_login
-- J4.x:Adding_a_menu_link_in_an_article
 - J4.x:How_to_Create_a_Menu_Item_to_View_Archived_Articles
 - J4.x:Adding_a_Custom_Administrator_Menu
 
@@ -287,12 +286,10 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 - Cookie_notification
 
 ### problems
-- How_do_you_recover_or_reset_your_admin_password?
 - J4.x:Assorted_Issues
 - J4.x:Unsupported_PHP_Version
 - J4.x:FatalError
 - J4.x:Fix_Database_Table_Structure_NOT_Up_to_Date_before_Update
-- J4.x:Help
 - Get_locally_hosted_Joomla!_website_e-mail_functions_to_work
 - Joomla_and_MySQL_8
 - Please_first_make_a_selection_from_the_list
@@ -327,26 +324,15 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 
 ### seo
 - What_is_Search_Engine_Optimisation
+- Enabling_Search_Engine_Friendly_(SEF)_URLs
 - Making_your_site_Search_Engine_Friendly
 - Search_Engine_Friendly_URLs
 - Using_A_Sitemap
-- Using_The_Title_Tag
-- Using_The_Meta_Description
-- Using_Keywords
 - Semantic_HTML_Markup
 - Linking_To_Other_Sites
 - Important_SEO_Points_To_Remember
 - Monitoring_SEO
 - Common_problems_when_enabling_Search_Engine_Friendly_(SEF)_URLs
-- Enabling_Search_Engine_Friendly_(SEF)_URLs
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_Apache
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_Hiawatha
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_IIS
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_IIS/IIS6
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_IIS/IIS6/1.0
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_IIS/IIS6/1.5
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_IIS/IIS7
-- Enabling_Search_Engine_Friendly_(SEF)_URLs_on_Nginx
 
 ### smart-search
 - Smart_Search_quickstart_guide
@@ -840,7 +826,6 @@ INSERT IGNORE INTO `#__jdocmanual_sources` (`id`, `manual`, `title`, `index_url`
 
 ### advanced-developer
 - J4.x:Automated_System_Testing
-- J4.x:Joomla_Core_APIs
 - J4.x:SCSS_and_Sass
 
 ### advanced-administrator

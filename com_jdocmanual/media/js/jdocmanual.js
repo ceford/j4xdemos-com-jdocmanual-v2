@@ -122,23 +122,21 @@ if(toggle) {
 }
 
 /**
- * click on an item in the 'In this page' column to scroll into view
- */
-function scrolltoheading() {
-  document.querySelectorAll("#scroll-panel h2, #scroll-panel h3")[this.getAttribute('data-index')].scrollIntoView(
-  {
-    behavior: 'smooth', block: 'center'
-  });
-}
-
-/**
  * Set the page content by clicking a page item in the index
  */
 let contents = document.getElementsByClassName("content-link");
 
-let getPage = function() {
-  let link_id = this.getAttribute('data-content-id');
-  setPanelContent(link_id, this.innerText);
+let getPage = function(event) {
+  event.preventDefault();
+  // this contains the full url of the link
+  let url = new URL(this);
+  let paramsString = url.search;
+  let searchParams = new URLSearchParams(paramsString);
+  link_id = searchParams.get('id');
+  let jdoc_key = this.getAttribute('data-content-id');
+  setPanelContent(link_id, jdoc_key, this.innerText);
+  // add the highlight class from the selected index item
+  this.parentElement.classList.add("gfmfile-active");
 };
 
 for (let i = 0; i < contents.length; i += 1) {
@@ -146,26 +144,42 @@ for (let i = 0; i < contents.length; i += 1) {
 }
 
 /**
- * fetch the page from source, display in centre and create 'In this page'
+ * Fetch the selected page from source.
  */
-async function setPanelContent(itemId, title) {
+async function setPanelContent(itemId, jdoc_key, title) {
   let document_title = document.getElementById('document-title');
   if (!document_title) {
     return;
   }
+  //document_title.innerHTML = title;
+
+  // remove the highlight class from the selected index item
+  let index_items = document.getElementsByClassName('gfmfile-active');
+  [].forEach.call(index_items, function(el) {
+    el.classList.remove("gfmfile-active");
+  });
+
   let document_panel = document.getElementById('document-panel');
-  //let main_panel = document.getElementById('jdocmanual-main');
   document_panel.innerHTML = `<div class="text-center">
     <div class="spinner-border m-5" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </div>`;
-  let jdocmanual_original = document.getElementById('select-actions-children-preview');
-  let page_path = document.getElementById('jform_page_path');
-  page_path.value = itemId;
+  let toc_panel = document.getElementById('toc-panel');
 
-  setCookie('jdocmanualItemId', itemId, 10);
-  setCookie('jdocmanualTitle', title, 10);
+  let olink = document.getElementById('select-actions-children-preview');
+  olink.href = olink.protocol + '//' + olink.host + '/' + jdoc_key;
+
+  let menu_page_id = document.getElementById('jform_menu_page_id');
+  menu_page_id.value = itemId;
+
+  // alter the cookie {$manual}-{$index_language_code}-{$page_language_code}-{$menu_page_id}
+  let cookie = getCookie('jdocmanual');
+  let cookie_items = cookie.split('-');
+  cookie_items.pop();
+  cookie_items.push(itemId);
+  cookie = cookie_items.join('-');
+  setCookie('jdocmanual', cookie, 10);
 
   // get token from javascript loaded in the page
   const token = Joomla.getOptions('csrf.token', '');
@@ -177,9 +191,7 @@ async function setPanelContent(itemId, title) {
   }
   let url = 'index.php?option=com_jdocmanual&task=content.fillpanel';
   let data = new URLSearchParams();
-  data.append('manual', manualId);
   data.append('item_id', itemId);
-  data.append('page_language_code', lang);
   data.append(token, 1);
   const options = {
     body: data,
@@ -191,38 +203,10 @@ async function setPanelContent(itemId, title) {
     throw new Error (Joomla.Text._('COM_MYCOMPONENT_JS_ERROR_STATUS'));
   } else {
     let result = await response.text();
-
-    document_title.innerText = title;
-    document_panel.innerHTML = result;
-
-    // jdocmanual_active_url is javascript in the page at load time
-    if (jdocmanual_original) {
-      // create the link for the Original button and show it
-      if (jform_page_language_code && jform_page_language_code.value !== 'en') {
-        lang = '/' + jform_page_language_code.value;
-      }
-      let source_url = document.getElementById('jform_index_url').value;
-      source_url = source_url.substring(0, source_url.lastIndexOf('/') + 1);
-      jdocmanual_original.href = source_url + itemId + lang;
-      jdocmanual_original.classList.remove('d-none');
-    }
-
-    // create the Table of Contents
-    if(document.querySelectorAll("#scroll-panel h2, #scroll-panel h3").length > 0) {
-      let html = '<div class="h3 mt-3">' + Joomla.Text._('COM_JDOCMANUAL_JDOCMANUAL_TOC_IN_THIS_PAGE') + '</div><ul>';
-      document.querySelectorAll("#scroll-panel h2, #scroll-panel h3").forEach(function(element) {
-        html += '<li class="toc-link toc-link-' + element.localName + '">' + element.textContent + '</li>';
-      });
-      html += '</ul>';
-      document.querySelector("#toc-panel").innerHTML = html;
-      /* toc */
-      document.querySelectorAll(".toc-link").forEach(function(element, index) {
-        element.setAttribute('data-index', index);
-        element.addEventListener('click', scrolltoheading, false);
-      });
-    }
-    // scroll the content area to the first heading on content load
-    document.querySelectorAll(".toc-link")[0].click();
+    let obj = JSON.parse(result);
+    toc_panel.innerHTML = obj[0];
+    document_panel.innerHTML = obj[1];
+    document_title.innerHTML = obj[2];
   }
 }
 
@@ -251,6 +235,7 @@ function setIndexLocation () {
 /**
  * Set up after page load after change of Manual, etc
  */
+/*
 document.addEventListener('DOMContentLoaded', function(event) {
   // has a jdocmanualReset cookie been set
   if (getCookie('jdocmanualReset')) {
@@ -298,4 +283,4 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
   window.addEventListener("resize", setIndexLocation);
 });
-
+*/

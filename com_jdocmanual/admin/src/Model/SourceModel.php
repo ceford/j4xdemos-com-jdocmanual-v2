@@ -18,6 +18,7 @@ use Joomla\CMS\Form\Form;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Model\AdminModel;
 use Joomla\CMS\Table\Table;
+use Joomla\Database\ParameterType;
 
 /**
  * Item Model for a single source.
@@ -151,9 +152,10 @@ class SourceModel extends AdminModel
 
 		$query = $db->getQuery(true);
 
-		$query->update('`#__jdocmanual_sources`');
-		$query->set('state = ' . $value);
-		$query->where('id IN (' . implode(',', $pks). ')');
+		$query->update($db->quoteName('#__jdocmanual_sources'))
+		->set($db->quoteName('state') . ' = :value');
+		$query->whereIn($db->quoteName('id') , $pks)
+		->bind(':value', $value, ParameterType::INTEGER);
 		$db->setQuery($query);
 		$db->execute();
 	}

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Jdocmanual.Administrator
- * @subpackage  com_ffmedia
+ * @subpackage  com_jdocmanual
  *
  * @copyright   (C) 2021 Clifford E. Ford <https://www.fford.me.uk>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,7 +9,6 @@
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 
 $title = Text::_('COM_JDOCMANUAL_JDOCMANUAL_TOGGLE_JOOMLA_MENU')

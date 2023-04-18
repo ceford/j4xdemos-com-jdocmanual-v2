@@ -75,8 +75,8 @@ class GfmfileModel extends AdminModel
 		if (!empty($pk)) {
 			$query = $db->getQuery(true);
 			$query->select('*')
-				->from('#__jdocmanual_stashes')
-				->where('id = :id')
+				->from($db->quoteName('#__jdocmanual_stashes'))
+				->where($db->quoteName('id') . ' = :id')
 				->bind(':id', $pk, ParameterType::INTEGER);
 			$db->setQuery($query);
 			$item = $db->loadObject();
@@ -95,9 +95,10 @@ class GfmfileModel extends AdminModel
 		// If the language is en and the eid is set use it
 		if ($language == 'en' & !empty($eid)) {
 			$query = $db->getQuery(true);
-			$query->select('a.id AS page_id, a.jdoc_key, a.manual, a.language, a.heading, a.filename, a.display_title')
-				->from('#__jdocmanual_gfmindex AS a')
-				->where('a.id = :id')
+			$query->select($db->quoteName('a.id') . ' AS page_id')
+				->select($db->quoteName(array('a.jdoc_key', 'a.manual', 'a.language', 'a.heading', 'a.filename', 'a.display_title')))
+				->from($db->quoteName('#__jdocmanual_gfmindex') . ' AS a')
+				->where($db->quoteName('a.id') . ' = :id')
 				->bind(':id', $eid, ParameterType::INTEGER);
 			$db->setQuery($query);
 			$item = $db->loadObject();
@@ -109,10 +110,11 @@ class GfmfileModel extends AdminModel
 		// If a translation exists use it.
 		if (!empty($trid)) {
 			$query = $db->getQuery(true);
-			$query->select('a.id AS page_id, a.jdoc_key, a.manual, a.language, a.heading, a.filename, a.display_title')
-				->from('#__jdocmanual_gfmindex AS a')
-				->where('a.id = :id')
-				->bind(':id', $trid, ParameterType::INTEGER);
+			$query->select($db->quoteName('a.id') . ' AS page_id')
+			->select($db->quoteName(array('a.jdoc_key', 'a.manual', 'a.language', 'a.heading', 'a.filename', 'a.display_title')))
+			->from($db->quoteName('#__jdocmanual_gfmindex') . ' AS a')
+			->where($db->quoteName('a.id') . ' = :id')
+			->bind(':id', $trid, ParameterType::INTEGER);
 			$db->setQuery($query);
 			$item = $db->loadObject();
 			$item->id = 0;
@@ -123,10 +125,11 @@ class GfmfileModel extends AdminModel
 		// Otherwise use the English original.
 		if (!empty($eid)) {
 			$query = $db->getQuery(true);
-			$query->select('a.id AS page_id, a.jdoc_key, a.manual, a.language, a.heading, a.filename, a.display_title')
-				->from('#__jdocmanual_gfmindex AS a')
-				->where('a.id = :id')
-				->bind(':id', $eid, ParameterType::INTEGER);
+			$query->select($db->quoteName('a.id') . ' AS page_id')
+			->select($db->quoteName(array('a.jdoc_key', 'a.manual', 'a.language', 'a.heading', 'a.filename', 'a.display_title')))
+			->from($db->quoteName('#__jdocmanual_gfmindex') . ' AS a')
+			->where($db->quoteName('a.id') . ' = :id')
+			->bind(':id', $eid, ParameterType::INTEGER);
 			$db->setQuery($query);
 			$item = $db->loadObject();
 			$item->original_id = $eid;
@@ -155,11 +158,11 @@ class GfmfileModel extends AdminModel
 
 		// Load a stash record if one exists
 		$query = $db->getQuery(true);
-		$query->select('b.id, b.markdown_text')
-			->from('#__jdocmanual_stashes AS b')
-			->where('user_id = :user_id')
-			->where('language = :language')
-			->where('jdoc_key = :jdoc_key')
+		$query->select($db->quoteName(array('b.id', 'b.markdown_text')))
+			->from($db->quoteName('#__jdocmanual_stashes AS b'))
+			->where($db->quoteName('user_id') . ' = :user_id')
+			->where($db->quoteName('language') . ' = :language')
+			->where($db->quoteName('jdoc_key') . ' = :jdoc_key')
 			->bind(':user_id', $user->id, ParameterType::INTEGER)
 			->bind(':language', $language, ParameterType::STRING)
 			->bind(':jdoc_key', $jdoc_key, ParameterType::STRING);
@@ -296,14 +299,14 @@ class GfmfileModel extends AdminModel
 		// check for a duplicate
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
-		$query->select('id')
-			->from('#__jdocmanual_stashes')
-			->where('user_id = :user_id')
-			->where('page_id = :page_id')
-			->where('language = :language')
-			->where('jdoc_key = :jdoc_key')
-			->where('heading = :heading')
-			->where('manual = :manual')
+		$query->select($db->quoteName('id'))
+			->from($db->quoteName('#__jdocmanual_stashes'))
+			->where($db->quoteName('user_id') . ' = :user_id')
+			->where($db->quoteName('page_id') . ' = :page_id')
+			->where($db->quoteName('language') . ' = :language')
+			->where($db->quoteName('jdoc_key') . ' = :jdoc_key')
+			->where($db->quoteName('heading') . ' = :heading')
+			->where($db->quoteName('manual') . ' = :manual')
 			->bind(':user_id', $user->id, ParameterType::INTEGER)
 			->bind(':page_id', $data['page_id'], ParameterType::INTEGER)
 			->bind(':language', $data['language'], ParameterType::STRING)

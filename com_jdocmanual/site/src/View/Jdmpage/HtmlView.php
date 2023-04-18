@@ -29,7 +29,7 @@ class HtmlView extends BaseHtmlView
 	protected $manual;
 	protected $index_language_code;
 	protected $page_language_code;
-	protected $page_path;
+	protected $menu_page_id;
 
 
 	/**

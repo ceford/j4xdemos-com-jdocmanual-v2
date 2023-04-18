@@ -12,6 +12,7 @@ namespace J4xdemos\Component\Jdocmanual\Administrator\Controller;
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\Controller\BaseController;
+use J4xdemos\Component\Jdocmanual\Administrator\Helper\SetupHelper;
 
 /**
  * Media Manager Component Controller
@@ -30,19 +31,29 @@ class DisplayController extends BaseController
 
 	protected $app;
 
+    public function display($cachable = false, $urlparams = [])
+    {
+		$view   = $this->input->get('view', 'jdocmanual');
+		$layout = $this->input->get('layout', 'default');
+		$id     = $this->input->getInt('id');
+        return parent::display();
+	}
+
 	public function selectmanual()
 	{
-		return parent::display();
+		$setuphelper = new SetupHelper;
+		$setuphelper->change_of_manual();
+		return $this->display();
 	}
 
 	public function selectindexlanguage()
 	{
-		return parent::display();
+		return $this->display();
 	}
 
 	public function selectpagelanguage()
 	{
-		return parent::display();
+		return $this->display();
 	}
 
 }

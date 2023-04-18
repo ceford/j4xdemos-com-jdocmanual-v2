@@ -151,9 +151,9 @@ class LanguageModel extends AdminModel
 
 		$query = $db->getQuery(true);
 
-		$query->update('`#__jdocmanual_languages`');
-		$query->set('state = ' . $value);
-		$query->where('id IN (' . implode(',', $pks). ')');
+		$query->update($db->quoteName('#__jdocmanual_languages'))
+		->set($db->quoteName('state') . ' = :value')
+		->whereIn($db->quoteName('id'), $pks);
 		$db->setQuery($query);
 		$db->execute();
 	}

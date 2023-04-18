@@ -117,7 +117,7 @@ class LanguagesModel extends ListModel
 						'a.*'
 						)
 				);
-		$query->from('#__jdocmanual_languages AS a');
+		$query->from($db->quoteName('#__jdocmanual_languages') . ' AS a');
 
 		// Filter by published state
 		$published = (string) $this->getState('filter.published');

@@ -17,21 +17,41 @@ require JPATH_COMPONENT . '/libraries/vendor/autoload.php';
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
+use League\CommonMark\Extension\TableOfContents\TableOfContentsExtension;
 use League\CommonMark\MarkdownConverter;
 
 class Markdown2html
 {
 	public static function go($md) {
 		// Define your configuration, if needed
-		$config = [];
+		$config = [
+			'table_of_contents' => [
+				'html_class' => 'table-of-contents',
+				'position' => 'top',
+				'placeholder' => '[TOC]',
+				'style' => 'bullet',
+				'min_heading_level' => 1,
+				'max_heading_level' => 6,
+				'normalize' => 'relative',
+			],
+			'heading_permalink' => [
+				'html_class' => 'heading-permalink',
+				'insert' => 'after',
+				'symbol' => '¶',
+				'title' => "Permalink",
+				'aria_hidden' => false,
+			],
+		];
 
 		// Configure the Environment with all the CommonMark and GFM parsers/renderers
 		$environment = new Environment($config);
 		$environment->addExtension(new CommonMarkCoreExtension());
 		$environment->addExtension(new GithubFlavoredMarkdownExtension());
+		$environment->addExtension(new HeadingPermalinkExtension());
+		$environment->addExtension(new TableOfContentsExtension());
 
 		$converter = new MarkdownConverter($environment);
-		//echo $converter->convert('Hello GFM!');
 		return $converter->convert($md);
 	}
 
@@ -40,13 +60,13 @@ class Markdown2html
 		$query = $db->getQuery(true);
 		// If id is 0 this must be a new document.
 		if (empty($data['page_id'])) {
-			$query->insert('#__jdocmanual_gfmindex')
-			->set('jdoc_key = :jdoc_key')
-			->set('manual = :manual')
-			->set('language = :language')
-			->set('heading = :heading')
-			->set('filename = :filename')
-			->set('display_title = :display_title')
+			$query->insert($db->quoteName('#__jdocmanual_gfmindex'))
+			->set($db->quoteName('jdoc_key') . ' = :jdoc_key')
+			->set($db->quoteName('manual') . ' = :manual')
+			->set($db->quoteName('language') . ' = :language')
+			->set($db->quoteName('heading') . ' = :heading')
+			->set($db->quoteName('filename') . ' = :filename')
+			->set($db->quoteName('display_title') . ' = :display_title')
 			->bind(':jdoc_key', $data['jdoc_key'], ParameterType::STRING)
 			->bind(':manual', $data['manual'], ParameterType::STRING)
 			->bind(':language', $data['language'], ParameterType::STRING)
@@ -54,12 +74,11 @@ class Markdown2html
 			->bind(':filename', $data['filename'], ParameterType::STRING)
 			->bind(':display_title', $data['display_title'], ParameterType::STRING);
 		} else {
-			$query->update('#__jdocmanual_gfmindex')
-			->where('id = :id')
+			$query->update($db->quoteName('#__jdocmanual_gfmindex'))
+			->where($db->quoteName('id') . ' = :id')
 			->bind(':id', $data['page_id'], ParameterType::INTEGER);
 		}
-		//echo $query->__tostring();die();
-		$query->set('html = :html')
+		$query->set($db->quoteName('html') . ' = :html')
 		->bind(':html', $html, ParameterType::STRING);
 		$db->setQuery($query);
 		$db->execute();

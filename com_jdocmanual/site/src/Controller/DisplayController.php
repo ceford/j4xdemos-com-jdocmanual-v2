@@ -15,6 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
+use J4xdemos\Component\Jdocmanual\Administrator\Helper\SetupHelper;
 
 /**
  * Media Manager Component Controller
@@ -33,33 +34,29 @@ class DisplayController extends BaseController
 
 	protected $app;
 
+    public function display($cachable = false, $urlparams = [])
+    {
+		$view   = $this->input->get('view', 'jdocmanual');
+		$layout = $this->input->get('layout', 'default');
+		$id     = $this->input->getInt('id');
+        return parent::display();
+	}
+
+	public function selectmanual()
+	{
+		$setuphelper = new SetupHelper;
+		$setuphelper->change_of_manual();
+		return $this->display();
+	}
+
 	public function selectindexlanguage()
 	{
-		return parent::display();
+		return $this->display();
 	}
 
 	public function selectpagelanguage()
 	{
-		return parent::display();
-	}
-
-	/**
-	 * Method to get a reference to the current view and load it if necessary.
-	 *
-	 * @param   string  $name    The view name. Optional, defaults to the controller name.
-	 * @param   string  $type    The view type. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for view. Optional.
-	 *
-	 * @return  \Joomla\CMS\MVC\View\AbstractView  Reference to the view or an error.
-	 *
-	 * @since   3.0
-	 * @throws  \Exception
-	 */
-	public function getView($name = '', $type = '', $prefix = '', $config = [])
-	{
-		// Force to load the admin view
-		return parent::getView($name, $type, 'Site', $config);
+		return $this->display();
 	}
 
 	/**

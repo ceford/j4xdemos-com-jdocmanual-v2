@@ -127,12 +127,14 @@ class GfmfilesModel extends ListModel
 		$query->select(
 				$this->getState(
 						'list.select',
+						[
 						'DISTINCT a.*',
-						'b.id AS stash_id'
-						)
+						$db->quoteName('b.id') . ' AS stash_id'
+						]
+					)
 				);
-		$query->from('#__jdocmanual_gfmindex AS a')
-		->leftjoin('#__jdocmanual_stashes AS b ON a.id = b.page_id');
+		$query->from($db->quoteName('#__jdocmanual_gfmindex') . ' AS a')
+		->leftjoin($db->quoteName('#__jdocmanual_stashes') . ' AS b ON ' . $db->quoteName('a.id') . ' = ' . $db->quoteName('b.page_id'));
 
 		// Always filter on English
         $query->where($db->quoteName('a.language') . '= ' . $db->quote('en'));
@@ -144,23 +146,23 @@ class GfmfilesModel extends ListModel
 			//Factory::getApplication()->enqueueMessage('No Language!');
 		}
 		// count the number of stashes and pull requests for this row
-		$query->select('(SELECT count(*) FROM #__jdocmanual_stashes AS c WHERE c.jdoc_key = a.jdoc_key AND a.language = ' . $db->quote('en') . ') AS nstashes');
-		$query->select('(SELECT count(*) FROM #__jdocmanual_stashes AS c WHERE c.jdoc_key = a.jdoc_key AND a.language = ' . $db->quote('en') . ' AND c.pr > 0) AS nprs');
+		$query->select('(SELECT count(*) FROM ' . $db->quoteName('#__jdocmanual_stashes') . ' AS c WHERE ' . $db->quoteName('c.jdoc_key') . ' = ' . $db->quoteName('a.jdoc_key') . ' AND ' . $db->quoteName('a.language') . ' = ' . $db->quote('en') . ') AS nstashes');
+		$query->select('(SELECT count(*) FROM ' . $db->quoteName('#__jdocmanual_stashes') . ' AS c WHERE ' . $db->quoteName('c.jdoc_key') . ' = ' . $db->quoteName('a.jdoc_key') . ' AND ' . $db->quoteName('a.language') . ' = ' . $db->quote('en') . ' AND ' . $db->quoteName('c.pr') . '> 0) AS nprs');
 		// Get the stash id if I have this page stashed.
-		$query->select('(SELECT c.id FROM #__jdocmanual_stashes AS c WHERE c.user_id = '. $user->id .' AND c.jdoc_key = a.jdoc_key AND c.language = ' . $db->quote($language) . ') AS stash_id');
+		$query->select('(SELECT ' . $db->quoteName('c.id') . ' FROM ' . $db->quoteName('#__jdocmanual_stashes') . ' AS c WHERE ' . $db->quoteName('c.user_id') . ' = ' . $user->id . ' AND ' . $db->quoteName('c.jdoc_key') . ' = ' . $db->quoteName('a.jdoc_key') . ' AND ' . $db->quoteName('c.language') . ' = ' . $db->quote($language) . ') AS stash_id');
 
 		// Select by manual.
 		$manual = $this->getState('filter.manual');
 		if (!empty($manual))
 		{
-			$query->where('a.manual = ' . $db->quote($manual));
+			$query->where($db->quoteName('a.manual') . ' = ' . $db->quote($manual));
 		}
 
 		// Select only records where there is a pull request.
 		$pr = $this->getState('filter.pr');
 		if (is_numeric($pr)) {
 			if ($pr == 1) {
-				$query->where('b.pr = 1');
+				$query->where($db->quoteName('b.pr') . ' = 1');
 			}
 		}
 
@@ -171,17 +173,23 @@ class GfmfilesModel extends ListModel
 		if (!empty($search))
 		{
 			$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-			$query->where('(a.jdoc_key LIKE ' . $search . ' OR a.heading LIKE ' . $search . ')');
+			$query->where('(' . $db->quoteName('a.jdoc_key') . ' LIKE ' . $search . ' OR ' . $db->quoteName('a.heading') . ' LIKE ' . $search . ')');
 		}
 
 		// For language other than en find whether a translation exists
 		if ($language != 'en') {
-			$query->leftjoin('#__jdocmanual_gfmindex AS d ON a.jdoc_key = d.jdoc_key AND a.manual = d.manual AND d.language = ' . $db->quote($language))
-			->select('d.id AS translation_id');
+			$query->leftjoin($db->quoteName('#__jdocmanual_gfmindex') . 
+			' AS d ON ' . $db->quoteName('a.jdoc_key') . 
+			' = ' . $db->quoteName('d.jdoc_key') . 
+			' AND ' . $db->quoteName('a.manual') . 
+			' = ' . $db->quoteName('d.manual') . 
+			' AND ' . $db->quoteName('d.language') . 
+			' = ' . $db->quote($language))
+			->select($db->quoteName('d.id') . ' AS translation_id');
 		}
 
 		// Add the list ordering clause.
-		$orderCol  = $this->state->get('list.ordering', 'a.jdoc_key');
+		$orderCol  = $this->state->get('list.ordering', $db->quoteName('a.jdoc_key'));
 		$orderDirn = $this->state->get('list.direction', 'ASC');
 
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
@@ -193,25 +201,23 @@ class GfmfilesModel extends ListModel
 		$user  = Factory::getUser();
 		$db    = $this->getDbo();
 		$query = $db->getQuery(true);
-		$query->select('a.id, a.user_id, a.page_id, a.jdoc_key, a.manual, a.language, a.heading, a.filename, a.pr')
-		->select('b.id AS en_id')
-		->from('#__jdocmanual_stashes AS a')
-		->leftjoin('#__jdocmanual_gfmindex AS b ON a.jdoc_key = b.jdoc_key')
-		->where('a.user_id = ' . $user->id)
-		->where('b.language = ' . $db->quote('en'))
-		->order('id ASC');
+		$query->select($db->quoteName(array('a.id', 'a.user_id', 'a.page_id', 'a.jdoc_key', 'a.manual', 'a.language', 'a.heading', 'a.filename', 'a.pr')))
+		->select($db->quoteName('b.id') . ' AS en_id')
+		->from($db->quoteName('#__jdocmanual_stashes') . ' AS a')
+		->leftjoin($db->quoteName('#__jdocmanual_gfmindex') . ' AS b ON ' . $db->quoteName('a.jdoc_key') . ' = ' . $db->quoteName('b.jdoc_key'))
+		->where($db->quoteName('a.user_id') . ' = ' . $user->id)
+		->where($db->quoteName('b.language') . ' = ' . $db->quote('en'))
+		->order($db->quoteName('a.id') . ' ASC');
 		$db->setQuery($query);
 		return $db->loadObjectList();
 	}
 	public function getPullrequests() {
 		$db    = $this->getDbo();
 		$query = $db->getQuery(true);
-		$query->select('a.id, a.user_id, a.page_id, a.jdoc_key, a.manual, a.language, a.heading, a.filename, a.pr')
-		//->select('b.id AS en_id')
-		->from('#__jdocmanual_stashes AS a')
-		//->leftjoin('#__jdocmanual_gfmindex AS b ON a.jdoc_key = b.jdoc_key')
-		->where('a.pr = 1')
-		->order('a.id ASC');
+		$query->select($db->quoteName(array('a.id', 'a.user_id', 'a.page_id', 'a.jdoc_key', 'a.manual', 'a.language', 'a.heading', 'a.filename', 'a.pr')))
+		->from($db->quoteName('#__jdocmanual_stashes') . ' AS a')
+		->where($db->quoteName('a.pr') . ' = 1')
+		->order($db->quoteName('a.id') . ' ASC');
 		$db->setQuery($query);
 		return $db->loadObjectList();
 	}

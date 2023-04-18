@@ -53,6 +53,10 @@ batch on each batch.
 Keep repeating until the number of fields updated drops to less than
 the batch size.
 
+If an Out of Memory fatal error is triggered, select the browser back
+button, go to the Options and set a lower batch size. Then continue
+with database population.
+
 ### Build the Menus
 
 In the Menu Headings page, select the Build Menus button in the Toolbar.

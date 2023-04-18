@@ -117,7 +117,7 @@ class SourcesModel extends ListModel
 						'a.*'
 						)
 				);
-		$query->from('#__jdocmanual_sources AS a');
+		$query->from($db->quoteName('#__jdocmanual_sources') . ' AS a');
 
 		// Filter by published state
 		$published = (string) $this->getState('filter.published');
@@ -129,7 +129,7 @@ class SourcesModel extends ListModel
 		}
 		elseif ($published === '')
 		{
-			$query->where('(' . $db->quoteName('a.state') . ' = 0 OR ' . $db->quoteName('a.state') . ' = 1)');
+			$query->whereIn($db->quoteName('a.state'), array(0, 1));
 		}
 
 		// Filter by search in title.
@@ -137,14 +137,14 @@ class SourcesModel extends ListModel
 
 		if (!empty($search))
 		{
-			$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-			$query->where('(a.title LIKE ' . $search . ')');
+			$search = '%' . str_replace(' ', '%', trim($search) . '%');
+			$query->where($db->quoteName('a.title') . ' LIKE :search')
+			->bind(':search', $search, ParameterType::STRING);
 		}
 
 		// Add the list ordering clause.
 		$orderCol  = $this->state->get('list.ordering', 'a.id');
 		$orderDirn = $this->state->get('list.direction', 'ASC');
-
 		$query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
 
 		return $query;

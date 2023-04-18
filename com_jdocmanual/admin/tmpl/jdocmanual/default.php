@@ -37,14 +37,13 @@ if (strpos($url, '/proxy/') !== false)
 
 ?>
 
-<form action="<?php echo Route::_('index.php?option=com_jdocmanual'); ?>"
+<form action="index.php?option=com_jdocmanual&view=jdocmanual"
 	method="post" name="adminForm" id="adminForm">
 	<input type="hidden" name="task" id="task" value="">
 	<input type="hidden" name="jform[manual]" id="jform_manual" value="<?php echo $this->manual; ?>">
 	<input type="hidden" name="jform[index_language_code]" id="jform_index_language_code" value="<?php echo $this->index_language_code; ?>">
 	<input type="hidden" name="jform[page_language_code]" id="jform_page_language_code" value="<?php echo $this->page_language_code; ?>">
-	<input type="hidden" name="jform[page_path]" id="jform_page_path" value="<?php echo $this->page_path; ?>">
-	<input type="hidden" name="jform[index_url]" id="jform_index_url" value="<?php echo $this->source->index_url; ?>">
+	<input type="hidden" name="jform[menu_page_id]" id="jform_menu_page_id" value="<?php echo $this->menu_page_id; ?>">
 
 	<?php echo HTMLHelper::_('form.token'); ?>
 </form>

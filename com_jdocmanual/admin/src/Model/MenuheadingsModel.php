@@ -127,11 +127,11 @@ class MenuheadingsModel extends ListModel
 						'a.*'
 						)
 				);
-		$query->from('#__jdocmanual_menu_headings AS a');
+		$query->from($db->quoteName('#__jdocmanual_menu_headings') . ' AS a');
 
 		// Filter by manual
 		$manual = $this->getState('filter.manual');
-		$query->where('a.manual = :manual')
+		$query->where($db->quoteName('a.manual') . ' = :manual')
 		->bind(':manual', $manual, ParameterType::STRING);
 
 		// Always filter by English.
@@ -139,13 +139,23 @@ class MenuheadingsModel extends ListModel
 		// Filter by language
 		$language = $this->getState('filter.language');
 		$english = 'en';
-		$query->where('a.language = :language')
+		$query->where($db->quoteName('a.language') . ' = :language')
 		->bind(':language', $english, ParameterType::STRING);
 
 		// If not English add a join
 		if ($language != 'en') {
-			$query->select('(SELECT c.id FROM #__jdocmanual_menu_headings AS c WHERE c.manual = '. $db->quote($manual) . ' AND language = ' . $db->quote($language) . ' AND c.heading = a.heading) AS translation_id');
-			$query->select('(SELECT c.display_title FROM #__jdocmanual_menu_headings AS c WHERE c.manual = '. $db->quote($manual) . ' AND language = ' . $db->quote($language) . ' AND c.heading = a.heading) AS translation_display_title');
+			$query->select('(SELECT ' . $db->quoteName('c.id') . 
+			' FROM ' . $db->quoteName('#__jdocmanual_menu_headings') . ' AS c WHERE ' .
+			$db->quoteName('c.manual') . ' = '. $db->quote($manual) . 
+			' AND ' . $db->quoteName('language') . ' = ' . $db->quote($language) . 
+			' AND ' . $db->quoteName('c.heading') . ' = ' . $db->quoteName('a.heading') . 
+			' AS translation_id');
+			$query->select('(SELECT ' . $db->quoteName('c.display_title') .
+			' FROM ' . $db->quoteName('#__jdocmanual_menu_headings') . ' AS c WHERE ' .
+			$db->quoteName('c.manual') . ' = '. $db->quote($manual) . 
+			' AND ' . $db->quoteName('language') . ' = ' . $db->quote($language) . 
+			' AND ' . $db->quoteName('c.heading') . ' = ' . $db->quoteName('a.heading') . 
+			' AS translation_display_title');
 		}
 
 		// Filter by published state

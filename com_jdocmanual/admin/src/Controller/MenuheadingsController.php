@@ -345,7 +345,8 @@ EOF;
 		// escape any " character in the link
 		$link = str_replace('"', '', $link);
 		$html = ''; //'<li><span class="icon-file-alt icon-fw icon-jdocmanual" aria-hidden="true"></span>';
-		$route = 'index.php?option=com_jdocmanual&view=jdocmanual&id=' . $gfmfile_id;
+		// Including the view here causes the sef router not to break!
+		$route = 'index.php?option=com_jdocmanual&id=' . $gfmfile_id;
 		$html .= '<li id="gfmfile-' . $gfmfile_id . '">';
 		$html .= '<a href="' . $route . '" class="content-link" data-content-id="' . $jdoc_key . '">';
 		$html .= $value . '</a></li>' . "\n";

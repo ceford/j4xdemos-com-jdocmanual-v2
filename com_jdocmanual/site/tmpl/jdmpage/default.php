@@ -25,3 +25,11 @@ $wa = $this->document->getWebAssetManager();
 <?php endif; ?>
 
 <p>A page for search results - not yet implemented.</p>
+
+<details class="jdm">
+<summary>Getting Started</summary>
+<ul>
+<li id="gfmfile-1"><a href="index.php?option=com_jdocmanual&id=1" class="content-link" data-content-id="J4.x:Introduction_to_Joomla!">Introduction to Joomla!</a></li>
+
+</ul>
+</details>

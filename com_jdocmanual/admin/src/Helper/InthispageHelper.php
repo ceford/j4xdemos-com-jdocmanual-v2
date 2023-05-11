@@ -21,9 +21,16 @@ class InthispageHelper {
 		$dom = new \DOMDocument('1.0', 'utf-8');
 		// DOMDocument::loadHTML will treat your string as being in ISO-8859-1.
 		$dom->loadHTML('<?xml encoding="utf-8" ?>' . $html);
-		$uls = $dom->getElementsByTagName('ul');
-		$in_this_page = $dom->saveHTML($uls->item(0));
-		$content = $uls[0]->parentNode->removeChild($uls[0]);
+		// If there are headings there will be a table of contents
+		$xpath = new \DOMXPath($dom);
+		$uls = $xpath->query("//ul[@class='table-of-contents']");
+		$in_this_page = '';
+		if (!empty($uls)) {
+			foreach($uls as $ul) {
+				$in_this_page = $ul->nodeValue;
+					$content = $ul->parentNode->removeChild($ul);
+			}
+		}
 		$content = $dom->saveHTML();
 		$in_this_page = '<h2 class="toc">' . Text::_('COM_JDOCMANUAL_JDOCMANUAL_TOC_IN_THIS_ARTICLE') . '</h2>' . "\n" . $in_this_page;
 		return array($in_this_page, $content);

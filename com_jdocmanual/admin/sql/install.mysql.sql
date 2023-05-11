@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
+ß∂CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `jdoc_key` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
   `manual` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -862,7 +862,7 @@ CREATE TABLE IF NOT EXISTS `#__jdocmanual_menu_headings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=716 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `#__jdocmanual_menu_headings` (`id`, `manual`, `language`, `heading`, `display_title`) VALUES
+INSERT IGNORE INTO `#__jdocmanual_menu_headings` (`id`, `manual`, `language`, `heading`, `display_title`) VALUES
 (1, 'user', 'en', 'getting-started', 'Getting Started'),
 (2, 'user', 'en', 'articles', 'Articles'),
 (3, 'user', 'en', 'articles-access', 'Articles - Access'),

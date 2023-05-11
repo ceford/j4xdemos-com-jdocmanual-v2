@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" method="upgrade">
-	<name>COM_JDOCMANUAL</name>
+	<name>com_jdocmanual</name>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
 	<authorUrl>jdocmanual.org</authorUrl>

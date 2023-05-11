@@ -46,9 +46,17 @@ class JdocmanualModel extends ListModel
 		$dom = new \DOMDocument('1.0', 'utf-8');
 		// DOMDocument::loadHTML will treat your string as being in ISO-8859-1.
 		$dom->loadHTML('<?xml encoding="utf-8" ?>' . $row->html);
-		$uls = $dom->getElementsByTagName('ul');
-		$in_this_page = $dom->saveHTML($uls->item(0));
-		$content = $uls[0]->parentNode->removeChild($uls[0]);
+
+		// If there are headings there will be a table of contents
+		$xpath = new \DOMXPath($dom);
+		$uls = $xpath->query("//ul[@class='table-of-contents']");
+		$in_this_page = '';
+		if (!empty($uls)) {
+			foreach($uls as $ul) {
+				$in_this_page = $ul->nodeValue;
+				$content = $ul->parentNode->removeChild($ul);
+			}
+		}
 		$content = $dom->saveHTML();
 		return array($row->display_title, $in_this_page, $content);
 	}

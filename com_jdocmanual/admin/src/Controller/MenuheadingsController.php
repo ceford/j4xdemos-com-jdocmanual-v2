@@ -245,7 +245,7 @@ class MenuheadingsController extends FormController
 							->bind(':heading', $heading, ParameterType::STRING)
 							->bind(':filename', $filename, ParameterType::STRING)
 							->bind(':display_title', $display_title, ParameterType::STRING);
-						echo "{$article}/{$manual}/{$heading}/{$filename}/{$display_title} " . $query->__tostring();die();
+						//echo "{$article}/{$manual}/{$heading}/{$filename}/{$display_title} " . $query->__tostring();die();
 						$db->setQuery($query);
 						$db->execute();
 						$summary_text .= "English item added for file: {$filename}<br>\n";

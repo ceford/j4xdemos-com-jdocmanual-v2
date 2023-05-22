@@ -26,10 +26,8 @@ class InthispageHelper {
 		$uls = $xpath->query("//ul[@class='table-of-contents']");
 		$in_this_page = '';
 		if (!empty($uls)) {
-			foreach($uls as $ul) {
-				$in_this_page = $ul->nodeValue;
-					$content = $ul->parentNode->removeChild($ul);
-			}
+			$in_this_page = $dom->saveHTML($uls->item(0));
+			$test = $uls[0]->parentNode->removeChild($uls[0]);
 		}
 		$content = $dom->saveHTML();
 		$in_this_page = '<h2 class="toc">' . Text::_('COM_JDOCMANUAL_JDOCMANUAL_TOC_IN_THIS_ARTICLE') . '</h2>' . "\n" . $in_this_page;

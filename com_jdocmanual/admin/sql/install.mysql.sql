@@ -1,4 +1,4 @@
-ß∂CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
+CREATE TABLE IF NOT EXISTS `#__jdocmanual_gfmindex` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `jdoc_key` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
   `manual` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,

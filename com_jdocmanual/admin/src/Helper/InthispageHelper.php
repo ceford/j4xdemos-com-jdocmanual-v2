@@ -25,7 +25,7 @@ class InthispageHelper {
 		$xpath = new \DOMXPath($dom);
 		$uls = $xpath->query("//ul[@class='table-of-contents']");
 		$in_this_page = '';
-		if (!empty($uls)) {
+		if (count($uls) > 0) {
 			$in_this_page = $dom->saveHTML($uls->item(0));
 			$test = $uls[0]->parentNode->removeChild($uls[0]);
 		}

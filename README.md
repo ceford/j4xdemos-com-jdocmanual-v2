@@ -50,7 +50,8 @@ it. Install it if you can. Otherwise see the `workarounds` below.
 In your Downloads folder issue the following command:
 
 ```
-git clone https://github.com/ceford/j4xdemos-data-jdocmanual.git```
+git clone https://github.com/ceford/j4xdemos-data-jdocmanual.git
+```
 
 This will create a folder named `j4xdemos-data-jdocmanual`. Move the
 folder to somewhere in your file system and rename it to something
@@ -69,7 +70,8 @@ Remember the path to your data folder!
 Go to this url:
 
 ```
-https://github.com/ceford/j4xdemos-data-jdocmanual```
+https://github.com/ceford/j4xdemos-data-jdocmanual
+```
 
 Select the green `Code` button and the the `Download ZIP` option.
 When downloaded you may unzip it and move it to wherever required.

@@ -83,15 +83,19 @@ Remember the path to your data folder!
 
 ## Jdocmanual installation
 
-The Jdocmanual package consists of a component and a plugin. You can
-install them individually or together as a package.
+The Jdocmanual package consists of a component and a plugin. For now
+they are installed individuall and not as a package. To obtain each,
+go to the following sites, select the green Code button and then the
+`Download ZIP` option and save the downloads.
 
-**ToDo:** Explain where to get the package.
+```
+https://github.com/ceford/j4xdemos-com-jdocmanual-v2
+https://github.com/ceford/j4xdemos-plg-jdocmanualcli
+```
 
-The Jdocmanual package may be installed in the same way as any
-other component. After installation select the
-`Components/Jdocmanual/Manual` menu from the Administrator menu.
-You should see a page with Setup instructions.
+The items are installed in the same way as any other component. After
+installation select the `Components/Jdocmanual/Manual` menu from the
+Administrator menu. You should see a page with Setup instructions.
 
 ## Set the Markdown data source location
 
@@ -99,19 +103,18 @@ Select the `Options` button in the Toolbar and enter the absolute
 path to your data source in the `Git source` field of the `Settings`
 tab. You did remember it!
 
-Save & Close
+`Save & Close`
 
 The Setup page should indicate that your data source is set (but
 this is not verified).
 
 ## Enable the Plugin
 
-To populate the database you need to install the plg_jdocmanual plugin.
-This may have been installed with the Jdocmanual package or separately. It
-is not enabled by default as it is only used to populate the database
+To populate the database you need to enable the plg_jdocmanual plugin.
+It is not enabled by default as it is only used to populate the database
 from the command line.
 
-- Go to the list of system plugins, find the Jdocmanul plugin and enable it.
+Go to the list of system plugins, find the Jdocmanul plugin and enable it.
 
 ## Database Population - Command Line Method
 
@@ -122,16 +125,22 @@ and perhaps much longer on slow hosts. Proceed as follows:
 Open a terminal window and cd into the cli folder within your Joomla
 installation root. Here is an example:
 
-```cd /home/username/public_html/optional-path-to-joomla/cli```
+```
+cd /home/username/public_html/optional-path-to-joomla/cli
+```
 
 Issue the command to convert data from the markdown source files to html
 in the #__jdm_articles table of the database:
 
-```php joomla.php jdocmanual:action buildarticles all all```
+```
+php joomla.php jdocmanual:action buildarticles all all
+```
 
 Issue the command to create the menus:
 
-```php joomla.php jdocmanual:action buildmenus all all```
+```
+php joomla.php jdocmanual:action buildmenus all all
+```
 
 If you encounter **out of memory** problems or **out of time**
 problems you can replace the first `all` parameter with a single
@@ -145,7 +154,12 @@ database manual by manual and/or language by language.
 If you do not have access to the command line, common with shared
 hosting, you should be able to call these commands from a cron job.
 Make sure you give the full path to the php executable, example:
-```/usr/local/opt/php@8.1/bin/php```
+
+```
+/usr/local/opt/php@8.1/bin/php /home/username/path/to/joomla/cli/joomla.php \
+jdocmanual:action buildarticles all all
+```
+
 You need to find out where the php executable is located on your
 host operating system.
 

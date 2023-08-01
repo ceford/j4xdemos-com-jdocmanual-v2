@@ -165,15 +165,16 @@ host operating system.
 
 ## Database Population - Import Method
 
-The Jdocmanual repository includes two sql.zip files that you can download
-and import with phpMyAdmin. They are in the resources folder. The tables in
-these files are imported as #__jdm_articles and #__jdm_menus. You need to
-delete your existing (empty) tables and rename the newly imported tables
-using the database prefix for your site.
+There are two sql.zip files available that you can download and import with
+phpMyAdmin. The tables in these files are imported as #__jdm_articles and
+#__jdm_menus. You need to delete your existing (empty) tables and rename
+the newly imported tables using the database prefix for your site.
+
+The files are available from ...
 
 ## Test
 
-That is it! You should now select the Jdocmanual/Manual Joomla Administrator
+That is it! Select the Joomla Administrator Components/Jdocmanual/Manual
 menu item and expect to see the default Manual selected in English.
 
 ## Site Menu

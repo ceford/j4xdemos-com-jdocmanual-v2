@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @package     Jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Site
  *
- * @copyright   Copyright (C) 2021 Clifford E Ford
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -14,7 +15,8 @@ namespace J4xdemos\Component\Jdocmanual\Site\Controller;
 use J4xdemos\Component\Jdocmanual\Administrator\Controller\ContentController as AdmincontentController;
 
 /**
- * Jdocmanual Component Controller
+ * Jdocmanual Content Controller
+ * Used by the Site Javascript but uses the admin controller.
  *
  * @since  4.0.0
  */

@@ -10,7 +10,7 @@
 			size="64"
 			required="true"
 		 />
-	
+
 		<field
 			name="state"
 			type="list"
@@ -27,35 +27,21 @@
 		</field>
 
 		<field
+			name="manual"
+			type="text"
+			label="COM_JDOCMANUAL_SOURCE_MANUAL_LABEL"
+			description="COM_JDOCMANUAL_SOURCE_MANUAL_DESC"
+			size="16"
+			required="true"
+		/>
+
+		<field
 			name="id"
 			type="text"
 			label="JGLOBAL_FIELD_ID_LABEL"
 			class="readonly"
 			default="0"
 			readonly="true"
-		/>
-
-		<field
-			name="index_url"
-			type="text"
-			label="COM_JDOCMANUAL_SOURCE_INDEX_URL_LABEL"
-			description="COM_JDOCMANUAL_SOURCE_INDEX_URL_DESC"
-			required="true"
-		 />
-
-		<field
-			name="page_url"
-			type="text"
-			label="COM_JDOCMANUAL_SOURCE_PAGE_URL_LABEL"
-			description="COM_JDOCMANUAL_SOURCE_PAGE_URL_DESC"
-			required="true"
-		 />
-	
-		<field
-			name="mdmenu"
-			type="textarea"
-			label="COM_JDOCMANUAL_SOURCE_MDMENU"
-			rows="100"
 		/>
 
 	</fieldset>

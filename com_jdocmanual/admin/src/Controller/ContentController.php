@@ -1,15 +1,14 @@
 <?php
+
 /**
- * @package     Jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
- * @copyright   Copyright (C) 2021 Clifford E Ford
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 namespace J4xdemos\Component\Jdocmanual\Administrator\Controller;
-
-\defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\BaseController;
@@ -18,34 +17,45 @@ use Joomla\CMS\Session\Session;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\InthispageHelper;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\SetupHelper;
 
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
 /**
- * Jdocmanual Component Controller
+ * Controller to load a single article in the Jdocmanual page
+ * Called from jdocmanual.js line 193
  *
- * @since  4.0.0
+ * @since  1.0.0
  */
 class ContentController extends BaseController
 {
-	protected $app;
+    /**
+     * Get the article from the database and return title and content.
+     *
+     * @return  $string     json encoded data
+     *
+     * @since   1.0.0
+     */
+    public function fillpanel()
+    {
+        $item_id = $this->app->input->get('item_id', 1, 'int');
+        $setuphelper = new SetupHelper();
+        $item_id = $setuphelper->realid($item_id);
 
-	public function fillpanel()
-	{
-		$item_id = $this->app->input->get('item_id', 1, 'int');
-		$setuphelper = new SetupHelper;
-		$item_id = $setuphelper->realid($item_id);
+        $db = Factory::getContainer()->get('DatabaseDriver');
 
-		$db = Factory::getDbo();
-		// is the required page already downloaded?
-		$query = $db->getQuery(true);
-		$query->select($db->quoteName(array('display_title','html')))
-			->from($db->quoteName('#__jdocmanual_gfmindex'))
-			->where($db->quoteName('id') . ' = :id')
-			->bind(':id', $item_id, ParameterType::INTEGER);
-		$db->setQuery($query);
-		$row = $db->loadObject();
-		// separate the Table of Contents - return array(toc, content);
-		$content = InthispageHelper::doToc($row->html);
-		array_push($content, $row->display_title);
-		echo json_encode($content);
-		jexit();
-	}
+        $query = $db->getQuery(true);
+        $query->select($db->quoteName(array('display_title','html')))
+            ->from($db->quoteName('#__jdm_articles'))
+            ->where($db->quoteName('id') . ' = :id')
+            ->bind(':id', $item_id, ParameterType::INTEGER);
+        $db->setQuery($query);
+        $row = $db->loadObject();
+
+        // separate the Table of Contents - return array(toc, content);
+        $content = InthispageHelper::doToc($row->html);
+        array_push($content, $row->display_title);
+        echo json_encode($content);
+        jexit();
+    }
 }

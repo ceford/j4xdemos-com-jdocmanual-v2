@@ -209,11 +209,11 @@ h2.toc {
 .container-banner {
 	margin: 0 !important;
 }
-
+/*
 .btn-toolbar {
 	margin-bottom: 1rem;
 }
-
+*/
 blockquote{
   margin:50px auto;
   font-style:italic;
@@ -323,6 +323,7 @@ pre, code, source, tt {
 
 details.jdm {
 	margin: 0;
+	max-width: 250px;
 }
 
 .table-of-contents {
@@ -337,7 +338,7 @@ details.jdm {
 	vertical-align: super;
 }
 
-li.gfmfile-active {
+li.article-active {
 	background-color: lightcyan;
 	border-right: 4px solid #000099;
 	border-left: 4px solid #000099;

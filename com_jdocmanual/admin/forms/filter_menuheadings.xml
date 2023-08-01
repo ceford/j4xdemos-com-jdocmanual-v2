@@ -17,7 +17,7 @@
 			onchange="this.form.submit();"
 			default="user"
 			>
-			<option value="0">COM_JDOCMANUAL_JDOCMANUAL_MANUAL_SELECT</option>
+			<option value="0">COM_JDOCMANUAL_MANUAL_MANUAL_SELECT</option>
 			<option value="user">User</option>
 			<option value="help">Help</option>
 			<option value="developer">Developer</option>
@@ -29,11 +29,11 @@
 			label="Language"
 			onchange="this.form.submit();"
 			default="en"
-			query = "SELECT code, title FROM `#__jdocmanual_languages` WHERE state = 1 ORDER BY title ASC"
+			query = "SELECT code, title FROM `#__jdm_languages` WHERE state = 1 ORDER BY title ASC"
 			key_field="code"
 			value_field="title"
 			>
-			<option value="0">COM_JDOCMANUAL_JDOCMANUAL_LANGUAGE_SELECT</option>
+			<option value="0">COM_JDOCMANUAL_MANUAL_LANGUAGE_SELECT</option>
 		</field>
 
 		<field

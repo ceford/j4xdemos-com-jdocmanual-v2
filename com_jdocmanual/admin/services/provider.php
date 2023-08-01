@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     jdocmanual.Administrator
  * @subpackage  com_jdocmanual
@@ -29,34 +30,33 @@ use J4xdemos\Component\Jdocmanual\Administrator\Extension\JdocmanualComponent;
  */
 return new class implements ServiceProviderInterface
 {
-	/**
-	 * Registers the service provider with a DI container.
-	 *
-	 * @param   Container  $container  The DI container.
-	 *
-	 * @return  void
-	 *
-	 * @since   4.0.0
-	 */
-	public function register(Container $container)
-	{
-		$container->registerServiceProvider(new CategoryFactory('\\J4xdemos\\Component\\Jdocmanual'));
-		$container->registerServiceProvider(new MVCFactory('\\J4xdemos\\Component\\Jdocmanual'));
-		$container->registerServiceProvider(new ComponentDispatcherFactory('\\J4xdemos\\Component\\Jdocmanual'));
-		$container->registerServiceProvider(new RouterFactory('\\J4xdemos\\Component\\Jdocmanual'));
-		$container->set(
-			ComponentInterface::class,
-			function (Container $container)
-			{
-				$component = new JdocmanualComponent($container->get(ComponentDispatcherFactoryInterface::class));
+    /**
+     * Registers the service provider with a DI container.
+     *
+     * @param   Container  $container  The DI container.
+     *
+     * @return  void
+     *
+     * @since   4.0.0
+     */
+    public function register(Container $container)
+    {
+        $container->registerServiceProvider(new CategoryFactory('\\J4xdemos\\Component\\Jdocmanual'));
+        $container->registerServiceProvider(new MVCFactory('\\J4xdemos\\Component\\Jdocmanual'));
+        $container->registerServiceProvider(new ComponentDispatcherFactory('\\J4xdemos\\Component\\Jdocmanual'));
+        $container->registerServiceProvider(new RouterFactory('\\J4xdemos\\Component\\Jdocmanual'));
+        $container->set(
+            ComponentInterface::class,
+            function (Container $container) {
+                $component = new JdocmanualComponent($container->get(ComponentDispatcherFactoryInterface::class));
 
-				//$component->setRegistry($container->get(Registry::class));
-				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
-				//$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
-				$component->setRouterFactory($container->get(RouterFactoryInterface::class));
+                //$component->setRegistry($container->get(Registry::class));
+                $component->setMVCFactory($container->get(MVCFactoryInterface::class));
+                //$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
+                $component->setRouterFactory($container->get(RouterFactoryInterface::class));
 
-				return $component;
-			}
-		);
-	}
+                return $component;
+            }
+        );
+    }
 };

@@ -1,18 +1,21 @@
 <?php
+
 /**
- * @package     Jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
- * @copyright   (C) 2021 Clifford E Ford
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 namespace J4xdemos\Component\Jdocmanual\Administrator\Table;
 
-\defined('_JEXEC') or die;
-
 use Joomla\CMS\Table\Table;
 use Joomla\Database\DatabaseDriver;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * Featured Table class.
@@ -21,15 +24,15 @@ use Joomla\Database\DatabaseDriver;
  */
 class SourceTable extends Table
 {
-	/**
-	 * Constructor
-	 *
-	 * @param   DatabaseDriver  $db  Database connector object
-	 *
-	 * @since   1.6
-	 */
-	public function __construct(DatabaseDriver $db)
-	{
-		parent::__construct('#__jdocmanual_sources', 'id', $db);
-	}
+    /**
+     * Constructor
+     *
+     * @param   DatabaseDriver  $db  Database connector object
+     *
+     * @since   1.6
+     */
+    public function __construct(DatabaseDriver $db)
+    {
+        parent::__construct('#__jdm_manuals', 'id', $db);
+    }
 }

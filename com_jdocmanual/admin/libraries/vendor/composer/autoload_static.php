@@ -12,58 +12,58 @@ class ComposerStaticInit97eafcfdbd2438191c8b609b706a07c4
     );
 
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\EventDispatcher\\' => 20,
         ),
-        'L' => 
+        'L' =>
         array (
             'League\\Config\\' => 14,
             'League\\CommonMark\\' => 18,
         ),
-        'J' => 
+        'J' =>
         array (
             'Jfcherng\\Utility\\' => 17,
             'Jfcherng\\Diff\\' => 14,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dflydev\\DotAccessData\\' => 22,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Php80\\' => 
+        'Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Psr\\EventDispatcher\\' => 
+        'Psr\\EventDispatcher\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/event-dispatcher/src',
         ),
-        'League\\Config\\' => 
+        'League\\Config\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/config/src',
         ),
-        'League\\CommonMark\\' => 
+        'League\\CommonMark\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/commonmark/src',
         ),
-        'Jfcherng\\Utility\\' => 
+        'Jfcherng\\Utility\\' =>
         array (
             0 => __DIR__ . '/..' . '/jfcherng/php-mb-string/src',
             1 => __DIR__ . '/..' . '/jfcherng/php-color-output/src',
         ),
-        'Jfcherng\\Diff\\' => 
+        'Jfcherng\\Diff\\' =>
         array (
             0 => __DIR__ . '/..' . '/jfcherng/php-sequence-matcher/src',
             1 => __DIR__ . '/..' . '/jfcherng/php-diff/src',
         ),
-        'Dflydev\\DotAccessData\\' => 
+        'Dflydev\\DotAccessData\\' =>
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
@@ -141,7 +141,6 @@ class ComposerStaticInit97eafcfdbd2438191c8b609b706a07c4
             $loader->prefixLengthsPsr4 = ComposerStaticInit97eafcfdbd2438191c8b609b706a07c4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit97eafcfdbd2438191c8b609b706a07c4::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit97eafcfdbd2438191c8b609b706a07c4::$classMap;
-
         }, null, ClassLoader::class);
     }
 }

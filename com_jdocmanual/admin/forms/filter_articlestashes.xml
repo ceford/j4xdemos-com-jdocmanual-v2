@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="J4xdemos\Component\Jdocmanual\Administrator\Field">
+	<fields name="filter">
+
+		<field
+			name="manual"
+			type="list"
+			label="COM_JDOCMANUAL_GMFILES_MANUAL"
+			onchange="this.form.submit();"
+			default="user"
+			>
+			<option value="">COM_JDOCMANUAL_ARTICLES_MANUAL_SELECT</option>
+			<option value="help">COM_JDOCMANUAL_ARTICLES_HELP_PAGES</option>
+			<option value="user">COM_JDOCMANUAL_ARTICLES_USER_MANUAL</option>
+			<option value="developer">COM_JDOCMANUAL_ARTICLES_DEVELOPER_MANUAL</option>
+		</field>
+
+		<field
+			name="language"
+			type="list"
+			label="COM_JDOCMANUAL_ARTICLES_TRANSLATION_LANGUAGE_SELECT"
+			onchange="this.form.submit();"
+			default="en"
+			>
+			<option value="">COM_JDOCMANUAL_ARTICLES_TRANSLATION_LANGUAGE_SELECT</option>
+			<option value="de">de German</option>
+			<option value="en">en English</option>
+			<option value="es">es Spanish</option>
+			<option value="fr">fr French</option>
+			<option value="nl">nl Dutch</option>
+			<option value="pt">pt Portuguese</option>
+			<option value="pt-br">pt-br Portuguese Brazil</option>
+			<option value="ru">ru Russian</option>
+		</field>
+
+		<field
+			name="pr"
+			type="list"
+			label="JSTATUS"
+			default=""
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_JDOCMANUAL_ARTICLES_PR_PENDING</option>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="COM_JDOCMANUAL_SOURCES_FILTER_SEARCH_LABEL"
+			description="COM_JDOCMANUAL_SOURCES_FILTER_SEARCH_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+	</fields>
+
+	<fields name="list">
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			statuses="*,0,1,2,-2"
+			onchange="this.form.submit();"
+			default="a.path ASC, a.filename ASC"
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="a.heading ASC, a.filename ASC">COM_JDOCMANUAL_ARTICLES_HEADING_AND_FILENAME_ASC</option>
+			<option value="a.jdoc_key ASC">COM_JDOCMANUAL_ARTICLES_INDEX_KEY_ASC</option>
+			<option value="a.jdoc_key DESC">COM_JDOCMANUAL_ARTICLES_INDEX_KEY_DESC</option>
+			<option value="a.heading ASC">COM_JDOCMANUAL_ARTICLES_HEADING_ASC</option>
+			<option value="a.heading DESC">COM_JDOCMANUAL_ARTICLES_HEADING_DESC</option>
+			<option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="a.id DESC">JGRID_HEADING_ID_DESC</option>
+		</field>
+
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

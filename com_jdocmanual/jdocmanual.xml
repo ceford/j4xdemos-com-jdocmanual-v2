@@ -7,7 +7,7 @@
 	<creationDate>October 2021</creationDate>
 	<copyright>(C) 2021 Clifford E Ford. All rights reserved.</copyright>
 	<license>GNU General Public License version 3</license>
-	<version>0.9.0</version>
+	<version>0.10.0</version>
 	<description><![CDATA[Display Joomla documentation from the Joomla Docs site]]></description>
 	<namespace path="src">J4xdemos\Component\Jdocmanual</namespace>
 
@@ -42,6 +42,7 @@
 	</files>
 
 	<administration>
+        <file>jdocmanualcli.xml</file>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
@@ -62,16 +63,22 @@
 				XML and be parsed by the installer
 			-->
 			<menu
-				link="option=com_jdocmanual&amp;view=jdocmanual"
+				link="option=com_jdocmanual&amp;view=manual"
 				img="default"
 			>
 				com_jdocmanual_manual
 			</menu>
 			<menu
-				link="option=com_jdocmanual&amp;view=gfmfiles"
+				link="option=com_jdocmanual&amp;view=articlestashes"
 				img="default"
 			>
-				com_jdocmanual_gfmfiles
+				com_jdocmanual_articlestashes
+			</menu>
+			<menu
+				link="option=com_jdocmanual&amp;view=menustashes"
+				img="default"
+			>
+				com_jdocmanual_menustashes
 			</menu>
 			<menu
 				link="option=com_jdocmanual&amp;view=languages"

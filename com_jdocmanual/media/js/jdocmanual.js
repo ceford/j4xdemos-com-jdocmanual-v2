@@ -1,7 +1,7 @@
 
 /**
  * setCookie for consistent cookie handling
- * 
+ *
  */
 function setCookie(name, value, days) {
   let expires = "";
@@ -136,7 +136,7 @@ let getPage = function(event) {
   let jdoc_key = this.getAttribute('data-content-id');
   setPanelContent(link_id, jdoc_key, this.innerText);
   // add the highlight class from the selected index item
-  this.parentElement.classList.add("gfmfile-active");
+  this.parentElement.classList.add("article-active");
 };
 
 for (let i = 0; i < contents.length; i += 1) {
@@ -154,9 +154,9 @@ async function setPanelContent(itemId, jdoc_key, title) {
   //document_title.innerHTML = title;
 
   // remove the highlight class from the selected index item
-  let index_items = document.getElementsByClassName('gfmfile-active');
+  let index_items = document.getElementsByClassName('article-active');
   [].forEach.call(index_items, function(el) {
-    el.classList.remove("gfmfile-active");
+    el.classList.remove("article-active");
   });
 
   let document_panel = document.getElementById('document-panel');
@@ -167,8 +167,9 @@ async function setPanelContent(itemId, jdoc_key, title) {
   </div>`;
   let toc_panel = document.getElementById('toc-panel');
 
-  let olink = document.getElementById('select-actions-children-preview');
-  olink.href = olink.protocol + '//' + olink.host + '/' + jdoc_key;
+  // Removed preview link for now
+  //let olink = document.getElementById('select-actions-children-preview');
+  //olink.href = olink.protocol + '//' + olink.host + '/' + jdoc_key;
 
   let menu_page_id = document.getElementById('jform_menu_page_id');
   menu_page_id.value = itemId;

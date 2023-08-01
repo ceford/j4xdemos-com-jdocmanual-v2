@@ -1,81 +1,169 @@
 # JDOC Manual
 
-This component displays pages obtained from the Joomla documentation 
-site. The pages have been converted from Mediawiki format markdown to
-GitHub flavoured markdown and then saved as HTML for delivery to end
-users. Only pages relevant to Joomla 4 are included. The pages are 
-organised into three Manuals aimed at different types of user:
+This component displays pages prepared in Markdon format in a Manual
+layout with an index of pages to the left, the content of a page in
+the centre and the the contents of the current page to the right.
+
+It was designed to work with data obtained from the Joomla documentation
+site. However, it can work with any documentation source in Markdown format.
+
+For demonstration purposes, Joomla documentation pages relevant to
+Joomla 4 and 5 have been converted from Mediawiki format markdown to
+GitHub flavoured markdown. The pages are organised into three Manuals
+aimed at different types of user:
 
 - The Joomla 4 User Manual
 - The Joomla 4 Help Pages
 - The Joomla 4 Developer Manual
 
-## Installation
-
-The JDOC Manual component may be installed in the same way as any 
-other component. However, it needs extra set up to create a working
-installation.
-
-**Important:** Updating git repository markdown files uses the PHP exec 
+A method is provided to update the source Markdown files. However,
+Updating git repository markdown files uses the PHP exec
 function which is unlikely to be allowed on shared hosting.
 
-### Markdown files
+## Jdocmanual Backward Compatibility
 
-Obtain the Markdown format files and store them in a place outside the
-web tree but in a place that can be read by php. This works on linux 
-systems:
+Version 0.10.0 of Jdocmanual is not compatible with previous versions.
+Please uninstall any previous version before installing Version 0.10.0 or later.
 
-/home/username/j4docs - place to store the markdown files.
-/home/username/public_html - this is your public web tree.
+The post-installation database population method has also changed. The tables
+are now built from the Markdown and Text source files.
 
-The markdown files are here: https://github.com/ceford/j4xdemos-data-jdocmanual
+Note that the major version number is 0, which means this software has
+not reached release status. Future changes of minor version may not be
+backwards compatible.
 
-### Set the Options
+## Installation
 
-With the JDocmanual component installed and Markdown files uploaded,
-select the Options button from the GFM Files administrator page.
+Jdocmanual requires Joomla 4 or 5. It is best used on a system which
+allows command line access. Some functionality will not be available
+on shared hosting due to the use of the php exec function to commit
+changes to git.
 
-Set the Git source path to the location on your server where your
-markdown files are located. The path should end with manuals/
+## Install git
 
-Set the Update HTML batch size to a suitable value: 100 for shared
-hosting or 250 for your own laptop or VPS.
+Git is aversion control system available for most platforms. It is
+not essential for Jdocmanual and you don't need to know much about
+it. Install it if you can. Otherwise see the `workarounds` below.
+
+## Obtain the Markdown data files
+
+In your Downloads folder issue the following command:
+
+```
+git clone https://github.com/ceford/j4xdemos-data-jdocmanual.git```
+
+This will create a folder named `j4xdemos-data-jdocmanual`. Move the
+folder to somewhere in your file system and rename it to something
+simple. It contains a `manuals` folder used by Jdocmanual
+to retrieve source files.
+
+The data files can be anywhere in your file system that you have write
+access to. It is best not to put the files in your web tree. For
+example, you could place the files in `/home/username/data/manuals/``.
+The last element of the path must be `/manuals/` with a trailing `/`.
+
+Remember the path to your data folder!
+
+### Non-git Workaround
+
+Go to this url:
+
+```
+https://github.com/ceford/j4xdemos-data-jdocmanual```
+
+Select the green `Code` button and the the `Download ZIP` option.
+When downloaded you may unzip it and move it to wherever required.
+On a shared hsting system you can upload the zip file, unzip it
+there and then move the `manuals` folder to a location outside your
+web tree.
+
+Remember the path to your data folder!
+
+## Jdocmanual installation
+
+The Jdocmanual package consists of a component and a plugin. You can
+install them individually or together as a package.
+
+**ToDo:** Explain where to get the package.
+
+The Jdocmanual package may be installed in the same way as any
+other component. After installation select the
+`Components/Jdocmanual/Manual` menu from the Administrator menu.
+You should see a page with Setup instructions.
+
+## Set the Markdown data source location
+
+Select the `Options` button in the Toolbar and enter the absolute
+path to your data source in the `Git source` field of the `Settings`
+tab. You did remember it!
 
 Save & Close
 
-### Populate the database with HTML
+The Setup page should indicate that your data source is set (but
+this is not verified).
 
-In the GFM Files page select the Update HTML button many times! The
-Markdown files are converted to HTML and stored in the database in
-batches of from 50 to 250. You will see the starting number of the 
-batch on each batch.
+## Enable the Plugin
 
-Keep repeating until the number of fields updated drops to less than
-the batch size.
+To populate the database you need to install the plg_jdocmanual plugin.
+This may have been installed with the Jdocmanual package or separately. It
+is not enabled by default as it is only used to populate the database
+from the command line.
 
-If an Out of Memory fatal error is triggered, select the browser back
-button, go to the Options and set a lower batch size. Then continue
-with database population.
+- Go to the list of system plugins, find the Jdocmanul plugin and enable it.
 
-### Build the Menus
+## Database Population - Command Line Method
 
-In the Menu Headings page, select the Build Menus button in the Toolbar.
-This will build the menus in each language for the selected manual. The
-default is the User manual.
+The database jdm_articles and jdm_menus tables are populated by reading
+the the data files. This can take a long time - at least a couple of minutes
+and perhaps much longer on slow hosts. Proceed as follows:
 
-Select the Help manual and then the Build Menus button.
+Open a terminal window and cd into the cli folder within your Joomla
+installation root. Here is an example:
 
-Select the Developer manual and then the Build Menus button.
+```cd /home/username/public_html/optional-path-to-joomla/cli```
+
+Issue the command to convert data from the markdown source files to html
+in the #__jdm_articles table of the database:
+
+```php joomla.php jdocmanual:action buildarticles all all```
+
+Issue the command to create the menus:
+
+```php joomla.php jdocmanual:action buildmenus all all```
+
+If you encounter **out of memory** problems or **out of time**
+problems you can replace the first `all` parameter with a single
+manual name, one of `developer`, `help` or `user` and/or the second
+`all` parameter with a language code, one of
+`de en es fr nl pt pt-br ru`. Using that method you can build the
+database manual by manual and/or language by language.
+
+## Database Population - Cron Method
+
+If you do not have access to the command line, common with shared
+hosting, you should be able to call these commands from a cron job.
+Make sure you give the full path to the php executable, example:
+```/usr/local/opt/php@8.1/bin/php```
+You need to find out where the php executable is located on your
+host operating system.
+
+## Database Population - Import Method
+
+The Jdocmanual repository includes two sql.zip files that you can download
+and import with phpMyAdmin. They are in the resources folder. The tables in
+these files are imported as #__jdm_articles and #__jdm_menus. You need to
+delete your existing (empty) tables and rename the newly imported tables
+using the database prefix for your site.
 
 ## Test
 
-That is it! You should now select the Manual menu item and expect to see
-the default Manual selected in English.
+That is it! You should now select the Jdocmanual/Manual Joomla Administrator
+menu item and expect to see the default Manual selected in English.
 
 ## Site Menu
 
 If you want to show the Manuals on the site just create a JDOC Manual
-menu item. Note the single page is for search results but it has not 
+menu item. Note the single page is for search results but it has not
 been implemented.
 
 You may wish to place the menu on a page without side modules so that
@@ -96,7 +184,7 @@ PHP 8.1 is required by ...
 
 ## User Groups
 
-If you wish to allow others to help maintain content you need to 
+If you wish to allow others to help maintain content you need to
 create two User Groups:
 
 - Translator: allowed to edit content in English and other languages.
@@ -117,7 +205,7 @@ Home Dashboard with some modules not relevant for Jdocmanual.
 ### Turn off the Help menu item.
 
 Go to the list of Administrator modules and find the Administrator
-Menu module.In the Module tab set the Help Menu item to Hide.
+Menu module. In the Module tab set the Help Menu item to Hide.
 
 ### Unpublish modules
 
@@ -146,7 +234,7 @@ Save and Close
 
 At the moment, a Translator does not have access to the Commit button
 In the GFM Edit page toolbar so cannot update the git repository or
-displayed page. Otherwise each can use all other features. 
+displayed page. Otherwise each can use all other features.
 
 Also, at the moment it is relatively easy to use an existing manual or
 create a new one but it is not so easy to change the structure of an

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     jdocmanual.Administrator
  * @subpackage  com_jdocmanual
@@ -6,6 +7,7 @@
  * @copyright   Copyright (C) 2021 Clifford E Ford
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
+
 declare(strict_types=1);
 
 \defined('_JEXEC') or die;

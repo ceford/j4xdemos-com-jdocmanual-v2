@@ -20,7 +20,7 @@ function committer(event) {
 		if(confirm('This action will commit and merge the changes in this PR.')) {
 			let form = document.getElementById('adminForm');
 			let task = document.getElementById('task');
-			task.value = 'gfmfile.commit';
+			task.value = document.getElementById('toolbar-gfm-commit').getAttribute('task');
 			form.submit();
 			return true;
 		}

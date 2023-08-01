@@ -1,0 +1,36 @@
+main {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right:auto;
+  background-color: #f9f9ff;
+  border: 1px solid navy;
+  padding: 1rem;
+}
+
+.language-substitute {
+  background-color: beige;
+  padding: 1rem;
+  border: 1px solid;
+}
+
+.table-of-contents {
+  padding: .5em .5em .5em 2em;
+  float: right;
+  margin: .5em 0 1.25em .75em;
+  border: 1px solid #ccc;
+  background-color: #f6f6f6;
+  width: auto;
+  max-width: 375px;
+  word-wrap: normal;
+  font-size: .875em;
+}
+
+.heading-permalink {
+    color: #fff;
+    text-decoration: none;
+}
+
+&:hover {
+    color: #4d82dc;
+    text-decoration: underline;
+}

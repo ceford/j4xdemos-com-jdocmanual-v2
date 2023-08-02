@@ -37,6 +37,7 @@
 
 	<files folder="site">
 		<folder>language</folder>
+        <folder>proxy</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>

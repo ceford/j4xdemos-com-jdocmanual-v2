@@ -14,8 +14,8 @@ require_once __DIR__ . '/key-index.php';
 list ($version, $key) = explode(':', $keyref, 2);
 
 // check that the $version is Help50
-if ('Help50'  !== $version) {
-    "\nThere is no Help data available here for Joomla version {$version}\n";
+if (!('Help40'  !== $version || 'Help50'  !== $version)) {
+    echo "\nThere is no Help data available here for Joomla version {$version}\n";
     exit();
 }
 

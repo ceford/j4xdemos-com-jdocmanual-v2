@@ -172,6 +172,27 @@ the newly imported tables using the database prefix for your site.
 
 The files are available from ...
 
+## Help Proxy Server
+
+If you wish to run your own Help server you can use the following
+CLI command to generate Help files:
+
+```
+php joomla.php jdocmanual:action buildproxy all all
+```
+
+The help files will be place in a folder named `proxy` in the root
+of your site. You then need to copy help.css, index.php and
+key-index.php from components/com_jdocmanual/proxy to your
+site_root/proxy (ToDo: automate this).
+
+Then change the $help url in your configuration.php file to point to
+you server. Example:
+
+```
+	public $helpurl = 'https://localhost/path-to-site-root/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
+```
+
 ## Test
 
 That is it! Select the Joomla Administrator Components/Jdocmanual/Manual

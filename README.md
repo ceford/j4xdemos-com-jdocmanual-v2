@@ -1,14 +1,14 @@
 # JDOC Manual
 
-This component displays pages prepared in Markdown format in a Manual
+This component displays pages prepared in Markdon format in a Manual
 layout with an index of pages to the left, the content of a page in
-the centre and the contents of the current page to the right.
+the centre and the the contents of the current page to the right.
 
 It was designed to work with data obtained from the Joomla documentation
 site. However, it can work with any documentation source in Markdown format.
 
 For demonstration purposes, Joomla documentation pages relevant to
-Joomla 4 and 5 have been converted from Mediawiki markup syntax to
+Joomla 4 and 5 have been converted from Mediawiki format markdown to
 GitHub flavoured markdown. The pages are organised into three Manuals
 aimed at different types of user:
 
@@ -36,12 +36,12 @@ backwards compatible.
 
 Jdocmanual requires Joomla 4 or 5. It is best used on a system which
 allows command line access. Some functionality will not be available
-on shared hosting due to the use of the PHP exec function to commit
+on shared hosting due to the use of the php exec function to commit
 changes to git.
 
 ## Install git
 
-Git is a version control system available for most platforms. It is
+Git is aversion control system available for most platforms. It is
 not essential for Jdocmanual and you don't need to know much about
 it. Install it if you can. Otherwise see the `workarounds` below.
 
@@ -49,7 +49,7 @@ it. Install it if you can. Otherwise see the `workarounds` below.
 
 In your Downloads folder issue the following command:
 
-```bash
+```
 git clone https://github.com/ceford/j4xdemos-data-jdocmanual.git
 ```
 
@@ -60,7 +60,7 @@ to retrieve source files.
 
 The data files can be anywhere in your file system that you have write
 access to. It is best not to put the files in your web tree. For
-example, you could place the files in `/home/username/data/manuals/`.
+example, you could place the files in `/home/username/data/manuals/``.
 The last element of the path must be `/manuals/` with a trailing `/`.
 
 Remember the path to your data folder!
@@ -69,11 +69,11 @@ Remember the path to your data folder!
 
 Go to this url:
 
-```text
+```
 https://github.com/ceford/j4xdemos-data-jdocmanual
 ```
 
-Select the green `Code` button and the `Download ZIP` option.
+Select the green `Code` button and the the `Download ZIP` option.
 When downloaded you may unzip it and move it to wherever required.
 On a shared hsting system you can upload the zip file, unzip it
 there and then move the `manuals` folder to a location outside your
@@ -84,11 +84,11 @@ Remember the path to your data folder!
 ## Jdocmanual installation
 
 The Jdocmanual package consists of a component and a plugin. For now
-they are installed individually and not as a package. To obtain each,
+they are installed individuall and not as a package. To obtain each,
 go to the following sites, select the green Code button and then the
 `Download ZIP` option and save the downloads.
 
-```text
+```
 https://github.com/ceford/j4xdemos-com-jdocmanual-v2
 https://github.com/ceford/j4xdemos-plg-jdocmanualcli
 ```
@@ -114,31 +114,31 @@ To populate the database you need to enable the plg_jdocmanual plugin.
 It is not enabled by default as it is only used to populate the database
 from the command line.
 
-Go to the list of system plugins, find the Jdocmanual plugin and enable it.
+Go to the list of system plugins, find the Jdocmanul plugin and enable it.
 
 ## Database Population - Command Line Method
 
 The database jdm_articles and jdm_menus tables are populated by reading
-the data files. This can take a long time - at least a couple of minutes
+the the data files. This can take a long time - at least a couple of minutes
 and perhaps much longer on slow hosts. Proceed as follows:
 
 Open a terminal window and cd into the cli folder within your Joomla
 installation root. Here is an example:
 
-```bash
+```
 cd /home/username/public_html/optional-path-to-joomla/cli
 ```
 
-Issue the command to convert data from the markdown source files to HTML
+Issue the command to convert data from the markdown source files to html
 in the #__jdm_articles table of the database:
 
-```bash
+```
 php joomla.php jdocmanual:action buildarticles all all
 ```
 
 Issue the command to create the menus:
 
-```bash
+```
 php joomla.php jdocmanual:action buildmenus all all
 ```
 
@@ -155,7 +155,7 @@ If you do not have access to the command line, common with shared
 hosting, you should be able to call these commands from a cron job.
 Make sure you give the full path to the php executable, example:
 
-```text
+```
 /usr/local/opt/php@8.1/bin/php /home/username/path/to/joomla/cli/joomla.php \
 jdocmanual:action buildarticles all all
 ```
@@ -177,11 +177,11 @@ The files are available from ...
 If you wish to run your own Help server you can use the following
 CLI command to generate Help files:
 
-```bash
+```
 php joomla.php jdocmanual:action buildproxy all all
 ```
 
-The help files will be placed in a folder named `proxy` in the root
+The help files will be place in a folder named `proxy` in the root
 of your site. You then need to copy help.css, index.php and
 key-index.php from components/com_jdocmanual/proxy to your
 site_root/proxy (ToDo: automate this).
@@ -189,8 +189,8 @@ site_root/proxy (ToDo: automate this).
 Then change the $help url in your configuration.php file to point to
 you server. Example:
 
-```bash
-    public $helpurl = 'https://localhost/path-to-site-root/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
+```
+	public $helpurl = 'https://localhost/path-to-site-root/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 ```
 
 ## Test
@@ -212,7 +212,7 @@ the full width of the page may be used for content.
 Two libraries are included in the component libraries folder.
 
 In the edition that features source management two libraries are
-required, one to convert markdown to HTML and a second to provide
+required, one to convert markdown to html and a second to provide
 a diff view of proposed changes to source files.
 
 - league/commonmark is used to convert Markdown to HTML.
@@ -240,7 +240,7 @@ Translator item. Set Administrator login to Allowed.
 If you now login as a user in the Translator group you will see the
 Home Dashboard with some modules not relevant for Jdocmanual.
 
-### Turn off the Help menu item
+### Turn off the Help menu item.
 
 Go to the list of Administrator modules and find the Administrator
 Menu module. In the Module tab set the Help Menu item to Hide.
@@ -259,12 +259,10 @@ The Home Dashboard will now be empty for a Translator.
 
 From the JDOC Manual, Manual page select the Options button. In the
 Permissions list select Translator and set the following to Allowed:
-
 - Access Administration Interface
 - Edit
 
 Select Committer and set the following to Allowed:
-
 - Create
 - Delete
 

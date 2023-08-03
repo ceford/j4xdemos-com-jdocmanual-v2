@@ -140,6 +140,7 @@ class ManualModel extends ListModel
         if (empty($menu) && $index_language == 'en') {
             return;
         }
+
         if (empty($menu) && $index_language != 'en') {
             // try again with English
             $query = $db->getQuery(true);

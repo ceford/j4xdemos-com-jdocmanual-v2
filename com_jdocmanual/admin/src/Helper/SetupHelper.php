@@ -128,13 +128,25 @@ class SetupHelper
         ->where($db->quoteName('manual') . ' = :manual')
         ->where($db->quoteName('language') . ' = :language')
         ->bind(':manual', $jform['manual'], ParameterType::STRING)
-        ->bind(':language', $jform['page_language_code'], ParameterType::STRING);
+        ->bind(':language', $jform['index_language_code'], ParameterType::STRING);
 
         $db->setQuery($query);
         $menu = $db->loadResult();
+
+        // If there was no result and the index_language_code was not en try again.
+        if (empty($menu)) {
+            $query = $db->getQuery(true);
+            $query->select($db->quoteName('menu'))
+            ->from($db->quoteName('#__jdm_menus'))
+            ->where($db->quoteName('manual') . ' = :manual')
+            ->where($db->quoteName('language') . ' = ' . $db->quote('en'))
+            ->bind(':manual', $jform['manual'], ParameterType::STRING);
+
+            $db->setQuery($query);
+            $menu = $db->loadResult();
+        }
         $pattern = '/<li id="article-(\d{1,}).*/';
         $result = preg_match($pattern, $menu, $matches);
-
         $jform['menu_page_id'] = $matches[1];
         $app->input->set('jform', $jform);
     }

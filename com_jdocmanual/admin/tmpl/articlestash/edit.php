@@ -22,7 +22,8 @@ $wa->useScript('keepalive')
     ->useScript('com_jdocmanual.stash');
 // Register and attach a custom item in one run
 //$wa->registerAndUseStyle('diff-table', 'com_jdocmanual/css/diff-table.css', [], [], []);
-$wa->useStyle('com_jdocmanual.diff-table');
+$wa->useStyle('com_jdocmanual.diff-table')
+->usestyle('com_jdocmanual.jdocmanual');
 
 $wa->registerAndUseStyle(
     'pp',

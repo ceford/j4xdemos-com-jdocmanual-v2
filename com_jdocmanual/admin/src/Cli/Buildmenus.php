@@ -162,6 +162,7 @@ class Buildmenus
             echo "Warning {$manual}/{$language} - file does not exists: {$menu_headings}\n";
             $menu_headings = $this->gfmfiles_path . $manual . '/en/menu-headings.ini';
         }
+
         // Read in the menu_index, format: advanced-administrator=Erweiterter Administrator
         $menu_headings = file_get_contents($menu_headings);
         $lines = preg_split("/((\r?\n)|(\r\n?))/", $menu_headings);
@@ -245,6 +246,7 @@ class Buildmenus
                 $html .= $this->accordionItem($row->id, $row->display_title);
             }
         }
+        $html .= $this->accordionEnd();
 
         echo "Summary: {$manual}/{$language} translated/total: {$total_translated}/{$total_articles}\n";
         $this->saveMenu($manual, $language, $html);

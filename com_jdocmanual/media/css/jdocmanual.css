@@ -53,10 +53,22 @@
 	padding-top: 1rem;
 }
 
-#document-panel img {
+#document-panel img, #preview img {
 	display: inline-block;
 	max-width: 100%;
 	height: auto;
+}
+
+#preview .table-of-contents {
+    padding: .5em .5em .5em 2em;
+    float: right;
+    margin: .5em 0 1.25em .75em;
+    border: 1px solid #ccc;
+    background-color: #f6f6f6;
+    width: auto;
+    max-width: 375px;
+    word-wrap: normal;
+    font-size: .875em;
 }
 
 .panel {

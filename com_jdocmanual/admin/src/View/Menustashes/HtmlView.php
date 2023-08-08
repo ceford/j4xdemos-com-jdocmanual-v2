@@ -114,7 +114,8 @@ class HtmlView extends BaseHtmlView
         $this->activeFilters = $model->getActiveFilters();
         $this->mystashes     = $model->getMystashes();
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
+
         // Change this to use custom group.
         if ($user->authorise('core.admin', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) {
             $this->pull_requests = $model->getPullrequests();
@@ -141,7 +142,7 @@ class HtmlView extends BaseHtmlView
     {
         $tmpl = Factory::getApplication()->input->getCmd('tmpl');
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         // Get the toolbar object instance
         $toolbar = Toolbar::getInstance('toolbar');

@@ -193,7 +193,7 @@ class MenustashesModel extends ListModel
      */
     public function getMystashes()
     {
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
         $db    = $this->getDbo();
         $query = $db->getQuery(true);
         $query->select($db->quoteName(array('a.id', 'a.user_id', 'a.manual', 'a.pr')))

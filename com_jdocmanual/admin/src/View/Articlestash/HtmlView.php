@@ -139,7 +139,7 @@ class HtmlView extends BaseHtmlView
     {
         $tmpl = Factory::getApplication()->input->getCmd('tmpl');
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         Factory::getApplication()->input->set('hidemainmenu', true);
 
@@ -186,7 +186,7 @@ class HtmlView extends BaseHtmlView
                 ->task('articlestash.pullrequestcancel');
                 $bar->appendButton($button);
 
-                if ($user->authorise('core.create', 'com_jdocmanual')) {
+                if ($user->authorise('jdocmanual.publish', 'com_jdocmanual')) {
                     $button = (new BasicButton('gfm-commit'))
                     ->text('COM_JDOCMANUAL_ARTICLES_COMMIT')
                     ->buttonClass('btn btn-success')

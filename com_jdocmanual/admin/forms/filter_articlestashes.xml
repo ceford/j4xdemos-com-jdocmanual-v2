@@ -5,7 +5,7 @@
 		<field
 			name="manual"
 			type="sql"
-			label="COM_JDOCMANUAL_GMFILES_MANUAL"
+			label="COM_JDOCMANUAL_ARTICLES_MANUAL_SELECT"
 			onchange="this.form.submit();"
 			default="user"
 			query = "SELECT manual, title FROM `#__jdm_manuals` WHERE state = 1 ORDER BY title ASC"

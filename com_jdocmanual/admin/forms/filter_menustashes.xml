@@ -4,15 +4,15 @@
 
 		<field
 			name="manual"
-			type="list"
-			label="COM_JDOCMANUAL_GMFILES_MANUAL"
+			type="sql"
+			label="COM_JDOCMANUAL_ARTICLES_MANUAL_SELECT"
 			onchange="this.form.submit();"
 			default="user"
+			query = "SELECT manual, title FROM `#__jdm_manuals` WHERE state = 1 ORDER BY title ASC"
+			key_field="manual"
+			value_field="title"
 			>
 			<option value="">COM_JDOCMANUAL_ARTICLES_MANUAL_SELECT</option>
-			<option value="help">COM_JDOCMANUAL_ARTICLES_HELP_PAGES</option>
-			<option value="user">COM_JDOCMANUAL_ARTICLES_USER_MANUAL</option>
-			<option value="developer">COM_JDOCMANUAL_ARTICLES_DEVELOPER_MANUAL</option>
 		</field>
 
 		<field

@@ -97,7 +97,7 @@ class MenustashModel extends AdminModel
 
     public function getStash($language, $jdoc_key)
     {
-        $user = Factory::getUser();
+        $user  = $this->getCurrentUser();
         $db = $this->getDbo();
 
         // Load a stash record if one exists
@@ -145,7 +145,7 @@ class MenustashModel extends AdminModel
      */
     public function validate($form, $data, $group = null)
     {
-        if (!Factory::getUser()->authorise('core.admin', 'com_jdocmanual')) {
+        if (!$this->getCurrentUser()->authorise('core.admin', 'com_jdocmanual')) {
             if (isset($data['rules'])) {
                 unset($data['rules']);
             }
@@ -171,7 +171,7 @@ class MenustashModel extends AdminModel
      */
     public function save($data)
     {
-        $user = Factory::getApplication()->getIdentity();
+        $user  = $this->getCurrentUser();
         $data['user_id'] = $user->id;
         $table      = $this->getTable();
         $context    = $this->option . '.' . $this->name;
@@ -241,7 +241,7 @@ class MenustashModel extends AdminModel
      */
     protected function isduplicate($data)
     {
-        $user = Factory::getApplication()->getIdentity();
+        $user  = $this->getCurrentUser();
         // check for a duplicate
         $db = $this->getDbo();
         $query = $db->getQuery(true);

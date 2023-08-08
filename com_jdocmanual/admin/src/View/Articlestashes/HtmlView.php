@@ -115,9 +115,10 @@ class HtmlView extends BaseHtmlView
         $this->mystashes     = $model->getMystashes();
         $this->newpages      = $model->getNewpages();
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
+
         // Change this to use custome group.
-        if ($user->authorise('core.admin', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) {
+        if ($user->authorise('jdocmanual.publish', 'com_jdocmanual')) {
             $this->pull_requests = $model->getPullrequests();
         }
 
@@ -142,7 +143,7 @@ class HtmlView extends BaseHtmlView
     {
         $tmpl = Factory::getApplication()->input->getCmd('tmpl');
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         // Get the toolbar object instance
         $toolbar = Toolbar::getInstance('toolbar');

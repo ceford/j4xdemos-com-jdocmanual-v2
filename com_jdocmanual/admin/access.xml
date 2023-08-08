@@ -7,5 +7,6 @@
 		<action name="core.create" title="JACTION_CREATE" />
 		<action name="core.delete" title="JACTION_DELETE" />
 		<action name="core.edit" title="JACTION_EDIT" />
+		<action name="jdocmanual.publish" title="COM_JDOCMANUAL_ACCESS_PUBLISH" />
 	</section>
 </access>

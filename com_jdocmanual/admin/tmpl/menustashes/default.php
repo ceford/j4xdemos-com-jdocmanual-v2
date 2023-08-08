@@ -35,7 +35,7 @@ $states = array (
 
 // Use the filter language or 'en'
 $language = $this->state->get('filter.language') ? : 'en';
-$user  = Factory::getUser();
+$user  = $this->getCurrentUser();
 
 $menustash_edit_route = 'index.php?option=com_jdocmanual&task=menustash.edit&id=';
 

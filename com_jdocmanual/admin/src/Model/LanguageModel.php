@@ -41,7 +41,7 @@ class LanguageModel extends AdminModel
     protected function canDelete($record)
     {
         if (!empty($record->id)) {
-            return Factory::getUser()->authorise('core.delete', 'com_jdocmanual.language.' . (int) $record->id);
+            return $this->getCurrentUser()->authorise('core.delete', 'com_jdocmanual.language.' . (int) $record->id);
         }
 
         return false;
@@ -59,7 +59,7 @@ class LanguageModel extends AdminModel
      */
     protected function canEditState($record)
     {
-        $user = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         // Check for existing article.
         if (!empty($record->id)) {

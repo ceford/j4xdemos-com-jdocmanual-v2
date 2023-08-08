@@ -35,7 +35,8 @@ $states = array (
 
 // Use the filter language or 'en'
 $language = $this->state->get('filter.language') ? : 'en';
-$user  = Factory::getUser();
+$user  = $this->getCurrentUser();
+
 $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id=';
 
 ?>
@@ -370,8 +371,8 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
             <tbody>
                 <?php
                     $n = count($this->pull_requests);
-                foreach ($this->pull_requests as $i => $stash) :
-                    ?>
+                    foreach ($this->pull_requests as $i => $stash) :
+                ?>
                 <tr class="row<?php echo $i % 2; ?>">
                     <td>
                         <a href="<?php echo Route::_($stash_edit_route . $stash->id); ?>">

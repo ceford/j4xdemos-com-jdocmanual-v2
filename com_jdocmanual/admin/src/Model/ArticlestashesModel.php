@@ -293,6 +293,7 @@ class ArticlestashesModel extends ListModel
                     'a.language',
                     'a.heading',
                     'a.filename',
+                    'a.display_title',
                     'a.pr'
                 )
             )

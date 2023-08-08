@@ -132,7 +132,7 @@ class HtmlView extends BaseHtmlView
     {
         $tmpl = Factory::getApplication()->input->getCmd('tmpl');
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         // Get the toolbar object instance
         $toolbar = Toolbar::getInstance('toolbar');

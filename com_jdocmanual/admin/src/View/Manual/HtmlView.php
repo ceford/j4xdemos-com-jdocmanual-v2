@@ -231,7 +231,7 @@ class HtmlView extends BaseHtmlView
             ToolbarHelper::title('Setup Notes', 'book');
         }
 
-        $user  = Factory::getUser();
+        $user  = $this->getCurrentUser();
 
         if ($user->authorise('core.admin', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) {
             $toolbar->preferences('com_jdocmanual');

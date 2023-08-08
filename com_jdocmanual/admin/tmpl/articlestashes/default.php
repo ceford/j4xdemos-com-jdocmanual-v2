@@ -83,8 +83,8 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                 <th scope="col">
                                     <?php echo HTMLHelper::_(
                                         'searchtools.sort',
-                                        'COM_JDOCMANUAL_ARTICLES_INDEX_KEY',
-                                        'a.jdoc_key',
+                                        'COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE',
+                                        'a.display_title',
                                         $listDirn,
                                         $listOrder
                                     ); ?>
@@ -176,7 +176,7 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                 </td>
                                 <?php endif; ?>
                                 <td>
-                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_INDEX_KEY') . ': ' . $item->jdoc_key; ?>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_INDEX_KEY') . ': ' . $item->display_title; ?>
                                     <br>
                                     <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_HEADING') . ': ' . $item->heading; ?>
                                     <br>
@@ -203,6 +203,81 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
     <?php echo HTMLHelper::_('uitab.endTab'); ?>
 
 </form>
+<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'newpages', Text::_('COM_JDOCMANUAL_ARTICLE_TAB_NEWPAGES')); ?>
+<?php if (empty($this->newpages)) : ?>
+                    <div class="alert alert-info">
+                        <span class="fa fa-info-circle" aria-hidden="true"></span>
+                        <span class="sr-only"><?php echo Text::_('INFO'); ?></span>
+                        <?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
+                    </div>
+                <?php else : ?>
+                    <table class="table" id="gfmList">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">
+                                    <?php echo Text::_('COM_JDOCMANUAL_MANUAL_ACTIONS'); ?>
+                                </th>
+                                <th scope="col">
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE'); ?>,
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_MANUAL'); ?>,
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_LANGUAGE'); ?>,
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_HEADING'); ?>,
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_FILENAME'); ?>
+                                </th>
+                                <th scope="col">
+                                    <?php echo HTMLHelper::_(
+                                        'searchtools.sort',
+                                        'JGRID_HEADING_ID',
+                                        'a.id',
+                                        $listDirn,
+                                        $listOrder
+                                    ); ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            $n = count($this->newpages);
+                            foreach ($this->newpages as $i => $item) :
+                        ?>
+                            <tr class="row<?php echo $i % 2; ?>">
+                                <td class="text-center">
+                                    <?php
+                                        $action = Text::_('COM_JDOCMANUAL_ARTICLE_EDIT_STASH');
+                                        $sid = $item->id;
+                                        $soptions = '';
+                                        $style = 'btn-success';
+                                    ?>
+                                    <a href="<?php echo Route::_($stash_edit_route . $sid . $soptions); ?>"
+                                        class="btn btn-sm <?php echo $style; ?>">
+                                        <?php echo $action; ?>
+                                    </a>
+                                </td>
+                                <td>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE') . ': ' . $item->display_title; ?>
+                                    <br>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_MANUAL') . ': ' . $item->manual; ?>,
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_LANGUAGE') . ': ' . $item->language; ?>
+                                    <br>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_HEADING') . ': ' . $item->heading; ?>
+                                    <br>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_FILENAME') . ': ' . $item->filename; ?>
+                                </td>
+                                <td class="d-none d-md-table-cell">
+                                    <?php echo $item->id; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <?php // load the pagination. ?>
+                    <?php echo $this->pagination->getListFooter(); ?>
+
+                <?php endif; ?>
+
 <?php echo HTMLHelper::_('uitab.endTab'); ?>
 
 <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'mystashes', Text::_('COM_JDOCMANUAL_ARTICLE_TAB_MY_STASHES')); ?>
@@ -236,12 +311,12 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
             <tbody>
                 <?php
                     $n = count($this->mystashes);
-                foreach ($this->mystashes as $i => $stash) :
-                    ?>
+                    foreach ($this->mystashes as $i => $stash) :
+                ?>
                 <tr class="row<?php echo $i % 2; ?>">
                     <td>
                         <a href="<?php echo Route::_($stash_edit_route . $stash->id); ?>">
-                    <?php echo $stash->jdoc_key; ?>
+                    <?php echo $stash->display_title; ?>
                         </a>
                     </td>
                     <td class="text-center">
@@ -300,7 +375,7 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                 <tr class="row<?php echo $i % 2; ?>">
                     <td>
                         <a href="<?php echo Route::_($stash_edit_route . $stash->id); ?>">
-                        <?php echo $stash->jdoc_key; ?>
+                        <?php echo $stash->display_title; ?>
                         </a>
                     </td>
                     <td class="text-center">

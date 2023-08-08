@@ -85,6 +85,7 @@ class ArticlestashModel extends AdminModel
         $app = Factory::getApplication();
 
         // New stash so get the request variables
+        $manual = $app->getUserState('com_jdocmanual.articlestash.manual');
         $language = $app->getUserState('com_jdocmanual.articlestash.language');
         // The ide of the original English document
         $eid = $app->getUserState('com_jdocmanual.articlestash.eid');
@@ -178,6 +179,7 @@ class ArticlestashModel extends AdminModel
         // so this must be a new English document.
         $item = new \stdClass();
         $item->page_id = 0;
+        $item->manual = $manual;
         $item->language = 'en';
         $item->jdoc_key = '';
         $item->heading = '';

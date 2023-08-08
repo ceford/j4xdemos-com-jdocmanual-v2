@@ -207,6 +207,31 @@ class ArticlestashesModel extends ListModel
         return $query;
     }
 
+        /**
+     * Get a list of new pages created by the current user.
+     * They are in the stashes table but not the articles table.
+     *
+     * @return  array  An array of query result objects.
+     *
+     * @since  1.0.0
+     */
+    public function getNewpages()
+    {
+        $user  = $this->getCurrentUser();
+        $db    = $this->getDatabase();
+        $manual = $this->getState('filter.manual');
+
+        $query = $db->getQuery(true);
+        $query->select('*')
+        ->from($db->quoteName('#__jdm_article_stashes'))
+        ->where($db->quoteName('user_id') . ' = ' . $user->id)
+        ->where($db->quoteName('page_id') . ' = 0')
+        ->where($db->quoteName('manual') . ' = :manual')
+        ->bind(':manual', $manual, ParameterType::STRING);
+        $db->setQuery($query);
+        return $db->loadObjectList();
+    }
+
     /**
      * Get a list of article stashes created by the current user.
      *
@@ -226,7 +251,7 @@ class ArticlestashesModel extends ListModel
                     'a.id',
                     'a.user_id',
                     'a.page_id',
-                    'a.jdoc_key',
+                    'a.display_title',
                     'a.manual',
                     'a.language',
                     'a.heading',

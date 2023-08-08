@@ -112,7 +112,8 @@ class HtmlView extends BaseHtmlView
         $this->state         = $model->getState();
         $this->filterForm    = $model->getFilterForm();
         $this->activeFilters = $model->getActiveFilters();
-        $this->mystashes = $model->getMystashes();
+        $this->mystashes     = $model->getMystashes();
+        $this->newpages      = $model->getNewpages();
 
         $user  = Factory::getUser();
         // Change this to use custome group.
@@ -147,6 +148,11 @@ class HtmlView extends BaseHtmlView
         $toolbar = Toolbar::getInstance('toolbar');
 
         ToolbarHelper::title(Text::_('COM_JDOCMANUAL_ARTICLES_STASHES'), 'code-branch');
+
+        // Only show the New button if the selected language is English.
+        if ($this->state->get('filter.language') == 'en') {
+            $toolbar->addNew('articlestash.add');
+        }
 
         if ($user->authorise('core.admin', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) {
             $toolbar->preferences('com_jdocmanual');

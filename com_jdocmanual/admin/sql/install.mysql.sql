@@ -95,8 +95,7 @@ CREATE TABLE IF NOT EXISTS`#__jdm_menu_stashes` (
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `commit_message` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comments` text COLLATE utf8mb4_unicode_ci,
-  `menu_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_html` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `menu_text` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 ALTER TABLE `#__jdm_menu_stashes`

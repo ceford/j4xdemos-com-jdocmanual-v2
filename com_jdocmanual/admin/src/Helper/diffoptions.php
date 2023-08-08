@@ -74,7 +74,7 @@ $rendererOptions = [
     'wordGlues' => [' ', '-'],
     // change this value to a string as the returned diff if the two input strings are identical
     //'resultForIdenticals' => null,
-    'resultForIdenticals' => 'Identical',
+    'resultForIdenticals' => 'No changes since the last commit!',
     // extra HTML classes added to the DOM of the diff container
     'wrapperClasses' => ['diff-wrapper'],
 ];

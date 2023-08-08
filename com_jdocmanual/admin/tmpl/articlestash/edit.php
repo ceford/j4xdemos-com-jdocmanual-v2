@@ -91,9 +91,9 @@ $articlestash_edit_route = 'index.php?option=com_jdocmanual&view=articlestash&la
                         <?php echo $this->form->renderField('manual'); ?>
                         <?php echo $this->form->renderField('language'); ?>
                         <?php echo $this->form->renderField('heading'); ?>
+                        <?php echo $this->form->renderField('filename'); ?>
                         <?php echo $this->form->renderField('id'); ?>
                         <?php echo $this->form->renderField('page_id'); ?>
-                        <?php echo $this->form->renderField('filename'); ?>
                     </div>
                 </div>
             </div>

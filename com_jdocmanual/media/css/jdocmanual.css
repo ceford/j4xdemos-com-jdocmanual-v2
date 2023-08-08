@@ -59,6 +59,11 @@
 	height: auto;
 }
 
+img.screenshot {
+    border: 1px solid navy;
+    margin-bottom: 1rem;
+}
+
 #preview .table-of-contents {
     padding: .5em .5em .5em 2em;
     float: right;
@@ -69,6 +74,24 @@
     max-width: 375px;
     word-wrap: normal;
     font-size: .875em;
+}
+
+#preview thead {
+    background-color: #f6f6f6;
+    border: 1px solid #ccc;
+}
+
+#preview thead th {
+    padding: 1rem;
+}
+
+#preview tbody tr {
+    border-bottom: 1px solid #ccc;
+    vertical-align: top;
+}
+
+#preview tbody tr td {
+    padding: 0.5rem;
 }
 
 .panel {

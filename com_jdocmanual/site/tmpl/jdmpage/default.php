@@ -23,7 +23,7 @@ $wa = $this->document->getWebAssetManager();
 
 ?>
 <?php if (!empty($this->page)) : ?>
-<h1><?php echo str_replace('_', ' ', $this->page->jdoc_key);?></h1>
+<h1><?php echo str_replace('_', ' ', $this->page->display_title);?></h1>
     <?php echo $this->page->content; ?>
 <?php endif; ?>
 

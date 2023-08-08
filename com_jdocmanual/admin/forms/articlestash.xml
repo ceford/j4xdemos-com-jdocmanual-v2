@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 
-	<fieldset name="language" label="COM_JDOCMANUAL_ARTICLE_DETAILS_TAB">
+	<fieldset name="articlestash" label="COM_JDOCMANUAL_ARTICLE_DETAILS_TAB"
+    	addfieldprefix="J4xdemos\Component\Jdocmanual\Administrator\Field"
+    >
 
 		<field
 			name="display_title"
 			type="text"
-			label="COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE_LABEL"
+			label="COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE"
 			required="true"
 		 />
 
@@ -39,8 +41,17 @@
 
 		<field
 			name="heading"
-			type="text"
+			type="heading"
 			label="COM_JDOCMANUAL_ARTICLE_HEADING"
+			required="true"
+			class="readonly"
+			readonly="true"
+		/>
+
+		<field
+			name="filename"
+			type="text"
+			label="COM_JDOCMANUAL_ARTICLES_STASH_FILENAME"
 			required="true"
 			class="readonly"
 			readonly="true"
@@ -105,21 +116,6 @@
 			hidden="true"
 			rows="18"
 			filter="JComponentHelper::filterText"
-		/>
-
-		<field
-			name="manual"
-			type="hidden"
-		/>
-
-		<field
-			name="heading"
-			type="hidden"
-		/>
-
-		<field
-			name="filename"
-			type="hidden"
 		/>
 
 	</fieldset>

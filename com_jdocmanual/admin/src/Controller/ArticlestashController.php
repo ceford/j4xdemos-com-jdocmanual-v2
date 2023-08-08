@@ -58,11 +58,18 @@ class ArticlestashController extends FormController
     public function __construct($config = array(), $factory = null, $app = null, $input = null)
     {
         parent::__construct($config, $factory, $app, $input);
+
+        // When called from the New button - need to pass on the manual to use
+        if (!empty($input)) {
+            $filter = $input->get('filter');
+            $app->setUserState('com_jdocmanual.articlestash.manual', $filter['manual']);
+        }
         // This controller is called from a list with query string parameters. But...
         // It invokes a form for which these parameters are needed for a new stash record
         if ($app->input->get('language')) {
             $app->setUserState('com_jdocmanual.articlestash.eid', $app->input->get('eid', 0, 'int'));
             $app->setUserState('com_jdocmanual.articlestash.trid', $app->input->get('trid', 0, 'int'));
+            $app->setUserState('com_jdocmanual.articlestash.manual', $app->input->get('manual', '', 'string'));
             $app->setUserState('com_jdocmanual.articlestash.language', $app->input->get('language', '', 'string'));
         }
     }
@@ -157,7 +164,7 @@ class ArticlestashController extends FormController
         // Check for request forgeries.
         $this->checkToken();
 
-        // Although the starting point is the gfmindex table, any changes are to the stashes tavle.
+        // Although the starting point is the jdm_articles table, any changes are to the stashes tavle.
 
         /** @var \Joomla\Component\Finder\Administrator\Model\FilterModel $model */
         $app   = $this->app;

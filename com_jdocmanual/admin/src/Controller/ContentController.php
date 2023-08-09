@@ -13,7 +13,6 @@ namespace J4xdemos\Component\Jdocmanual\Administrator\Controller;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\Database\ParameterType;
-use Joomla\CMS\Session\Session;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\InthispageHelper;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\SetupHelper;
 

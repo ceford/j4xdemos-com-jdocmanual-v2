@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @package     jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
- * @copyright   Copyright (C) 2021 Clifford E Ford
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 

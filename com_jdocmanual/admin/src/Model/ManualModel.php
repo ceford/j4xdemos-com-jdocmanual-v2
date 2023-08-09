@@ -10,8 +10,6 @@
 
 namespace J4xdemos\Component\Jdocmanual\Administrator\Model;
 
-use Joomla\CMS\Component\ComponentHelper;
-use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\ListModel;
 use Joomla\Database\ParameterType;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\InthispageHelper;

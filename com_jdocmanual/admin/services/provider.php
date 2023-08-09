@@ -1,19 +1,16 @@
 <?php
 
 /**
- * @package     jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
- * @copyright   Copyright (C) 2021 Clifford E Ford
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
-defined('_JEXEC') or die;
 
 use Joomla\CMS\Component\Router\RouterFactoryInterface;
 use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
 use Joomla\CMS\Extension\ComponentInterface;
-use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
 use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
 use Joomla\CMS\Extension\Service\Provider\MVCFactory;
@@ -22,6 +19,10 @@ use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use J4xdemos\Component\Jdocmanual\Administrator\Extension\JdocmanualComponent;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * The Jdocmanual service provider.

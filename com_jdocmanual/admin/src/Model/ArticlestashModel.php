@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package     Jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
  * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,7 +10,6 @@
 
 namespace J4xdemos\Component\Jdocmanual\Administrator\Model;
 
-use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Form;
 use Joomla\CMS\Language\Text;

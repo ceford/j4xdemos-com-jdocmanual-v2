@@ -10,11 +10,9 @@
 
 namespace J4xdemos\Component\Jdocmanual\Administrator\Field;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\ListField;
 use Joomla\CMS\Language\Text;
 use Joomla\Database\ParameterType;
-use Joomla\CMS\HTML\HTMLHelper;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;

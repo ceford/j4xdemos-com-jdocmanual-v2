@@ -10,9 +10,11 @@
 
 namespace J4xdemos\Component\Jdocmanual\Site\Controller;
 
-\defined('_JEXEC') or die;
-
 use J4xdemos\Component\Jdocmanual\Administrator\Controller\ContentController as AdmincontentController;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * Jdocmanual Content Controller

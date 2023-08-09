@@ -10,10 +10,7 @@
 
 namespace J4xdemos\Component\Jdocmanual\Site\Controller;
 
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
-use Joomla\CMS\Router\Route;
-use Joomla\CMS\Session\Session;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;

@@ -1,16 +1,18 @@
 <?php
 
 /**
- * @package     Jdocmanual.Administrator
- * @subpackage  com_jdocmanual
+ * @package     Jdocmanual
+ * @subpackage  Administrator
  *
- * @copyright   (C) 2021 Clifford E. Ford <https://www.fford.me.uk>
+ * @copyright   (C) 2023 Clifford E Ford. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
-
 use Joomla\CMS\Language\Text;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 $title = Text::_('COM_JDOCMANUAL_MANUAL_TOGGLE_JOOMLA_MENU')
 

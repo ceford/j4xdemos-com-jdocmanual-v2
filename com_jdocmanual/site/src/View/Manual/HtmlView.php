@@ -13,7 +13,6 @@ namespace J4xdemos\Component\Jdocmanual\Site\View\Manual;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\SetupHelper;

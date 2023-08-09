@@ -12,13 +12,10 @@ namespace J4xdemos\Component\Jdocmanual\Administrator\Controller;
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\AdminController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Joomla\Database\ParameterType;
-use Joomla\Utilities\ArrayHelper;
-use J4xdemos\Component\Jdocmanual\Administrator\Helper\Markdown2html;
 use J4xdemos\Component\Jdocmanual\Administrator\Cli\Buildmenus;
 
 // phpcs:disable PSR1.Files.SideEffects

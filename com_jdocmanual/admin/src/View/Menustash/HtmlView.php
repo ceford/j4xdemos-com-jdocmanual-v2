@@ -12,21 +12,14 @@ namespace J4xdemos\Component\Jdocmanual\Administrator\View\Menustash;
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\Button\BasicButton;
-use Joomla\CMS\Toolbar\Button\ConfirmButton;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
-use Joomla\Database\ParameterType;
 use J4xdemos\Component\Jdocmanual\Administrator\Helper\BuildmenusHelper;
-use J4xdemos\Component\Jdocmanual\Administrator\Cli\Buildmenus;
-use Jfcherng\Diff\Differ;
-use Jfcherng\Diff\Renderer\RendererConstant;
 use Jfcherng\Diff\DiffHelper;
-use Jfcherng\Diff\Factory\RendererFactory;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;

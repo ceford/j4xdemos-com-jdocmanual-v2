@@ -360,7 +360,7 @@ class ArticlestashController extends FormController
                         // If this is a new article make an entry in articles-index.txt
                         if (empty($existing_page_id)) {
                             // Example: jdocmanual=Menu_Items=menu-items.md
-                            $new_entry = $data['heading'] . '/' . $data['jdoc_key'] . '/' . $data['filename'];
+                            $new_entry = $data['heading'] . '=' . $data['jdoc_key'] . '=' . $data['filename'];
                             $append_to = $gfmfiles_path . '/' . $data['manual'] . '/articles-index.txt';
                             $result = file_put_contents($append_to, $new_entry, FILE_APPEND);
                             // No messages for now?

@@ -132,21 +132,21 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         <tbody>
                         <?php
                             $n = count($this->items);
-                        foreach ($this->items as $i => $item) :
-                            ?>
+                            foreach ($this->items as $i => $item) :
+                        ?>
                             <tr class="row<?php echo $i % 2; ?>">
                                 <td class="text-center">
                                 <?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
                                 </td>
                                 <td class="text-center text-nowrap">
                                 <?php if ($item->nstashes == 0) : ?>
-                                        <?php echo $states[$item->state]; ?>
+                                    <?php echo $states[$item->state]; ?>
                                 <?php else : ?>
-                                        <?php echo Text::_('COM_JDOCMANUAL_ARTICLE_STASHES') . ' ' . $item->nstashes; ?>
-                                        <?php if ($item->nprs > 0) : ?>
-                                            <br>
-                                            <?php echo Text::_('COM_JDOCMANUAL_ARTICLE_PRS') . ' ' . $item->nprs; ?>
-                                        <?php endif; ?>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLE_STASHES') . ' ' . $item->nstashes; ?>
+                                    <?php if ($item->nprs > 0) : ?>
+                                        <br>
+                                        <?php echo Text::_('COM_JDOCMANUAL_ARTICLE_PRS') . ' ' . $item->nprs; ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 </td>
                                 <td>
@@ -177,7 +177,7 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                 </td>
                                 <?php endif; ?>
                                 <td>
-                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_INDEX_KEY') . ': ' . $item->display_title; ?>
+                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE') . ': ' . $item->display_title; ?>
                                     <br>
                                     <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_HEADING') . ': ' . $item->heading; ?>
                                     <br>

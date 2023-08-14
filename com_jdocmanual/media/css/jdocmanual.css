@@ -64,7 +64,7 @@ img.screenshot {
     margin-bottom: 1rem;
 }
 
-#preview .table-of-contents {
+#preview .table-of-contents, #document-panel .table-of-contents {
     padding: .5em .5em .5em 2em;
     float: right;
     margin: .5em 0 1.25em .75em;
@@ -76,21 +76,21 @@ img.screenshot {
     font-size: .875em;
 }
 
-#preview thead {
+#preview thead, #document-panel thead {
     background-color: #f6f6f6;
     border: 1px solid #ccc;
 }
 
-#preview thead th {
+#preview thead th, #document-panel thead th {
     padding: 1rem;
 }
 
-#preview tbody tr {
+#preview tbody tr, #document-panel tbody tr {
     border-bottom: 1px solid #ccc;
     vertical-align: top;
 }
 
-#preview tbody tr td {
+#preview tbody tr td, #document-panel tbody tr td {
     padding: 0.5rem;
 }
 

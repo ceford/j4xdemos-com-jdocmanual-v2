@@ -308,7 +308,7 @@ class MenustashController extends FormController
                     // git --git-dir /foo/bar/.git log
 
                     // Build add command - only works properly after cd to folder containing rep.
-                    $command1 = "cd {$gfmfiles_path}; /usr/bin/git add -- {$gfmfiles_path}{$repo_item_path};";
+                    $command1 = "cd {$gfmfiles_path}; git add -- {$gfmfiles_path}{$repo_item_path};";
                     // Add the file to the index
                     $result = exec($command1, $output1, $result_code1);
                     // The result is normally empty.
@@ -317,7 +317,7 @@ class MenustashController extends FormController
                     }
 
                     // Commit the item:
-                    $command2 = "cd {$gfmfiles_path}; /usr/bin/git commit -m \"{$data['commit_message']}\"";
+                    $command2 = "cd {$gfmfiles_path}; git commit -m \"{$data['commit_message']}\"";
                     $command2 .= " -- {$gfmfiles_path}{$repo_item_path};";
                     $result = exec($command2, $output2, $result_code2);
                     $this->app->enqueueMessage(implode("<br>\n", $output2), 'warning');

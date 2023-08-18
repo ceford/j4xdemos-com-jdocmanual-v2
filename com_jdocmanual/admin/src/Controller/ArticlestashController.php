@@ -319,7 +319,7 @@ class ArticlestashController extends FormController
                     '/' . $data['heading'] . '/' . $data['filename'];
                 $filepath = $params->get('gfmfiles_path') . $repo_item_path;
                 // .git is in the parent folder
-                $gitpath = str_replace('manuals/', '.git', $gfmfiles_path);
+                $gitpath = str_replace('manuals/', '', $gfmfiles_path);
 
                 // Send an appropriate message.
                 if (empty(file_put_contents($filepath, $data['markdown_text']))) {
@@ -335,13 +335,13 @@ class ArticlestashController extends FormController
                     // git --git-dir /foo/bar/.git log
 
                     // Build add command - only works properly after cd to folder containing rep.
-                    $command1 = "cd {$gfmfiles_path}; /usr/bin/git add -- {$gfmfiles_path}{$repo_item_path};";
+                    $command1 = "cd {$gitpath}; git add -- {$gfmfiles_path}{$repo_item_path};";
                     // Add the file to the index
                     $result = exec($command1, $output1, $result_code1);
                     $this->app->enqueueMessage(implode("<br>\n", $output1), 'warning');
 
                     // Commit the item:
-                    $command2 = "cd {$gfmfiles_path}; /usr/bin/git commit -m \"{$data['commit_message']}\"";
+                    $command2 = "cd {$gitpath}; git commit -m \"{$data['commit_message']}\"";
                     $command2 .= " -- {$gfmfiles_path}{$repo_item_path};";
                     $result = exec($command2, $output2, $result_code2);
                     $this->app->enqueueMessage(implode("<br>\n", $output2), 'warning');

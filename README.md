@@ -229,13 +229,32 @@ create two User Groups:
 - **JDM Publisher**: allowed to commit and publish updated content.
 
 The **JDM Author** group should have Public as its parent. The **JDM Publisher**
-group should have **JDM Author** as its parent. **JDM Author** should be set
-to the Special Viewing Access level.
+group should have **JDM Author** as its parent. 
+
+### Users: Viewing Access Levels
+
+**JDM Author** should be set to the Special Viewing Access level.
+From the Users / Access Levels page select `Special` and add `JDM Author` to 
+the User Groups with Viewing Access.
 
 ### Global Options
 
 In the Global Options form select the Permissions tab and then the
 **JDM Author** item. Set Administrator login to Allowed.
+
+### Jdocmanual Options
+
+From the JDOC Manual, Manual page select the Options button. In the
+Permissions list select **JDM Author** and set the following to Allowed:
+- Access Administration Interface
+- Create
+- Delete
+- Edit
+
+Select **JDM Publisher** and set the following to Allowed:
+- Publish
+
+Save and Close
 
 If you now login as a user in the **JDM Author** group you will see the
 Home Dashboard with some modules not relevant for Jdocmanual.
@@ -257,20 +276,6 @@ items for the cpanel position (not the cpanel-content position).
 There may be other modules needing similar treatment.
 
 The Home Dashboard should now be empty for a **JDM Author**.
-
-### Jdocmanual Options
-
-From the JDOC Manual, Manual page select the Options button. In the
-Permissions list select **JDM Author** and set the following to Allowed:
-- Access Administration Interface
-- Create
-- Delete
-- Edit
-
-Select **JDM Publisher** and set the following to Allowed:
-- Publish
-
-Save and Close
 
 ## Who can do what?
 

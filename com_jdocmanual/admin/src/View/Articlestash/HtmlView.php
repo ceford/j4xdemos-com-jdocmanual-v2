@@ -352,7 +352,7 @@ class HtmlView extends BaseHtmlView
 
         $repopath = str_replace('manuals/', '', $basepath);
         $repo_item_path = 'manuals/' . $this->item->manual . '/en/' . $this->item->heading . '/' . $this->item->filename;
-        $command = "cd {$repopath}; /usr/bin/git log -n 2 --pretty=format:%H -- {$repo_item_path};";
+        $command = "cd {$repopath}; git log -n 2 --pretty=format:%H -- {$repo_item_path};";
         $result = exec($command, $output, $result_code);
 
         // Check the item has been committed - a new file may exist without being committed.
@@ -362,13 +362,13 @@ class HtmlView extends BaseHtmlView
 
         // Show the content of the file at the last commit.
         // git show edf40a05aeffe81751fef2b9e5eea0780452c1da:manuals/help/en/articles/articles.md
-        $command = "cd {$repopath}; /usr/bin/git show {$output[0]}:{$repo_item_path};";
+        $command = "cd {$repopath}; git show {$output[0]}:{$repo_item_path};";
         $result = exec($command, $latest, $result_code);
         $latest = implode("\n", $latest);
 
         if (!empty($output[1])) {
             // Get the previous commit.
-            $command = "cd {$repopath}; /usr/bin/git show {$output[1]}:{$repo_item_path};";
+            $command = "cd {$repopath}; git show {$output[1]}:{$repo_item_path};";
             $result = exec($command, $previous, $result_code);
             $previous = implode("\n", $previous);
         } else {

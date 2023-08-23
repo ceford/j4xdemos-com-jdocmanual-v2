@@ -45,7 +45,7 @@
 			label="JGLOBAL_SORT_BY"
 			statuses="*,0,1,2,-2"
 			onchange="this.form.submit();"
-			default="a.path ASC, a.filename ASC"
+			default="a.heading ASC, a.filename ASC"
 			validate="options"
 			>
 			<option value="">JGLOBAL_SORT_BY</option>

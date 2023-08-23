@@ -61,9 +61,6 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                     <table class="table" id="gfmList">
                         <thead>
                             <tr>
-                                <th class="text-center">
-                                    <?php echo HTMLHelper::_('grid.checkall'); ?>
-                                </th>
                                 <th scope="col" class="text-center">
                                     <?php echo HTMLHelper::_(
                                         'searchtools.sort',
@@ -84,25 +81,13 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                 <th scope="col">
                                     <?php echo HTMLHelper::_(
                                         'searchtools.sort',
-                                        'COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE',
-                                        'a.display_title',
-                                        $listDirn,
-                                        $listOrder
-                                    ); ?>
-                                    <?php echo HTMLHelper::_(
-                                        'searchtools.sort',
                                         'COM_JDOCMANUAL_ARTICLES_MANUAL',
                                         'a.manual',
                                         $listDirn,
                                         $listOrder
                                     ); ?>
-                                    <?php echo HTMLHelper::_(
-                                        'searchtools.sort',
-                                        'COM_JDOCMANUAL_ARTICLES_LANGUAGE',
-                                        'a.language',
-                                        $listDirn,
-                                        $listOrder
-                                    ); ?>
+                                </th>
+                                <th scope="col">
                                     <?php echo HTMLHelper::_(
                                         'searchtools.sort',
                                         'COM_JDOCMANUAL_ARTICLES_HEADING',
@@ -110,10 +95,21 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                         $listDirn,
                                         $listOrder
                                     ); ?>
+                                </th>
+                                <th scope="col">
                                     <?php echo HTMLHelper::_(
                                         'searchtools.sort',
                                         'COM_JDOCMANUAL_ARTICLES_FILENAME',
                                         'a.filename',
+                                        $listDirn,
+                                        $listOrder
+                                    ); ?>
+                                </th>
+                                <th scope="col">
+                                    <?php echo HTMLHelper::_(
+                                        'searchtools.sort',
+                                        'COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE',
+                                        'a.display_title',
                                         $listDirn,
                                         $listOrder
                                     ); ?>
@@ -135,9 +131,6 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                             foreach ($this->items as $i => $item) :
                         ?>
                             <tr class="row<?php echo $i % 2; ?>">
-                                <td class="text-center">
-                                <?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
-                                </td>
                                 <td class="text-center text-nowrap">
                                 <?php if ($item->nstashes == 0) : ?>
                                     <?php echo $states[$item->state]; ?>
@@ -177,11 +170,16 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                                 </td>
                                 <?php endif; ?>
                                 <td>
-                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_DISPLAY_TITLE') . ': ' . $item->display_title; ?>
-                                    <br>
-                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_HEADING') . ': ' . $item->heading; ?>
-                                    <br>
-                                    <?php echo Text::_('COM_JDOCMANUAL_ARTICLES_FILENAME') . ': ' . $item->filename; ?>
+                                    <?php echo $item->manual; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->heading; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->filename; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->display_title; ?>
                                 </td>
                                 <td class="d-none d-md-table-cell">
                                     <?php echo $item->id; ?>
@@ -296,6 +294,9 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         Key
                     </th>
                     <th scope="col">
+                        Manual
+                    </th>
+                    <th scope="col">
                         Language
                     </th>
                     <th scope="col">
@@ -321,6 +322,9 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         </a>
                     </td>
                     <td class="text-center">
+                        <?php echo $stash->manual; ?>
+                    </td>
+                    <td class="text-center">
                     <?php echo $stash->language; ?>
                     </td>
                     <td>
@@ -339,7 +343,7 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
     <?php endif; ?>
 <?php echo HTMLHelper::_('uitab.endTab'); ?>
 
-<?php if ($user->authorise('core.admin', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) : ?>
+<?php if ($user->authorise('jdocmanual.publish', 'com_jdocmanual') || $user->authorise('core.options', 'com_jdocmanual')) : ?>
     <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'prs', Text::_('COM_JDOCMANUAL_ARTICLE_TAB_PULL_REQUESTS')); ?>
     <?php if (empty($this->pull_requests)) : ?>
         <div class="alert alert-info">
@@ -355,6 +359,9 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         Key
                     </th>
                     <th scope="col">
+                        Manual
+                    </th>
+                    <th scope="col">
                         Language
                     </th>
                     <th scope="col">
@@ -364,7 +371,7 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         Filename
                     </th>
                     <th scope="col">
-                        PR
+                        User
                     </th>
                 </tr>
             </thead>
@@ -380,16 +387,19 @@ $stash_edit_route = 'index.php?option=com_jdocmanual&task=articlestash.edit&id='
                         </a>
                     </td>
                     <td class="text-center">
-                    <?php echo $stash->language; ?>
-                    </td>
-                    <td>
-                    <?php echo $stash->heading; ?>
-                    </td>
-                    <td>
-                    <?php echo $stash->filename; ?>
+                        <?php echo $stash->manual; ?>
                     </td>
                     <td class="text-center">
-                    <?php echo $stash->pr; ?>
+                        <?php echo $stash->language; ?>
+                    </td>
+                    <td>
+                        <?php echo $stash->heading; ?>
+                    </td>
+                    <td>
+                        <?php echo $stash->filename; ?>
+                    </td>
+                    <td>
+                        <?php echo $stash->name; ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

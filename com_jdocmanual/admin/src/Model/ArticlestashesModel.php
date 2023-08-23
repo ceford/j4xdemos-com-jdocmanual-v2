@@ -60,7 +60,7 @@ class ArticlestashesModel extends ListModel
      *
      * @since   1.6
      */
-    protected function populateState($ordering = 'a.jdoc_key', $direction = 'asc')
+    protected function populateState($ordering = 'a.heading, a.filename', $direction = 'asc')
     {
         $search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
         $this->setState('filter.search', $search);
@@ -70,9 +70,6 @@ class ArticlestashesModel extends ListModel
 
         $language = $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', 'en');
         $this->setState('filter.language', $language);
-
-        $pr = $this->getUserStateFromRequest($this->context . '.filter.pr', 'filter_pr', '');
-        $this->setState('filter.pr', $pr);
 
         // List state information.
         parent::populateState($ordering, $direction);
@@ -120,14 +117,18 @@ class ArticlestashesModel extends ListModel
             $this->getState(
                 'list.select',
                 [
-                        'DISTINCT a.*',
-                        $db->quoteName('b.id') . ' AS stash_id'
-                        ]
+                    'DISTINCT a.id',
+                    'a.jdoc_key',
+                    'a.manual',
+                    'a.language',
+                    'a.heading',
+                    'a.filename',
+                    'a.display_title',
+                    'a.state'
+                ]
             )
         );
-        $query->from($db->quoteName('#__jdm_articles') . ' AS a')
-        ->leftjoin($db->quoteName('#__jdm_article_stashes') . ' AS b ON ' . $db->quoteName('a.id') .
-            ' = ' . $db->quoteName('b.page_id'));
+        $query->from($db->quoteName('#__jdm_articles') . ' AS a');
 
         // Always filter on English
         $query->where($db->quoteName('a.language') . '= ' . $db->quote('en'));
@@ -164,21 +165,13 @@ class ArticlestashesModel extends ListModel
             $query->where($db->quoteName('a.manual') . ' = ' . $db->quote($manual));
         }
 
-        // Select only records where there is a pull request.
-        $pr = $this->getState('filter.pr');
-        if (is_numeric($pr)) {
-            if ($pr == 1) {
-                $query->where($db->quoteName('b.pr') . ' = 1');
-            }
-        }
-
         // Filter by search in key or heading.
         $search = $this->getState('filter.search');
 
         if (!empty($search)) {
             $search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-            $query->where('(' . $db->quoteName('a.jdoc_key') . ' LIKE ' . $search . ' OR ' .
-            $db->quoteName('a.heading') . ' LIKE ' . $search . ')');
+            $query->where('(' . $db->quoteName('a.display_title') . ' LIKE ' . $search . ' OR ' .
+            $db->quoteName('a.filename') . ' LIKE ' . $search . ')');
         }
 
         // For language other than en find whether a translation exists
@@ -194,7 +187,7 @@ class ArticlestashesModel extends ListModel
         }
 
         // Add the list ordering clause.
-        $orderCol  = $this->state->get('list.ordering', $db->quoteName('a.jdoc_key'));
+        $orderCol  = $this->state->get('list.ordering', $db->quoteName('a.heading'));
         $orderDirn = $this->state->get('list.direction', 'ASC');
 
         $query->order($db->escape($orderCol) . ' ' . $db->escape($orderDirn));
@@ -289,11 +282,13 @@ class ArticlestashesModel extends ListModel
                     'a.heading',
                     'a.filename',
                     'a.display_title',
-                    'a.pr'
+                    'a.pr',
+                    'b.name'
                 )
             )
         )
         ->from($db->quoteName('#__jdm_article_stashes') . ' AS a')
+        ->leftjoin($db->quoteName('#__users') . ' AS b ON a.user_id = b.id')
         ->where($db->quoteName('a.pr') . ' = 1')
         ->order($db->quoteName('a.id') . ' ASC');
         $db->setQuery($query);

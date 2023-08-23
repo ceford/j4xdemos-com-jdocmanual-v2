@@ -229,12 +229,15 @@ create two User Groups:
 - **JDM Publisher**: allowed to commit and publish updated content.
 
 The **JDM Author** group should have Public as its parent. The **JDM Publisher**
-group should have **JDM Author** as its parent. 
+group should have **JDM Author** as its parent. Set the Text Filter for
+**JDM Auther** to `No Filtering`. The sources cotain HTML comments that should
+not be filtered. And for some reason `Default Forbidden List` is removing
+html img tags (bug?).
 
 ### Users: Viewing Access Levels
 
 **JDM Author** should be set to the Special Viewing Access level.
-From the Users / Access Levels page select `Special` and add `JDM Author` to 
+From the Users / Access Levels page select `Special` and add `JDM Author` to
 the User Groups with Viewing Access.
 
 ### Global Options

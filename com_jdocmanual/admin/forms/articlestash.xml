@@ -77,22 +77,30 @@
 
 		<field
 			name="original_english"
-			type="textarea"
+			type="editor"
 			label="COM_JDOCMANUAL_ARTICLE_ORIGINAL_ENGLISH_LABEL"
+			editor="codemirror|none"
+			buttons="no"
+			syntax="markdown"
+			filter="raw"
 			class="mdsource"
 			hidden="true"
 			rows="18"
-			readonly="readonly"
+            readonly="true"
 		/>
 
 		<field
 			name="source"
-			type="textarea"
+			type="editor"
 			label="COM_JDOCMANUAL_ARTICLE_SOURCE_LABEL"
+			editor="codemirror|none"
+			buttons="no"
+			syntax="markdown"
+			filter="raw"
 			class="mdsource"
 			hidden="true"
 			rows="18"
-			readonly="readonly"
+			readonly="true"
 		/>
 
 		<field
@@ -110,12 +118,15 @@
 
 		<field
 			name="markdown_text"
-			type="textarea"
+			type="editor"
 			label="COM_JDOCMANUAL_ARTICLE_STASH_LABEL"
+			editor="codemirror|none"
+			buttons="no"
+			syntax="markdown"
+			filter="raw"
 			class="mdsource"
 			hidden="true"
 			rows="18"
-			filter="JComponentHelper::filterText"
 		/>
 
 	</fieldset>

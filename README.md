@@ -232,7 +232,7 @@ The **JDM Author** group should have Public as its parent. The **JDM Publisher**
 group should have **JDM Author** as its parent. Set the Text Filter for
 **JDM Auther** to `No Filtering`. The sources cotain HTML comments that should
 not be filtered. And for some reason `Default Forbidden List` is removing
-html img tags (bug?).
+HTML img tags (bug?).
 
 ### Users: Viewing Access Levels
 

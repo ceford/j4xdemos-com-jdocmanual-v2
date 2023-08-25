@@ -23,15 +23,22 @@
 
 		<field
 			name="menu_text"
-			type="textarea"
+			type="editor"
+			editor="codemirror|none"
+			buttons="no"
+			syntax="text"
+			filter="raw"
 			rows="18"
 		/>
 
 		<field
 			name="source"
-			type="textarea"
+			type="editor"
 			label="COM_JDOCMANUAL_ARTICLE_SOURCE_LABEL"
-			class="mdsource"
+			editor="codemirror|none"
+			buttons="no"
+			syntax="markdown"
+			filter="raw"
 			rows="18"
 			readonly="readonly"
 		/>

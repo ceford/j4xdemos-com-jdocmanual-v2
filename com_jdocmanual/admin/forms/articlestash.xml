@@ -92,7 +92,6 @@
 		<field
 			name="source"
 			type="editor"
-			label="COM_JDOCMANUAL_ARTICLE_SOURCE_LABEL"
 			editor="codemirror|none"
 			buttons="no"
 			syntax="markdown"

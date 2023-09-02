@@ -18,6 +18,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use J4xdemos\Component\Jdocmanual\Administrator\Cli\Buildarticles;
 use J4xdemos\Component\Jdocmanual\Administrator\Cli\Buildmenus;
 use J4xdemos\Component\Jdocmanual\Administrator\Cli\Buildproxy;
+use J4xdemos\Component\Jdocmanual\Administrator\Cli\Checkhistory;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('JPATH_PLATFORM') or die;
@@ -78,7 +79,7 @@ class JdocmanualCommand extends AbstractCommand
             'name of action'
         );
         $help = "<info>%command.name%</info> Runs Jdocmanual action jobs
-				\nUsage: <info>php %command.full_name% action (one of buildarticles buildmenus or buildproxy)</info>";
+				\nUsage: <info>php %command.full_name% action (one of buildarticles buildmenus, buildproxy or checkhistory)</info>";
         $this->addArgument(
             'manual',
             InputArgument::REQUIRED,
@@ -124,6 +125,14 @@ class JdocmanualCommand extends AbstractCommand
             case 'buildproxy':
                 $buildproxy = new Buildproxy();
                 $result = $buildproxy->go($manual, $language);
+                break;
+            case 'buildproxy':
+                $buildproxy = new Buildproxy();
+                $result = $buildproxy->go($manual, $language);
+                break;
+            case 'checkhistory':
+                $checkhistory = new Checkhistory();
+                $result = $checkhistory->go($manual, $language);
                 break;
             default:
                 $this->ioStyle->error("Unknwon action: {$action}");

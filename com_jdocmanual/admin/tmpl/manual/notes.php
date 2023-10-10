@@ -44,7 +44,7 @@ in <code>/home/username/data/manuals/</code>. The last element of the path must 
 
 <ul>
 <li>
-Install git on your computer (not overed here). </li>
+Install git on your computer (not covered here). </li>
 <li>In your Downloads folder issue the following command: <br>
 <code>git clone https://github.com/ceford/j4xdemos-data-jdocmanual.git</code><br>
 This will create a folder named <code>j4xdemos-data-jdocmanual</code>.

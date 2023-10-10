@@ -365,9 +365,16 @@ class ArticlestashController extends FormController
                             $result = file_put_contents($append_to, $new_entry, FILE_APPEND);
                             // No messages for now?
                             if (empty($result)) {
-                                //$this->app->enqueueMessage(Text::_(''), 'warning');
+                                $msg = 'Failed: ';
+                                $this->app->enqueueMessage(sprintf('COM_JDOCMANUAL_ARTICLES_INDEX_ADD_FAILED', $append_to), 'warning');
                             } else {
-                                //$this->app->enqueueMessage(Text::_(''), 'success');
+                                $msg = 'Success: ';
+                                $this->app->enqueueMessage(Text::_('COM_JDOCMANUAL_ARTICLES_INDEX_ADD_SUCCESS'), 'success');
+                            }
+                            try {
+                                file_put_contents(JPATH_SITE . 'administrator/logs/jdocmanual.php', $msg . $append_to . ' Entry: ' . $new_entry . "\n", FILE_APPEND);
+                            } catch(PDOException $e) {
+                                // Carry on...
                             }
                         }
 

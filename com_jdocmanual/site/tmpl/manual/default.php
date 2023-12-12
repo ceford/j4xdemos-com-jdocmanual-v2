@@ -41,19 +41,7 @@ $activeMenuitem = $sitemenu->getActive();
 
 <?php $this->addToolbar(); ?>
 
-<form action="<?php echo Route::_('index.php?option=com_jdocmanual&view=manual&Itemid=' . $activeMenuitem->id); ?>"
-    method="post" name="adminForm" id="adminForm">
-
-    <input type="hidden" name="task" id="task" value="">
-    <input type="hidden" name="jform[manual]" id="jform_manual" value="<?php echo $this->manual; ?>">
-    <input type="hidden" name="jform[index_language_code]" id="jform_index_language_code"
-        value="<?php echo $this->index_language_code; ?>">
-    <input type="hidden" name="jform[page_language_code]" id="jform_page_language_code"
-        value="<?php echo $this->page_language_code; ?>">
-    <input type="hidden" name="jform[menu_page_id]" id="jform_menu_page_id"
-        value="<?php echo $this->menu_page_id; ?>">
-    <?php echo HTMLHelper::_('form.token'); ?>
-</form>
+<?php include JPATH_ADMINISTRATOR . '/components/com_jdocmanual/tmpl/manual/form.php'; ?>
 
 <?php if (empty($this->menu)) : ?>
     <?php

@@ -80,25 +80,54 @@ class ManualModel extends ListModel
     /**
      * Get the first article on page load.
      *
-     * @param int $article_id   The id of the article to load.
+     * @param string $manual        The name of the manual.
+     * @param string $language      The name of the language.
+     * @param string $data_path     The name of the data_path.
      *
      * @return  array  An array of display items.
      *
      * @since  1.0.0
      */
-    public function getPage($article_id)
+    public function getPage($manual, $language, $heading, $filename)
     {
         $db = $this->getDatabase();
         $query = $db->getQuery(true);
+        
         $query->select($db->quoteName(array('display_title','html')))
         ->from($db->quoteName('#__jdm_articles'))
-        ->where($db->quoteName('id') . ' = :id')
-        ->bind(':id', $article_id, ParameterType::INTEGER);
+        ->where($db->quoteName('manual') . ' = :manual')
+        ->where($db->quoteName('language') . ' = :language')
+        ->where($db->quoteName('heading') . ' = :heading')
+        ->where($db->quoteName('filename') . ' = :filename')
+        ->bind(':manual', $manual, ParameterType::STRING)
+        ->bind(':language', $language, ParameterType::STRING)
+        ->bind(':heading', $heading, ParameterType::STRING)
+        ->bind(':filename', $filename, ParameterType::STRING);
         $db->setQuery($query);
         $row = $db->loadObject();
+
+        if (empty($row) && $language != 'en') {
+            // Try again with English
+            $query = $db->getQuery(true);
+            $language = 'en';
+        
+            $query->select($db->quoteName(array('display_title','html')))
+            ->from($db->quoteName('#__jdm_articles'))
+            ->where($db->quoteName('manual') . ' = :manual')
+            ->where($db->quoteName('language') . ' = :language')
+            ->where($db->quoteName('heading') . ' = :heading')
+            ->where($db->quoteName('filename') . ' = :filename')
+            ->bind(':manual', $manual, ParameterType::STRING)
+            ->bind(':language', $language, ParameterType::STRING)
+            ->bind(':heading', $heading, ParameterType::STRING)
+            ->bind(':filename', $filename, ParameterType::STRING);
+            $db->setQuery($query);
+            $row = $db->loadObject();
+        }
         if (empty($row)) {
             return array('placeholder', '', 'Please select a document');
         }
+
         if (empty($row->html)) {
             return array('placeholder', '', 'The html field has not been populated. Select the GFM Files menu.');
         }
@@ -119,10 +148,11 @@ class ManualModel extends ListModel
      *
      * @return string   The menu html.
      */
-    public function getMenu($manual, $index_language, $menu_page_id)
+    public function getMenu($manual, $index_language, $heading, $filename)
     {
         $db = $this->getDatabase();
         $query = $db->getQuery(true);
+        
         $query->select($db->quoteName('menu'))
         ->from($db->quoteName('#__jdm_menus'))
         ->where($db->quoteName('state') . ' = 1')
@@ -152,6 +182,7 @@ class ManualModel extends ListModel
             $db->setQuery($query);
             $menu = $db->loadObject();
         }
+        return $menu;
 
         // If there is an id, set the containing <details> element to open=""
         // Get all of the <details> elements.

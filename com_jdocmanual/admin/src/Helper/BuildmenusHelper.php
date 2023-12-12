@@ -150,7 +150,7 @@ class BuildmenusHelper
         $html = ''; //'<li><span class="icon-file-alt icon-fw icon-jdocmanual" aria-hidden="true"></span>';
 
         // Including the view here causes the sef router not to break!
-        $route = 'index.php?option=com_jdocmanual&id=' . $id;
+        $route = 'index.php?option=com_jdocmanual&view=manual' . $id;
         $html .= '<li id="article-' . $id . '">';
         $html .= '<a href="' . $route . '" class="content-link" data-content-id="' . $jdoc_key . '">';
         $html .= $title . '</a></li>' . "\n";

@@ -243,7 +243,10 @@ class Buildmenus
                     continue;
                 }
                 $total_articles += 1;
-                $html .= $this->accordionItem($row->id, $row->display_title);
+                
+                // The manual part of the path is for search engines.
+                $path = "manual={$manual}&heading={$heading}&filename={$filename}";
+                $html .= $this->accordionItem($row->id, $row->display_title, $path);
             }
         }
         $html .= $this->accordionEnd();
@@ -350,14 +353,14 @@ EOF;
      *
      * @since   1.0.0
      */
-    protected function accordionItem($id, $display_title)
+    protected function accordionItem($id, $display_title, $path)
     {
         // Escape any " character in the link.
         //'<li><span class="icon-file-alt icon-fw icon-jdocmanual" aria-hidden="true"></span>';
         $html = '';
-        $route = 'index.php?option=com_jdocmanual&id=' . $id;
+        $route = 'jdocmanual?';
         $html .= '<li id="article-' . $id . '">';
-        $html .= '<a href="' . $route . '" class="content-link">' . $display_title . '</a></li>' . "\n";
+        $html .= '<a href="' . $route . $path . '" class="content-link">' . $display_title . '</a></li>' . "\n";
         return $html;
     }
 }

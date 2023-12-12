@@ -66,15 +66,17 @@ CREATE TABLE IF NOT EXISTS `#__jdm_manuals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `manual` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `heading_ini` VARCHAR(128) COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `filename_ini` VARCHAR(128) COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `state` tinyint(3) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT IGNORE INTO `#__jdm_manuals` (`id`, `manual`, `title`, `state`) VALUES
-(1, 'user', 'Joomla 4 User Manual', 1),
-(2, 'help', 'Joomla 4 Help Screens', 1),
-(3, 'developer', 'Joomla 4 Developer Manual', 1),
-(4, 'docs', 'Joomla 4 Documenter Manual', 0);
+INSERT IGNORE INTO `#__jdm_manuals` (`id`, `manual`, `title`, `heading_ini`, `filename_ini`, `state`) VALUES
+(1, 'user', 'Joomla 4 User Manual', 'getting-started', 'introduction-to-joomla.md', 1),
+(2, 'help', 'Joomla 4 Help Screens', 'help-screens', 'start-here.md', 1),
+(3, 'developer', 'Joomla 4 Developer Manual', 'getting-started', 'developer-required-software.md', 1),
+(4, 'docs', 'Joomla 4 Documenter Manual', 'jdocmanual', 'introduction-to-jdocmanual.md', 0);
 
 CREATE TABLE IF NOT EXISTS `#__jdm_menus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -836,5 +838,3 @@ INSERT IGNORE INTO `#__jdm_menu_headings` (`id`, `manual`, `language`, `heading`
 (718, 'help', 'pt', 'guided-tours', 'Visitas guiadas'),
 (719, 'help', 'pt-br', 'guided-tours', 'Visitas guiadas'),
 (720, 'help', 'ru', 'guided-tours', 'Экскурсии');
-
-

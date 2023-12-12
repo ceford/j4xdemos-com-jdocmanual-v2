@@ -69,38 +69,73 @@ class SetupHelper
     {
         $app = Factory::getApplication();
 
-        // use default values
+        // Defaults when there is no form or cookie.
         $manual = 'user';
         $index_language_code = 'en';
         $page_language_code = 'en';
-        // is there an id in the query string
-        $menu_page_id = $app->input->get('id', 0, 'int');
+
+        // Are there query parameters to work with - within page links.
+        $heading = $app->input->get('heading', '', 'string');
+        $filename = $app->input->get('filename', '', 'string');
 
         // is there a form to work with
         $jform = $app->input->get('jform', array(), 'array');
 
-        if (!empty($menu_page_id)) {
-            if ($cookie = $app->input->cookie->get('jdocmanual')) {
-                list ($manual, $index_language_code, $page_language_code, $old_page_id) = explode('-', $cookie);
+        $cookie = $app->input->cookie->get('jdocmanual');
+        if (!empty($cookie)) {
+            $cookie_items = preg_split("/--/", $cookie);
+
+            if (!empty($cookie_items) && count($cookie_items) == 5){
+                $old_manual = $cookie_items[0];
+                $old_index_language_code = $cookie_items[1];
+                $old_page_language_code = $cookie_items[2];
+                $old_heading = $cookie_items[3];
+                $old_filename = $cookie_items[4];
+            } else {
+                $cookie = null;
             }
-        } elseif (!empty($jform)) {
+        }
+
+        if (!empty($jform)) {
             $manual = $jform['manual'];
             $index_language_code = $jform['index_language_code'];
             $page_language_code = $jform['page_language_code'];
-            $menu_page_id = $jform['menu_page_id'];
-        } elseif ($cookie = $app->input->cookie->get('jdocmanual')) {
-            // are there cookies to work with
-            list ($manual, $index_language_code, $page_language_code, $menu_page_id) = explode('-', $cookie);
+            $heading = $jform['heading'];
+            $filename = $jform['filename'];
+        } elseif (!empty($heading) && !empty($filename)) {
+            if (!empty($cookie)) {
+                $manual = $old_manual;
+                $index_language_code = $old_index_language_code;
+                $page_language_code = $old_page_language_code;
+            }
+        } elseif (!empty($cookie)) {
+            $manual = $old_manual;
+            $index_language_code = $old_index_language_code;
+            $page_language_code = $old_page_language_code;
+            $heading = $old_heading;
+            $filename = $old_filename;
         }
-        // If menu_page_id is still empty set it to 1 - for very first site visit.
-        if (empty($menu_page_id)) {
-            $menu_page_id = 1;
+        
+        // If the heading and/or filename are empty get default values
+        if (empty($heading) || empty ($filename)) {
+            $db = Factory::getContainer()->get('DatabaseDriver');
+
+            $query = $db->getQuery(true);
+            $query->select($db->quoteName(array('heading_ini', 'filename_ini')))
+            ->from($db->quoteName('#__jdm_manuals'))
+            ->where($db->quoteName('manual') . ' = :manual')
+            ->bind(':manual', $manual, ParameterType::STRING);
+            $db->setQuery($query);
+            $row = $db->loadObject();
+            $heading = $row->heading_ini;
+            $filename = $row->filename_ini;
         }
-        $new_cookie = "{$manual}-{$index_language_code}-{$page_language_code}-{$menu_page_id}";
+
+        $new_cookie = "{$manual}--{$index_language_code}--{$page_language_code}--{$heading}--{$filename}";
         // $name, $value, $days
         $this->setCookie('jdocmanual', $new_cookie, 10);
 
-        return [$manual, $index_language_code, $page_language_code, $menu_page_id];
+        return [$manual, $index_language_code, $page_language_code, $heading, $filename];
     }
 
     /**

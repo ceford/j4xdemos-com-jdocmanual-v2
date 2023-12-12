@@ -193,6 +193,18 @@ you server. Example:
 	public $helpurl = 'https://localhost/path-to-site-root/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 ```
 
+##Symbolic Link to images
+
+Many of the images in Jdocmanual come from the Joomla Documentation site and
+will display in the both frontend and backend views. However, images located
+in the images folder of the Jdocmanual site will not display in the backend
+unless there is a symbolic link from the the root images folder to administrator 
+images. This link can be made with the following command:
+
+```bash
+ln -s /path/to/joomla/root/images /path/to/joomla/root/administrator/images
+```
+
 ## Test
 
 That is it! Select the Joomla Administrator Components/Jdocmanual/Manual
@@ -204,8 +216,17 @@ If you want to show the Manuals on the site just create a JDOC Manual
 menu item. Note the single page is for search results but it has not
 been implemented.
 
+__Important:__ The menu alias must be _jdocmanual_ or internal links
+will be broken and lead to frontend problems.
+
 You may wish to place the menu on a page without side modules so that
 the full width of the page may be used for content.
+
+## Multilingual Sites
+
+The **System - Language Filter** plugin must have the 
+**Remove URL Language Code** set to **Yes** or local images will not display
+and internal links will be broken.
 
 ## Libraries
 

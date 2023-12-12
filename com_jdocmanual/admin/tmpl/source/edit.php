@@ -35,6 +35,8 @@ $wa->useScript('keepalive')
         <div class="row">
             <div class="col-md-9">
                 <?php echo $this->form->renderField('manual'); ?>
+                <?php echo $this->form->renderField('heading_ini'); ?>
+                <?php echo $this->form->renderField('filename_ini'); ?>
                 <?php echo $this->form->renderField('id'); ?>
             </div>
             <div class="col-lg-3">

@@ -68,12 +68,14 @@ from the command line.
 
 <p>Go to the list of system plugins, find the Jdocmanul plugin and enable it</p>
 
+<?php if (isset($this->plugin_status)) : ?>
 <p>Your plugin: <?php echo $plugin_status[$this->plugin_status]; ?>.</p>
+<?php endif; ?>
 
 <h2>Database Population - Command Line Method</h2>
 
 <p>The database jdm_articles and jdm_menus tables are populated by reading
-the the data files. This can take a long time - at least a couple of minutes
+the data files. This can take a long time - at least a couple of minutes
 and perhaps much longer on slow hosts. Proceed as follows:</p>
 
 <ol>
@@ -115,3 +117,37 @@ these files are imported as #__jdm_articles and #__jdm_menus. You need to
 delete your existing (empty) tables and rename the newly imported tables
 using the database prefix for your site.
 
+<h2>Symbolic Link to images</h2>
+
+<p>Many of the images in Jdocmanual come from the Joomla Documentation site and
+will display in the both frontend and backend views. However, images located
+in the images folder of the Jdocmanual site will not display in the backend
+unless there is a symbolic link from the the root images folder to administrator 
+images. This link can be made with the following command:</p>
+
+<pre>
+ln -s /path/to/joomla/root/images /path/to/joomla/root/administrator/images
+</pre>
+
+<h2>Test</h2>
+
+<p>That is it! Select the Joomla Administrator Components/Jdocmanual/Manual
+menu item and expect to see the default Manual selected in English.</p>
+
+<h2>Site Menu</h2>
+
+<p>If you want to show the Manuals on the site just create a JDOC Manual
+menu item. Note the single page is for search results but it has not
+been implemented.</p>
+
+<p><strong>Important:</strong> The menu alias must be <strong>jdocmanual</strong> 
+or internal links will be broken and lead to frontend problems.</p>
+
+<p>You may wish to place the menu on a page without side modules so that
+the full width of the page may be used for content.</p>
+
+<h2>Multilingual Sites</h2>
+
+<p>The <strong>System - Language Filter</strong> plugin must have the 
+<strong>Remove URL Language Code</strong> set to <strong>Yes</strong> or 
+frontend local images will not display and internal links will be broken.</p>

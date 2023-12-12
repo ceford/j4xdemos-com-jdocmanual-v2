@@ -36,6 +36,24 @@
 		/>
 
 		<field
+			name="heading_ini"
+			type="text"
+			label="COM_JDOCMANUAL_SOURCE_HEADING_INI_LABEL"
+			description="COM_JDOCMANUAL_SOURCE_HEADING_INI_DESC"
+			size="16"
+			required="true"
+		/>
+
+		<field
+			name="filename_ini"
+			type="text"
+			label="COM_JDOCMANUAL_SOURCE_FILENAME_INI_LABEL"
+			description="COM_JDOCMANUAL_SOURCE_FILENAME_INI_DESC"
+			size="16"
+			required="true"
+		/>
+
+		<field
 			name="id"
 			type="text"
 			label="JGLOBAL_FIELD_ID_LABEL"

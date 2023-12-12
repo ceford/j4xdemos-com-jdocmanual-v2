@@ -95,8 +95,10 @@ class HtmlView extends BaseHtmlView
     {
         /** @var JdocmanualModel $model */
         $model = $this->getModel();
+
         // Check the database has been populated.
         $this->dbisgood = $model->checkDatabase();
+        
         $this->plugin_status = $model->checkplugin();
 
         if (!empty($this->dbisgood)) {
@@ -106,25 +108,31 @@ class HtmlView extends BaseHtmlView
 
             $setuphelper = new SetupHelper();
             list(
-            $this->manual,
-            $this->index_language_code,
-            $this->page_language_code,
-            $this->menu_page_id
-            ) = $setuphelper->setup();
-
-            $page_id = $setuphelper->realid(
-                $this->menu_page_id,
                 $this->manual,
                 $this->index_language_code,
-                $this->page_language_code
+                $this->page_language_code,
+                $this->heading,
+                $this->filename
+            ) = $setuphelper->setup();
+
+            list ($this->display_title, $this->in_this_page, $this->page_content) = 
+            $model->getPage(
+                $this->manual,
+                $this->page_language_code,
+                $this->heading,
+                $this->filename
             );
-            list ($this->display_title, $this->in_this_page, $this->page_content) = $model->getPage($page_id);
 
+            $this->menu = $model->getMenu(
+                $this->manual, 
+                $this->index_language_code, 
+                $this->heading,
+                $this->filename
+            );
 
-            $this->menu    = $model->getMenu($this->manual, $this->index_language_code, $this->menu_page_id);
-            $this->source  = $model->getSourceData($this->manual);
+            $this->source = $model->getSourceData($this->manual);
 
-        // Check for errors.
+            // Check for errors.
             if (count($errors = $this->get('Errors'))) {
                 throw new GenericDataException(implode("\n", $errors), 500);
             }

@@ -56,19 +56,25 @@ class HtmlView extends BaseHtmlView
             $this->manual,
             $this->index_language_code,
             $this->page_language_code,
-            $this->menu_page_id
+            $this->heading,
+            $this->filename
         ) = $setuphelper->setup();
 
-        $page_id = $setuphelper->realid(
-            $this->menu_page_id,
+        list ($this->display_title, $this->in_this_page, $this->page_content) = 
+        $model->getPage(
             $this->manual,
-            $this->index_language_code,
-            $this->page_language_code
+            $this->page_language_code,
+            $this->heading,
+            $this->filename
         );
-        list ($this->display_title, $this->in_this_page, $this->page_content) = $model->getPage($page_id);
 
-        $this->menu          = $model->getMenu($this->manual, $this->index_language_code, $this->menu_page_id);
-        $this->source        = $model->getSourceData($this->manual);
+        $this->menu = $model->getMenu(
+            $this->manual, 
+            $this->index_language_code, 
+            $this->heading,
+            $this->filename
+        );
+        $this->source = $model->getSourceData($this->manual);
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {

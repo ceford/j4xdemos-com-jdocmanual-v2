@@ -65,6 +65,10 @@ let setManual = function() {
   task.value = 'display.selectmanual';
   let jform_manual = document.getElementById('jform_manual');
   jform_manual.value = manual;
+  let jform_heading = document.getElementById('jform_heading');
+  jform_heading.value = '';
+  let jform_filename = document.getElementById('jform_filename');
+  jform_filename.value = '';
   let form = document.getElementById('adminForm');
   form.submit();
 }
@@ -124,7 +128,7 @@ if(toggle) {
 /**
  * Set the page content by clicking a page item in the index
  */
-let contents = document.getElementsByClassName("content-link");
+//let contents = document.getElementsByClassName("content-link");
 
 let getPage = function(event) {
   event.preventDefault();
@@ -132,21 +136,36 @@ let getPage = function(event) {
   let url = new URL(this);
   let paramsString = url.search;
   let searchParams = new URLSearchParams(paramsString);
-  link_id = searchParams.get('id');
+  let heading = searchParams.get('heading');
+  let filename = searchParams.get('filename');
   let jdoc_key = this.getAttribute('data-content-id');
-  setPanelContent(link_id, jdoc_key, this.innerText);
-  // add the highlight class from the selected index item
+  setPanelContent(heading, filename, jdoc_key, this.innerText);
+  // add the highlight class for the selected index item
   this.parentElement.classList.add("article-active");
+  setlinks();
 };
 
-for (let i = 0; i < contents.length; i += 1) {
-  contents[i].addEventListener('click', getPage, false);
+//for (let i = 0; i < contents.length; i += 1) {
+//  contents[i].addEventListener('click', getPage, false);
+//}
+
+/**
+ * Set the page content by clicking a link in the page
+ */
+
+setlinks();
+
+function setlinks() {
+let links = document.querySelectorAll('a[href*="filename="]');
+for (let i = 0; i < links.length; i += 1) {
+  links[i].addEventListener('click', getPage, false);
+}
 }
 
 /**
  * Fetch the selected page from source.
  */
-async function setPanelContent(itemId, jdoc_key, title) {
+async function setPanelContent(heading, filename, jdoc_key, title) {
   let document_title = document.getElementById('document-title');
   if (!document_title) {
     return;
@@ -171,28 +190,26 @@ async function setPanelContent(itemId, jdoc_key, title) {
   //let olink = document.getElementById('select-actions-children-preview');
   //olink.href = olink.protocol + '//' + olink.host + '/' + jdoc_key;
 
-  let menu_page_id = document.getElementById('jform_menu_page_id');
-  menu_page_id.value = itemId;
-
-  // alter the cookie {$manual}-{$index_language_code}-{$page_language_code}-{$menu_page_id}
+  // alter the cookie {$manual}-{$index_language_code}-{$page_language_code}-{$heading}--{$filename}
   let cookie = getCookie('jdocmanual');
-  let cookie_items = cookie.split('-');
+  let cookie_items = cookie.split('--');
   cookie_items.pop();
-  cookie_items.push(itemId);
-  cookie = cookie_items.join('-');
+  cookie_items.pop();
+  cookie_items.push(heading);
+  cookie_items.push(filename);
+  cookie = cookie_items.join('--');
   setCookie('jdocmanual', cookie, 10);
 
   // get token from javascript loaded in the page
   const token = Joomla.getOptions('csrf.token', '');
-  let manualId = document.getElementById('jform_manual').value;
-  let lang = '';
-  let jform_page_language_code = document.getElementById('jform_page_language_code');
-  if (jform_page_language_code && jform_page_language_code.value !== 'en') {
-    lang = jform_page_language_code.value;
-  }
+  let manual = document.getElementById('jform_manual').value;
+  let page_language = document.getElementById('jform_page_language_code').value;
   let url = 'index.php?option=com_jdocmanual&task=content.fillpanel';
   let data = new URLSearchParams();
-  data.append('item_id', itemId);
+  data.append('manual', manual);
+  data.append('language', page_language);
+  data.append('heading', heading);
+  data.append('filename', filename);
   data.append(token, 1);
   const options = {
     body: data,
@@ -205,6 +222,8 @@ async function setPanelContent(itemId, jdoc_key, title) {
   } else {
     let result = await response.text();
     let obj = JSON.parse(result);
+    document.getElementById('jform_heading').value = heading;
+    document.getElementById('jform_filename').value = filename;
     toc_panel.innerHTML = obj[0];
     document_panel.innerHTML = obj[1];
     document_title.innerHTML = obj[2];
@@ -234,54 +253,15 @@ function setIndexLocation () {
 }
 
 /**
- * Set up after page load after change of Manual, etc
+ * After page load set the active menu and open its accordion panel.
  */
-/*
 document.addEventListener('DOMContentLoaded', function(event) {
-  // has a jdocmanualReset cookie been set
-  if (getCookie('jdocmanualReset')) {
-    eraseCookie('jdocmanualItemId');
-    eraseCookie('jdocmanualTitle');
-    eraseCookie('jdocmanualLastHeading');
-  } else {
-    // if cookies exist - jdocmanualItemId and jdocmanualTitle
-    if (getCookie('jdocmanualItemId')) {
-      let itemId = getCookie('jdocmanualItemId');
-      let title = getCookie('jdocmanualTitle');
-      setPanelContent(itemId, title);
-    }
-  }
-
-  // remember which Index heading was open last
-  let collapses = document.getElementsByClassName("accordion-collapse");
-  if (collapses) {
-    for (let i = 0; i < collapses.length; i += 1) {
-      collapses[i].addEventListener('show.bs.collapse', saveLastHeading, false);
-    }
-  }
-
-  function saveLastHeading() {
-    setCookie('jdocmanualLastHeading', this.id, 10);
-  }
-
-  // open the last Index heading or the first heading
-  let collapse = document.getElementById('collapse_1');
-  let lastHeading = getCookie('jdocmanualLastHeading');
-  if (lastHeading) {
-    collapse = document.getElementById(lastHeading);
-  }
-  collapse && collapse.classList.add('show');
-
-  // get the viewport width
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-  // if the width is less than 576 move the index off canvas
-  indexLocation = 'oncanvas';
-  if(vw < 576) {
-    let offcanvasId = document.getElementById('offcanvasMenu');
-    let oncanvasId = document.getElementById('jdocmanual-wrapper');
-    offcanvasId.appendChild(oncanvasId);
-    indexLocation = 'offcanvas';
-  }
-  window.addEventListener("resize", setIndexLocation);
+  let jform_heading = document.getElementById('jform_heading').value;
+  let jform_filename = document.getElementById('jform_filename').value;
+  let link = document.querySelector('a[href*="heading=' + jform_heading + '&filename=' + jform_filename + '"]');
+  link.parentElement.classList.add("article-active");
+  // Expand the nearest <details> tag.
+  el = link.closest("details");
+  el.setAttribute('open', ''); 
 });
-*/
+

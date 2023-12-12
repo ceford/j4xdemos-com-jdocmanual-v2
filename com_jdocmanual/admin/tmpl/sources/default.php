@@ -41,6 +41,9 @@ $source_edit_route = 'index.php?option=com_jdocmanual&task=source.edit&id=';
 
 ?>
 
+<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details', 'recall' => true)); ?>
+<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'sources', Text::_('COM_JDOCMANUAL_SOURCES_TAB_SOURCES')); ?>
+
 <form action="<?php echo Route::_('index.php?option=com_jdocmanual&view=sources'); ?>"
     method="post" name="adminForm" id="adminForm">
     <div class="row">
@@ -138,3 +141,10 @@ $source_edit_route = 'index.php?option=com_jdocmanual&task=source.edit&id=';
     </div>
 
 </form>
+<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'newpages', Text::_('COM_JDOCMANUAL_SOURCES_TAB_NOTES')); ?>
+    <?php include __DIR__ . '../../manual/notes.php'; ?>
+<?php echo HTMLHelper::_('uitab.endTab'); ?>
+
+<?php echo HTMLHelper::_('uitab.endTabSet'); ?>

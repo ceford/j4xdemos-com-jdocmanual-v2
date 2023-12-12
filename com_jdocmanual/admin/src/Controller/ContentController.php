@@ -37,23 +37,52 @@ class ContentController extends BaseController
      */
     public function fillpanel()
     {
-        $item_id = $this->app->input->get('item_id', 1, 'int');
-        $setuphelper = new SetupHelper();
-        $item_id = $setuphelper->realid($item_id);
+        $manual = $this->app->input->get('manual', '', 'string');
+        $language = $this->app->input->get('language', '', 'string');
+        $heading = $this->app->input->get('heading', '', 'string');
+        $filename = $this->app->input->get('filename', '', 'string');
 
         $db = Factory::getContainer()->get('DatabaseDriver');
 
         $query = $db->getQuery(true);
         $query->select($db->quoteName(array('display_title','html')))
             ->from($db->quoteName('#__jdm_articles'))
-            ->where($db->quoteName('id') . ' = :id')
-            ->bind(':id', $item_id, ParameterType::INTEGER);
+            ->where($db->quoteName('manual') . ' = :manual')
+            ->where($db->quoteName('language') . ' = :language')
+            ->where($db->quoteName('heading') . ' = :heading')
+            ->where($db->quoteName('filename') . ' = :filename')
+            ->bind(':manual', $manual, ParameterType::STRING)
+            ->bind(':language', $language, ParameterType::STRING)
+            ->bind(':heading', $heading, ParameterType::STRING)
+            ->bind(':filename', $filename, ParameterType::STRING);
         $db->setQuery($query);
         $row = $db->loadObject();
 
-        // separate the Table of Contents - return array(toc, content);
-        $content = InthispageHelper::doToc($row->html);
-        array_push($content, $row->display_title);
+        if (empty($row) && $language != 'en') {
+            // Try again with English
+            $query = $db->getQuery(true);
+            $language = 'en';
+        
+            $query->select($db->quoteName(array('display_title','html')))
+            ->from($db->quoteName('#__jdm_articles'))
+            ->where($db->quoteName('manual') . ' = :manual')
+            ->where($db->quoteName('language') . ' = :language')
+            ->where($db->quoteName('heading') . ' = :heading')
+            ->where($db->quoteName('filename') . ' = :filename')
+            ->bind(':manual', $manual, ParameterType::STRING)
+            ->bind(':language', $language, ParameterType::STRING)
+            ->bind(':heading', $heading, ParameterType::STRING)
+            ->bind(':filename', $filename, ParameterType::STRING);
+            $db->setQuery($query);
+            $row = $db->loadObject();
+        }
+        if (empty($row)) {
+           $content = array('Placeholder', 'Please select a document');
+        } else {
+            // separate the Table of Contents - return array(toc, content);
+            $content = InthispageHelper::doToc($row->html);
+            array_push($content, $row->display_title);
+        }
         echo json_encode($content);
         jexit();
     }

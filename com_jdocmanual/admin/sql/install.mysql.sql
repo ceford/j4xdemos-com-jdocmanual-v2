@@ -837,4 +837,13 @@ INSERT IGNORE INTO `#__jdm_menu_headings` (`id`, `manual`, `language`, `heading`
 (717, 'help', 'nl', 'guided-tours', 'Rondleidingen met gids'),
 (718, 'help', 'pt', 'guided-tours', 'Visitas guiadas'),
 (719, 'help', 'pt-br', 'guided-tours', 'Visitas guiadas'),
-(720, 'help', 'ru', 'guided-tours', 'Экскурсии');
+(720, 'help', 'ru', 'guided-tours', 'Экскурсии'),
+(713, 'help', 'en', 'news', 'News'),
+(714, 'help', 'de', 'news', 'Nachricht'),
+(715, 'help', 'es', 'news', 'Noticias'),
+(716, 'help', 'fr', 'news', 'Nouvelles'),
+(717, 'help', 'nl', 'news', 'Nieuws'),
+(718, 'help', 'pt', 'news', 'Notícias'),
+(719, 'help', 'pt-br', 'news', 'Notícias'),
+(720, 'help', 'ru', 'news', 'Новости');
+

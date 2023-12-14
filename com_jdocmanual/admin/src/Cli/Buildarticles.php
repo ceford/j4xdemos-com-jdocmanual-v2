@@ -67,6 +67,14 @@ class Buildarticles
     protected $languagetodo;
 
     /**
+     * Content of menu index file.
+     *
+     * @var     string
+     * @since  1.0.0
+     */
+    protected $tmp;
+
+    /**
      * Entry point to convert md to html and save.
      *
      * @param   $manual     The path fragment of the manual to process.
@@ -189,7 +197,7 @@ class Buildarticles
                 // <!-- Filename: J4.x:Http_Header_Management / Display title: HTTP Header Verwaltung -->
                 $test = preg_match($this->pattern2, $contents, $matches);
                 if (empty($test)) {
-                    echo "Warning {$manual}/{$language}/{$filename} does not contain h1\n";
+                    echo "Warning {$manual}/{$language}/{$heading}/{$filename} does not contain h1\n";
                     $fn = substr($filename, 0, strpos($filename, '.md'));
                     $display_title = ucwords(str_replace('_', ' ', $fn));
                 } else {

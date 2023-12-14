@@ -227,6 +227,8 @@ async function setPanelContent(heading, filename, jdoc_key, title) {
     toc_panel.innerHTML = obj[0];
     document_panel.innerHTML = obj[1];
     document_title.innerHTML = obj[2];
+    setlinks();
+    menuHighlight();
   }
 }
 
@@ -252,10 +254,7 @@ function setIndexLocation () {
   }
 }
 
-/**
- * After page load set the active menu and open its accordion panel.
- */
-document.addEventListener('DOMContentLoaded', function(event) {
+function menuHighlight() {
   let jform_heading = document.getElementById('jform_heading').value;
   let jform_filename = document.getElementById('jform_filename').value;
   let link = document.querySelector('a[href*="heading=' + jform_heading + '&filename=' + jform_filename + '"]');
@@ -263,5 +262,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
   // Expand the nearest <details> tag.
   el = link.closest("details");
   el.setAttribute('open', ''); 
+}
+
+/**
+ * After page load set the active menu and open its accordion panel.
+ */
+document.addEventListener('DOMContentLoaded', function(event) {
+  menuHighlight();
 });
 

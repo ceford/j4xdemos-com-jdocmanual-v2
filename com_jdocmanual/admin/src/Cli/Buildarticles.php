@@ -35,14 +35,6 @@ class Buildarticles
     protected $gfmfiles_path;
 
     /**
-     * Regex pattern to select first GFM H1 (#) string.
-     *
-     * @var     string;
-     * @since   1.0.0
-     */
-    protected $pattern1 = '/\n[#]([\w| ].*)/m';
-
-    /**
      * Regex pattern to select Display title from GFM comment string.
      *
      * @var     string
@@ -189,20 +181,13 @@ class Buildarticles
             $contents = file_get_contents($gfm_file);
 
             // Get the title from the contents.
-            // Look for h1 (in md that is # at the start of a line).
-            $test = preg_match($this->pattern1, $contents, $matches);
-
+            // Look for Display Title.
+            // <!-- Filename: J4.x:Http_Header_Management / Display title: HTTP Header Verwaltung -->
+            $test = preg_match($this->pattern2, $contents, $matches);
             if (empty($test)) {
-                // Look for Display Title.
-                // <!-- Filename: J4.x:Http_Header_Management / Display title: HTTP Header Verwaltung -->
-                $test = preg_match($this->pattern2, $contents, $matches);
-                if (empty($test)) {
-                    echo "Warning {$manual}/{$language}/{$heading}/{$filename} does not contain h1\n";
-                    $fn = substr($filename, 0, strpos($filename, '.md'));
-                    $display_title = ucwords(str_replace('_', ' ', $fn));
-                } else {
-                    $display_title = $matches[1];
-                }
+                echo "Warning {$manual}/{$language}/{$heading}/{$filename} does not contain h1\n";
+                $fn = substr($filename, 0, strpos($filename, '.md'));
+                $display_title = ucwords(str_replace('_', ' ', $fn));
             } else {
                 $display_title = $matches[1];
             }

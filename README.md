@@ -1,5 +1,7 @@
 # JDOC Manual
 
+Obsolete so archived on 2024-03-26.
+
 This component displays pages prepared in Markdown format in a Manual
 layout with an index of pages to the left, the content of a page in
 the centre and the contents of the current page to the right.
